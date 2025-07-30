@@ -1,0 +1,29 @@
+import fs from 'fs'
+import { styleText } from 'util'
+import { type FilePath, joinSegments } from '../../util/path'
+import type { QuartzEmitterPlugin } from '../types'
+
+export function extractDomainFromBaseUrl(baseUrl: string) {
+  const url = new URL(`https://${baseUrl}`)
+  return url.hostname
+}
+
+export const CNAME: QuartzEmitterPlugin = () => ({
+  name: 'CNAME',
+  async emit({ argv, cfg }) {
+    if (!cfg.configuration.baseUrl) {
+      console.warn(
+        styleText('yellow', 'CNAME emitter requires `baseUrl` to be set in your configuration'),
+      )
+      return []
+    }
+    const path = joinSegments(argv.output, 'CNAME')
+    const content = extractDomainFromBaseUrl(cfg.configuration.baseUrl)
+    if (!content) {
+      return []
+    }
+    await fs.promises.writeFile(path, content)
+    return [path] as FilePath[]
+  },
+  async *partialEmit() {},
+})
