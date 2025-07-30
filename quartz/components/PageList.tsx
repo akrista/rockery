@@ -11,7 +11,7 @@ export function byDateAndAlphabetical(cfg: GlobalConfiguration): SortFn {
     // Sort by date/alphabetical
     if (f1.dates && f2.dates) {
       // sort descending
-      return getDate(cfg, f2)?.getTime() - getDate(cfg, f1)?.getTime()
+      return (getDate(cfg, f2)?.getTime() ?? 0) - (getDate(cfg, f1)?.getTime() ?? 0)
     } else if (f1.dates && !f2.dates) {
       // prioritize files with dates
       return -1
@@ -37,7 +37,7 @@ export function byDateAndAlphabeticalFolderFirst(cfg: GlobalConfiguration): Sort
     // If both are folders or both are files, sort by date/alphabetical
     if (f1.dates && f2.dates) {
       // sort descending
-      return getDate(cfg, f2)?.getTime() - getDate(cfg, f1)?.getTime()
+      return (getDate(cfg, f2)?.getTime() ?? 0) - (getDate(cfg, f1)?.getTime() ?? 0)
     } else if (f1.dates && !f2.dates) {
       // prioritize files with dates
       return -1

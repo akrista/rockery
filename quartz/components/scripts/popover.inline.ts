@@ -57,8 +57,8 @@ async function mouseEnterHandler(
   })
 
   if (!response) return
-  const [contentType] = response.headers.get('Content-Type')?.split(';')
-  const [contentTypeCategory, typeInfo] = contentType.split('/')
+  const [contentType] = response.headers.get('Content-Type')?.split(';') ?? []
+  const [contentTypeCategory, typeInfo] = contentType?.split('/') ?? []
 
   const popoverElement = document.createElement('div')
   popoverElement.id = popoverId

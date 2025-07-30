@@ -45,7 +45,7 @@ jobs:
         run: bun test
 
       - name: Ensure Quartz builds, check bundle info
-        run: npx quartz build --bundleInfo
+        run: bun run quartz build --bundleInfo
 
   publish-tag:
     if: ${{ github.repository == 'akrista/rockery' && github.ref == 'refs/heads/master' }}
