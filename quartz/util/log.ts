@@ -1,5 +1,5 @@
+import readline from 'node:readline'
 import truncate from 'ansi-truncate'
-import readline from 'readline'
 
 export class QuartzLogger {
   verbose: boolean

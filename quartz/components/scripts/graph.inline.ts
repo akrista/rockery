@@ -117,7 +117,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     showTags,
     focusOnHover,
     enableRadial,
-  } = JSON.parse(graph.dataset['cfg']!) as D3Config
+  } = JSON.parse(graph.dataset.cfg!) as D3Config
 
   const data: Map<SimpleSlug, ContentDetails> = new Map(
     Object.entries<ContentDetails>(await fetchData).map(([k, v]) => [
@@ -142,7 +142,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     if (showTags) {
       const localTags = details.tags
         .filter((tag) => !removeTags.includes(tag))
-        .map((tag) => simplifySlug(('tags/' + tag) as FullSlug))
+        .map((tag) => simplifySlug(`tags/${tag}` as FullSlug))
 
       tags.push(...localTags.filter((tag) => !tags.includes(tag)))
 
@@ -174,7 +174,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   }
 
   const nodes = [...neighbourhood].map((url) => {
-    const text = url.startsWith('tags/') ? '#' + url.substring(5) : (data.get(url)?.title ?? url)
+    const text = url.startsWith('tags/') ? `#${url.substring(5)}` : (data.get(url)?.title ?? url)
     return {
       id: url,
       text,

@@ -1,5 +1,5 @@
+import { styleText } from 'node:util'
 import pretty from 'pretty-time'
-import { styleText } from 'util'
 
 export class PerfTimer {
   evts: { [key: string]: [number, number] }

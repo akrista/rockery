@@ -2,13 +2,13 @@ import sourceMapSupport from 'source-map-support'
 
 sourceMapSupport.install(options)
 
+import { rm } from 'node:fs/promises'
+import path from 'node:path'
+import { styleText } from 'node:util'
 import type { Mutex } from 'async-mutex'
 import chokidar from 'chokidar'
-import { rm } from 'fs/promises'
 import { type GlobbyFilterFunction, isGitIgnored } from 'globby'
 import { minimatch } from 'minimatch'
-import path from 'path'
-import { styleText } from 'util'
 import cfg from '../quartz.config'
 import { getStaticResourcesFromPlugins } from './plugins'
 import type { ChangeEvent } from './plugins/types'
@@ -179,7 +179,7 @@ async function rebuild(changes: ChangeEvent[], clientRefresh: () => void, buildD
 
   const buildId = randomIdNonSecure()
   ctx.buildId = buildId
-  buildData.lastBuildMs = new Date().getTime()
+  buildData.lastBuildMs = Date.now()
   const numChangesInBuild = changes.length
   const release = await mut.acquire()
 

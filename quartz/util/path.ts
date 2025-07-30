@@ -72,7 +72,7 @@ function sluggify(s: string): string {
 export function slugifyFilePath(fp: FilePath, excludeExt?: boolean): FullSlug {
   fp = stripSlashes(fp) as FilePath
   let ext = getFileExtension(fp)
-  const withoutFileExt = fp.replace(new RegExp(ext + '$'), '')
+  const withoutFileExt = fp.replace(new RegExp(`${ext}$`), '')
   if (excludeExt || ['.md', '.html', undefined].includes(ext)) {
     ext = ''
   }
@@ -178,7 +178,7 @@ export function splitAnchor(link: string): [string, string] {
   if (fp.endsWith('.pdf')) {
     return [fp, anchor === undefined ? '' : `#${anchor}`]
   }
-  anchor = anchor === undefined ? '' : '#' + slugAnchor(anchor)
+  anchor = anchor === undefined ? '' : `#${slugAnchor(anchor)}`
   return [fp, anchor]
 }
 
@@ -201,12 +201,12 @@ export function joinSegments(...args: string[]): string {
 
   // if the first segment starts with a slash, add it back
   if (args[0].startsWith('/')) {
-    joined = '/' + joined
+    joined = `/${joined}`
   }
 
   // if the last segment is a folder, add a trailing slash
   if (args[args.length - 1].endsWith('/')) {
-    joined = joined + '/'
+    joined = `${joined}/`
   }
 
   return joined
@@ -267,7 +267,7 @@ export function isFolderPath(fplike: string): boolean {
 }
 
 export function endsWith(s: string, suffix: string): boolean {
-  return s === suffix || s.endsWith('/' + suffix)
+  return s === suffix || s.endsWith(`/${suffix}`)
 }
 
 export function trimSuffix(s: string, suffix: string): string {

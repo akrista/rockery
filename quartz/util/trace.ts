@@ -1,5 +1,5 @@
-import process from 'process'
-import { styleText } from 'util'
+import process from 'node:process'
+import { styleText } from 'node:util'
 import { isMainThread } from 'workerpool'
 
 const rootFile = /.*at file:/

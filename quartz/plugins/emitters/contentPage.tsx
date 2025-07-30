@@ -1,6 +1,6 @@
-import path from 'path'
+import path from 'node:path'
+import { styleText } from 'node:util'
 import type { Node } from 'unist'
-import { styleText } from 'util'
 import { defaultContentPageLayout, sharedPageComponents } from '../../../quartz.layout'
 import type { FullPageLayout } from '../../cfg'
 import { Content } from '../../components'

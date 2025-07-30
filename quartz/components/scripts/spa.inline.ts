@@ -19,7 +19,7 @@ const isLocalUrl = (href: string) => {
     if (window.location.origin === url.origin) {
       return true
     }
-  } catch (e) {}
+  } catch (_e) {}
   return false
 }
 
@@ -206,9 +206,6 @@ if (!customElements.get('route-announcer')) {
   customElements.define(
     'route-announcer',
     class RouteAnnouncer extends HTMLElement {
-      constructor() {
-        super()
-      }
       connectedCallback() {
         for (const [key, value] of Object.entries(attrs)) {
           this.setAttribute(key, value)

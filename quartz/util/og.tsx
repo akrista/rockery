@@ -1,9 +1,9 @@
-import { promises as fs } from 'fs'
-import path from 'path'
+import { promises as fs } from 'node:fs'
+import path from 'node:path'
+import { styleText } from 'node:util'
 import type { JSXInternal } from 'preact/src/jsx'
 import readingTime from 'reading-time'
 import type { FontWeight, SatoriOptions } from 'satori/wasm'
-import { styleText } from 'util'
 import type { GlobalConfiguration } from '../cfg'
 import { formatDate, getDate } from '../components/Date'
 import { i18n } from '../i18n'
@@ -84,7 +84,7 @@ export async function fetchTtf(
   try {
     await fs.access(cachePath)
     return fs.readFile(cachePath)
-  } catch (error) {
+  } catch (_error) {
     // ignore errors and fetch font
   }
 

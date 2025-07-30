@@ -230,7 +230,7 @@ document.addEventListener('nav', async () => {
       removeAllChildren(content)
 
       // Clone the mermaid content
-      const mermaidContent = codeBlock.querySelector('svg')!.cloneNode(true) as SVGElement
+      const mermaidContent = codeBlock.querySelector('svg')?.cloneNode(true) as SVGElement
       content.appendChild(mermaidContent)
 
       // Show container

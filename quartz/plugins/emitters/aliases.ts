@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'node:path'
 import type { VFile } from 'vfile'
 import type { BuildCtx } from '../../util/ctx'
 import { type FullSlug, isRelativeURL, resolveRelative, simplifySlug } from '../../util/path'

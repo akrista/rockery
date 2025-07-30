@@ -1,12 +1,12 @@
+import path from 'node:path'
+import { styleText } from 'node:util'
 import esbuild from 'esbuild'
 import type { Root as HTMLRoot } from 'hast'
-import path from 'path'
 import remarkParse from 'remark-parse'
 import type { Root as MDRoot } from 'remark-parse/lib'
 import remarkRehype from 'remark-rehype'
 import { read } from 'to-vfile'
 import { type Processor, unified } from 'unified'
-import { styleText } from 'util'
 import workerpool, { type Promise as WorkerPromise } from 'workerpool'
 import type { MarkdownContent, ProcessedContent } from '../plugins/vfile'
 import type { BuildCtx, WorkerSerializableBuildCtx } from '../util/ctx'
@@ -96,7 +96,7 @@ export function createFileParser(ctx: BuildCtx, fps: FilePath[]) {
 
         // Text -> Text transforms
         for (const plugin of cfg.plugins.transformers.filter((p) => p.textTransform)) {
-          file.value = plugin.textTransform!(ctx, file.value.toString())
+          file.value = plugin.textTransform?.(ctx, file.value.toString())
         }
 
         // base data properties that plugins may use

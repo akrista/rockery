@@ -401,7 +401,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     if (searchType === 'tags') {
       currentSearchTerm = currentSearchTerm.substring(1).trim()
       const separatorIndex = currentSearchTerm.indexOf(' ')
-      if (separatorIndex != -1) {
+      if (separatorIndex !== -1) {
         // search by title and content index and then filter by tag (implemented in flexsearch)
         const tag = currentSearchTerm.substring(0, separatorIndex)
         const query = currentSearchTerm.substring(separatorIndex + 1).trim()

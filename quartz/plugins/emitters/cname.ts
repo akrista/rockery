@@ -1,5 +1,5 @@
-import fs from 'fs'
-import { styleText } from 'util'
+import fs from 'node:fs'
+import { styleText } from 'node:util'
 import { type FilePath, joinSegments } from '../../util/path'
 import type { QuartzEmitterPlugin } from '../types'
 

@@ -1,4 +1,4 @@
-import { randomUUID } from 'crypto'
+import { randomUUID } from 'node:crypto'
 import type { JSX } from 'preact/jsx-runtime'
 import type { QuartzPluginData } from '../plugins/vfile'
 

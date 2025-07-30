@@ -1,4 +1,4 @@
-import { styleText } from 'util'
+import { styleText } from 'node:util'
 import { getStaticResourcesFromPlugins } from '../plugins'
 import type { ProcessedContent } from '../plugins/vfile'
 import type { BuildCtx } from '../util/ctx'

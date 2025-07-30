@@ -51,7 +51,7 @@ export default ((opts?: Partial<BreadcrumbOptions>) => {
     ctx,
   }: QuartzComponentProps) => {
     const trie = (ctx.trie ??= trieFromAllFiles(allFiles))
-    const slugParts = fileData.slug!.split('/')
+    const slugParts = fileData.slug?.split('/')
     const pathNodes = trie.ancestryChain(slugParts)
 
     if (!pathNodes) {

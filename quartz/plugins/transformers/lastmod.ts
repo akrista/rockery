@@ -1,7 +1,7 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import { styleText } from 'node:util'
 import { Repository } from '@napi-rs/simple-git'
-import fs from 'fs'
-import path from 'path'
-import { styleText } from 'util'
 import type { QuartzTransformerPlugin } from '../types'
 
 export interface Options {
@@ -24,7 +24,7 @@ function coerceDate(fp: string, d: any): Date {
   }
 
   const dt = new Date(d)
-  const invalidDate = isNaN(dt.getTime()) || dt.getTime() === 0
+  const invalidDate = Number.isNaN(dt.getTime()) || dt.getTime() === 0
   if (invalidDate && d !== undefined) {
     console.log(
       styleText(
@@ -51,7 +51,7 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
             try {
               repo = Repository.discover(ctx.argv.directory)
               repositoryWorkdir = repo.workdir() ?? ctx.argv.directory
-            } catch (e) {
+            } catch (_e) {
               console.log(
                 styleText(
                   'yellow',

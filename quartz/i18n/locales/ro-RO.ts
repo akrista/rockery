@@ -58,7 +58,7 @@ export default {
     },
     contentMeta: {
       readingTime: ({ minutes }) =>
-        minutes == 1 ? `lectură de 1 minut` : `lectură de ${minutes} minute`,
+        minutes === 1 ? `lectură de 1 minut` : `lectură de ${minutes} minute`,
     },
   },
   pages: {

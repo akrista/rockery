@@ -1,8 +1,8 @@
 import fs from 'node:fs/promises'
+import type { Readable } from 'node:stream'
+import { styleText } from 'node:util'
 import satori, { type SatoriOptions } from 'satori'
 import sharp from 'sharp'
-import type { Readable } from 'stream'
-import { styleText } from 'util'
 import { i18n } from '../../i18n'
 import type { BuildCtx } from '../../util/ctx'
 import { getIconCode, loadEmoji } from '../../util/emoji'
@@ -46,7 +46,7 @@ async function generateSocialImage(
   try {
     const iconData = await fs.readFile(iconPath)
     iconBase64 = `data:image/png;base64,${iconData.toString('base64')}`
-  } catch (err) {
+  } catch (_err) {
     console.warn(styleText('yellow', `Warning: Could not find icon at ${iconPath}`))
   }
 

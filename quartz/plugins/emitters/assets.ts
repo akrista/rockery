@@ -1,5 +1,5 @@
-import fs from 'fs'
-import path from 'path'
+import fs from 'node:fs'
+import path from 'node:path'
 import type { QuartzConfig } from '../../cfg'
 import type { Argv } from '../../util/ctx'
 import { glob } from '../../util/glob'

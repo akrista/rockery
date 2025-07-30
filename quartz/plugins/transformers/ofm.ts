@@ -1,3 +1,4 @@
+import path from 'node:path'
 import type { Element, Root as HtmlRoot, Literal } from 'hast'
 import { toHtml } from 'hast-util-to-html'
 import type {
@@ -14,7 +15,6 @@ import {
   type ReplaceFunction,
 } from 'mdast-util-find-and-replace'
 import { toHast } from 'mdast-util-to-hast'
-import path from 'path'
 import rehypeRaw from 'rehype-raw'
 import type { PluggableList } from 'unified'
 import { SKIP, visit } from 'unist-util-visit'
@@ -168,7 +168,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
       if (opts.callouts) {
         src = src.replace(calloutLineRegex, (value) => {
           // force newline after title of callout
-          return value + '\n> '
+          return `${value}\n> `
         })
       }
 
@@ -280,7 +280,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 // treat as broken link if slug not in ctx.allSlugs
                 if (opts.disableBrokenWikilinks) {
                   const slug = slugifyFilePath(fp as FilePath)
-                  const exists = ctx.allSlugs && ctx.allSlugs.includes(slug)
+                  const exists = ctx.allSlugs?.includes(slug)
                   if (!exists) {
                     return {
                       type: 'html',
@@ -350,7 +350,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
 
                 return {
                   type: 'link',
-                  url: base + `/tags/${tag}`,
+                  url: `${base}/tags/${tag}`,
                   data: {
                     hProperties: {
                       className: ['tag-link'],
@@ -397,7 +397,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
         plugins.push(() => {
           return (tree: Root, _file) => {
             visit(tree, 'image', (node, index, parent) => {
-              if (parent && index != undefined && videoExtensionRegex.test(node.url)) {
+              if (parent && index !== undefined && videoExtensionRegex.test(node.url)) {
                 const newNode: Html = {
                   type: 'html',
                   value: `<video controls src="${node.url}"></video>`,
@@ -431,7 +431,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
               const remainingText = remainingLines.join('\n')
 
               const match = firstLine.match(calloutRegex)
-              if (match && match.input) {
+              if (match?.input) {
                 const [calloutDirective, typeString, calloutMetaData, collapseChar] = match
                 const calloutType = canonicalizeCallout(typeString.toLowerCase())
                 const collapse = collapseChar === '+' || collapseChar === '-'
@@ -445,7 +445,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                       type: 'text',
                       value: useDefaultTitle
                         ? capitalize(typeString).replace(/-/g, ' ')
-                        : titleContent + ' ',
+                        : `${titleContent} `,
                     },
                     ...restOfTitle,
                   ],
@@ -564,10 +564,10 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 const nextChild = parent?.children.at(index! + 2) as Element
                 if (nextChild && nextChild.tagName === 'p') {
                   const text = nextChild.children.at(0) as Literal
-                  if (text && text.value && text.type === 'text') {
+                  if (text?.value && text.type === 'text') {
                     const matches = text.value.match(blockReferenceRegex)
                     if (matches && matches.length >= 1) {
-                      parent!.children.splice(index! + 2, 1)
+                      parent?.children.splice(index! + 2, 1)
                       const block = matches[0].slice(1)
 
                       if (!Object.keys(file.data.blocks!).includes(block)) {
@@ -582,7 +582,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 }
               } else if (inlineTagTypes.has(node.tagName)) {
                 const last = node.children.at(-1) as Literal
-                if (last && last.value && typeof last.value === 'string') {
+                if (last?.value && typeof last.value === 'string') {
                   const matches = last.value.match(blockReferenceRegex)
                   if (matches && matches.length >= 1) {
                     last.value = last.value.slice(0, -matches[0].length)
@@ -634,7 +634,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
             visit(tree, 'element', (node) => {
               if (node.tagName === 'img' && typeof node.properties.src === 'string') {
                 const match = node.properties.src.match(ytLinkRegex)
-                const videoId = match && match[2].length == 11 ? match[2] : null
+                const videoId = match && match[2].length === 11 ? match[2] : null
                 const playlistId = node.properties.src.match(ytPlaylistLinkRegex)?.[1]
                 if (videoId) {
                   // YouTube video (with optional playlist)

@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'node:path'
 import { defaultListPageLayout, sharedPageComponents } from '../../../quartz.layout'
 import type { FullPageLayout } from '../../cfg'
 import { FolderContent } from '../../components'

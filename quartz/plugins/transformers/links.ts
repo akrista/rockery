@@ -1,6 +1,6 @@
+import path from 'node:path'
 import type { Root } from 'hast'
 import isAbsoluteUrl from 'is-absolute-url'
-import path from 'path'
 import { visit } from 'unist-util-visit'
 import {
   type FullSlug,
@@ -109,7 +109,7 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
 
                   // url.resolve is considered legacy
                   // WHATWG equivalent https://nodejs.dev/en/api/v18/url/#urlresolvefrom-to
-                  const url = new URL(dest, 'https://base.com/' + stripSlashes(curSlug, true))
+                  const url = new URL(dest, `https://base.com/${stripSlashes(curSlug, true)}`)
                   const canonicalDest = url.pathname
                   let [destCanonical, _destAnchor] = splitAnchor(canonicalDest)
                   if (destCanonical.endsWith('/')) {

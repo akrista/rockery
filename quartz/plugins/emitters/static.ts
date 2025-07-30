@@ -1,5 +1,5 @@
-import fs from 'fs'
-import { dirname } from 'path'
+import fs from 'node:fs'
+import { dirname } from 'node:path'
 import { glob } from '../../util/glob'
 import { type FilePath, joinSegments, QUARTZ } from '../../util/path'
 import type { QuartzEmitterPlugin } from '../types'
