@@ -1,8 +1,8 @@
 import sharp from 'sharp'
-import type { BuildCtx } from '../../util/ctx'
-import { type FullSlug, joinSegments, QUARTZ } from '../../util/path'
-import type { QuartzEmitterPlugin } from '../types'
+import { joinSegments, QUARTZ, FullSlug } from '../../util/path'
+import { QuartzEmitterPlugin } from '../types'
 import { write } from './helpers'
+import { BuildCtx } from '../../util/ctx'
 
 export const Favicon: QuartzEmitterPlugin = () => ({
   name: 'Favicon',

@@ -1,7 +1,7 @@
-import fs from 'node:fs'
-import { styleText } from 'node:util'
-import { type FilePath, joinSegments } from '../../util/path'
-import type { QuartzEmitterPlugin } from '../types'
+import { FilePath, joinSegments } from '../../util/path'
+import { QuartzEmitterPlugin } from '../types'
+import fs from 'fs'
+import { styleText } from 'util'
 
 export function extractDomainFromBaseUrl(baseUrl: string) {
   const url = new URL(`https://${baseUrl}`)

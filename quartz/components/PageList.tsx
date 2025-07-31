@@ -1,8 +1,8 @@
-import type { GlobalConfiguration } from '../cfg'
-import type { QuartzPluginData } from '../plugins/vfile'
-import { type FullSlug, isFolderPath, resolveRelative } from '../util/path'
+import { FullSlug, isFolderPath, resolveRelative } from '../util/path'
+import { QuartzPluginData } from '../plugins/vfile'
 import { Date, getDate } from './Date'
-import type { QuartzComponent, QuartzComponentProps } from './types'
+import { QuartzComponent, QuartzComponentProps } from './types'
+import { GlobalConfiguration } from '../cfg'
 
 export type SortFn = (f1: QuartzPluginData, f2: QuartzPluginData) => number
 
@@ -11,7 +11,7 @@ export function byDateAndAlphabetical(cfg: GlobalConfiguration): SortFn {
     // Sort by date/alphabetical
     if (f1.dates && f2.dates) {
       // sort descending
-      return (getDate(cfg, f2)?.getTime() ?? 0) - (getDate(cfg, f1)?.getTime() ?? 0)
+      return getDate(cfg, f2)!.getTime() - getDate(cfg, f1)!.getTime()
     } else if (f1.dates && !f2.dates) {
       // prioritize files with dates
       return -1
@@ -37,7 +37,7 @@ export function byDateAndAlphabeticalFolderFirst(cfg: GlobalConfiguration): Sort
     // If both are folders or both are files, sort by date/alphabetical
     if (f1.dates && f2.dates) {
       // sort descending
-      return (getDate(cfg, f2)?.getTime() ?? 0) - (getDate(cfg, f1)?.getTime() ?? 0)
+      return getDate(cfg, f2)!.getTime() - getDate(cfg, f1)!.getTime()
     } else if (f1.dates && !f2.dates) {
       // prioritize files with dates
       return -1

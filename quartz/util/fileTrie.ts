@@ -1,5 +1,5 @@
-import type { ContentDetails } from '../plugins/emitters/contentIndex'
-import { type FullSlug, joinSegments } from './path'
+import { ContentDetails } from '../plugins/emitters/contentIndex'
+import { FullSlug, joinSegments } from './path'
 
 interface FileTrieData {
   slug: string

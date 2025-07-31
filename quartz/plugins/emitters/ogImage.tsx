@@ -1,28 +1,17 @@
-import fs from 'node:fs/promises'
-import type { Readable } from 'node:stream'
-import { styleText } from 'node:util'
-import satori, { type SatoriOptions } from 'satori'
-import sharp from 'sharp'
+import { QuartzEmitterPlugin } from '../types'
 import { i18n } from '../../i18n'
-import type { BuildCtx } from '../../util/ctx'
-import { getIconCode, loadEmoji } from '../../util/emoji'
 import { unescapeHTML } from '../../util/escape'
-import {
-  defaultImage,
-  getSatoriFonts,
-  type ImageOptions,
-  type SocialImageOptions,
-} from '../../util/og'
-import {
-  type FullSlug,
-  getFileExtension,
-  isAbsoluteURL,
-  joinSegments,
-  QUARTZ,
-} from '../../util/path'
-import type { QuartzEmitterPlugin } from '../types'
-import type { QuartzPluginData } from '../vfile'
+import { FullSlug, getFileExtension, isAbsoluteURL, joinSegments, QUARTZ } from '../../util/path'
+import { ImageOptions, SocialImageOptions, defaultImage, getSatoriFonts } from '../../util/og'
+import sharp from 'sharp'
+import satori, { SatoriOptions } from 'satori'
+import { loadEmoji, getIconCode } from '../../util/emoji'
+import { Readable } from 'stream'
 import { write } from './helpers'
+import { BuildCtx } from '../../util/ctx'
+import { QuartzPluginData } from '../vfile'
+import fs from 'node:fs/promises'
+import { styleText } from 'util'
 
 const defaultOptions: SocialImageOptions = {
   colorScheme: 'lightMode',
@@ -42,11 +31,11 @@ async function generateSocialImage(
 ): Promise<Readable> {
   const { width, height } = userOpts
   const iconPath = joinSegments(QUARTZ, 'static', 'icon.png')
-  let iconBase64: string | undefined
+  let iconBase64: string | undefined = undefined
   try {
     const iconData = await fs.readFile(iconPath)
     iconBase64 = `data:image/png;base64,${iconData.toString('base64')}`
-  } catch (_err) {
+  } catch (err) {
     console.warn(styleText('yellow', `Warning: Could not find icon at ${iconPath}`))
   }
 

@@ -1,6 +1,6 @@
+import { FullSlug, resolveRelative } from '../util/path'
+import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from './types'
 import { classNames } from '../util/lang'
-import { type FullSlug, resolveRelative } from '../util/path'
-import type { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from './types'
 
 const TagList: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
   const tags = fileData.frontmatter?.tags

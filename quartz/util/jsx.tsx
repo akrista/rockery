@@ -1,8 +1,8 @@
-import type { Node, Root } from 'hast'
-import { type Components, type Jsx, toJsxRuntime } from 'hast-util-to-jsx-runtime'
+import { Components, Jsx, toJsxRuntime } from 'hast-util-to-jsx-runtime'
+import { Node, Root } from 'hast'
 import { Fragment, jsx, jsxs } from 'preact/jsx-runtime'
-import type { FilePath } from './path'
 import { trace } from './trace'
+import { type FilePath } from './path'
 
 const customComponents: Components = {
   table: (props) => (

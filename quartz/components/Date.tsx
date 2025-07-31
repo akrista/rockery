@@ -1,6 +1,6 @@
-import type { GlobalConfiguration } from '../cfg'
-import type { ValidLocale } from '../i18n'
-import type { QuartzPluginData } from '../plugins/vfile'
+import { GlobalConfiguration } from '../cfg'
+import { ValidLocale } from '../i18n'
+import { QuartzPluginData } from '../plugins/vfile'
 
 interface Props {
   date: Date

@@ -1,7 +1,7 @@
-import type { QuartzConfig } from '../cfg'
-import type { QuartzPluginData } from '../plugins/vfile'
+import { QuartzConfig } from '../cfg'
+import { QuartzPluginData } from '../plugins/vfile'
 import { FileTrieNode } from './fileTrie'
-import type { FilePath, FullSlug } from './path'
+import { FilePath, FullSlug } from './path'
 
 export interface Argv {
   directory: string

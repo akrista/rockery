@@ -1,11 +1,9 @@
-import type { Html, Link, Paragraph, Parent, Root, Text } from 'mdast'
-import {
-  findAndReplace as mdastFindReplace,
-  type ReplaceFunction,
-} from 'mdast-util-find-and-replace'
-import type { PluggableList } from 'unified'
-import { type BuildVisitor, visit } from 'unist-util-visit'
-import type { QuartzTransformerPlugin } from '../types'
+import { QuartzTransformerPlugin } from '../types'
+import { PluggableList } from 'unified'
+import { visit } from 'unist-util-visit'
+import { ReplaceFunction, findAndReplace as mdastFindReplace } from 'mdast-util-find-and-replace'
+import { Root, Html, Paragraph, Text, Link, Parent } from 'mdast'
+import { BuildVisitor } from 'unist-util-visit'
 
 export interface Options {
   orComponent: boolean
@@ -69,7 +67,7 @@ function transformSpecialEmbed(node: Paragraph, opts: Options): Html | null {
         </audio>`,
           }
         : null
-    case 'video': {
+    case 'video':
       if (!opts.videoComponent) return null
       // Check if it's a YouTube video
       const youtubeMatch = url.match(
@@ -77,7 +75,7 @@ function transformSpecialEmbed(node: Paragraph, opts: Options): Html | null {
       )
       if (youtubeMatch) {
         const videoId = youtubeMatch[1].split('&')[0] // Remove additional parameters
-        const playlistMatch = url.match(/[?&]list=([^#&?]*)/)
+        const playlistMatch = url.match(/[?&]list=([^#\&\?]*)/)
         const playlistId = playlistMatch ? playlistMatch[1] : null
 
         return {
@@ -101,7 +99,6 @@ function transformSpecialEmbed(node: Paragraph, opts: Options): Html | null {
           </video>`,
         }
       }
-    }
     case 'pdf':
       return opts.pdfComponent
         ? {

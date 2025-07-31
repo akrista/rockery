@@ -1,8 +1,8 @@
-import fs from 'node:fs'
-import path from 'node:path'
-import type { Readable } from 'node:stream'
-import type { BuildCtx } from '../../util/ctx'
-import { type FilePath, type FullSlug, joinSegments } from '../../util/path'
+import path from 'path'
+import fs from 'fs'
+import { BuildCtx } from '../../util/ctx'
+import { FilePath, FullSlug, joinSegments } from '../../util/path'
+import { Readable } from 'stream'
 
 type WriteOptions = {
   ctx: BuildCtx

@@ -1,17 +1,11 @@
 import matter from 'gray-matter'
-import yaml from 'js-yaml'
 import remarkFrontmatter from 'remark-frontmatter'
+import { QuartzTransformerPlugin } from '../types'
+import yaml from 'js-yaml'
 import toml from 'toml'
+import { FilePath, FullSlug, getFileExtension, slugifyFilePath, slugTag } from '../../util/path'
+import { QuartzPluginData } from '../vfile'
 import { i18n } from '../../i18n'
-import {
-  type FilePath,
-  type FullSlug,
-  getFileExtension,
-  slugifyFilePath,
-  slugTag,
-} from '../../util/path'
-import type { QuartzTransformerPlugin } from '../types'
-import type { QuartzPluginData } from '../vfile'
 
 export interface Options {
   delimiters: string | [string, string]
@@ -50,7 +44,7 @@ function getAliasSlugs(aliases: string[]): FullSlug[] {
   const res: FullSlug[] = []
   for (const alias of aliases) {
     const isMd = getFileExtension(alias) === 'md'
-    const mockFp = isMd ? alias : `${alias}.md`
+    const mockFp = isMd ? alias : alias + '.md'
     const slug = slugifyFilePath(mockFp as FilePath)
     res.push(slug)
   }

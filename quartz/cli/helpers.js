@@ -1,8 +1,8 @@
-import { spawnSync } from 'node:child_process'
-import fs from 'node:fs'
-import { styleText } from 'node:util'
 import { isCancel, outro } from '@clack/prompts'
+import { styleText } from 'util'
 import { contentCacheFolder } from './constants.js'
+import { spawnSync } from 'child_process'
+import fs from 'fs'
 
 export function escapePath(fp) {
   return fp

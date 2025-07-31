@@ -1,30 +1,24 @@
-import { Tween as Tweened, Group as TweenGroup } from '@tweenjs/tween.js'
-import {
-  drag,
-  forceCenter,
-  forceCollide,
-  forceLink,
-  forceManyBody,
-  forceRadial,
-  forceSimulation,
-  type Simulation,
-  type SimulationLinkDatum,
-  type SimulationNodeDatum,
-  select,
-  zoom,
-  zoomIdentity,
-} from 'd3'
-import { Application, Circle, Container, Graphics, Text } from 'pixi.js'
 import type { ContentDetails } from '../../plugins/emitters/contentIndex'
 import {
-  type FullSlug,
-  getFullSlug,
-  resolveRelative,
-  type SimpleSlug,
-  simplifySlug,
-} from '../../util/path'
-import type { D3Config } from '../Graph'
+  SimulationNodeDatum,
+  SimulationLinkDatum,
+  Simulation,
+  forceSimulation,
+  forceManyBody,
+  forceCenter,
+  forceLink,
+  forceCollide,
+  forceRadial,
+  zoomIdentity,
+  select,
+  drag,
+  zoom,
+} from 'd3'
+import { Text, Graphics, Application, Container, Circle } from 'pixi.js'
+import { Group as TweenGroup, Tween as Tweened } from '@tweenjs/tween.js'
 import { registerEscapeHandler, removeAllChildren } from './util'
+import { FullSlug, SimpleSlug, getFullSlug, resolveRelative, simplifySlug } from '../../util/path'
+import { D3Config } from '../Graph'
 
 type GraphicsInfo = {
   color: string
@@ -74,30 +68,6 @@ type TweenNode = {
   stop: () => void
 }
 
-// workaround for pixijs webgpu issue: https://github.com/pixijs/pixijs/issues/11389
-async function determineGraphicsAPI(): Promise<'webgpu' | 'webgl'> {
-  const adapter = await navigator.gpu?.requestAdapter().catch(() => null)
-  const device = adapter && (await adapter.requestDevice().catch(() => null))
-  if (!device) {
-    return 'webgl'
-  }
-
-  const canvas = document.createElement('canvas')
-  const gl =
-    (canvas.getContext('webgl2') as WebGL2RenderingContext | null) ??
-    (canvas.getContext('webgl') as WebGLRenderingContext | null)
-
-  // we have to return webgl so pixijs automatically falls back to canvas
-  if (!gl) {
-    return 'webgl'
-  }
-
-  const webglMaxTextures = gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS)
-  const webgpuMaxTextures = device.limits.maxSampledTexturesPerShaderStage
-
-  return webglMaxTextures === webgpuMaxTextures ? 'webgpu' : 'webgl'
-}
-
 async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   const slug = simplifySlug(fullSlug)
   const visited = getVisited()
@@ -117,7 +87,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     showTags,
     focusOnHover,
     enableRadial,
-  } = JSON.parse(graph.dataset.cfg!) as D3Config
+  } = JSON.parse(graph.dataset['cfg']!) as D3Config
 
   const data: Map<SimpleSlug, ContentDetails> = new Map(
     Object.entries<ContentDetails>(await fetchData).map(([k, v]) => [
@@ -142,7 +112,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     if (showTags) {
       const localTags = details.tags
         .filter((tag) => !removeTags.includes(tag))
-        .map((tag) => simplifySlug(`tags/${tag}` as FullSlug))
+        .map((tag) => simplifySlug(('tags/' + tag) as FullSlug))
 
       tags.push(...localTags.filter((tag) => !tags.includes(tag)))
 
@@ -174,7 +144,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   }
 
   const nodes = [...neighbourhood].map((url) => {
-    const text = url.startsWith('tags/') ? `#${url.substring(5)}` : (data.get(url)?.title ?? url)
+    const text = url.startsWith('tags/') ? '#' + url.substring(5) : (data.get(url)?.title ?? url)
     return {
       id: url,
       text,
@@ -379,7 +349,6 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
   tweens.forEach((tween) => tween.stop())
   tweens.clear()
 
-  const pixiPreference = await determineGraphicsAPI()
   const app = new Application()
   await app.init({
     width,
@@ -388,7 +357,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     autoStart: false,
     autoDensity: true,
     backgroundAlpha: 0,
-    preference: pixiPreference,
+    preference: 'webgpu',
     resolution: window.devicePixelRatio,
     eventMode: 'static',
   })
@@ -542,7 +511,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
 
           // zoom adjusts opacity of labels too
           const scale = transform.k * opacityScale
-          const scaleOpacity = Math.max((scale - 1) / 3.75, 0)
+          let scaleOpacity = Math.max((scale - 1) / 3.75, 0)
           const activeNodes = nodeRenderData.filter((n) => n.active).flatMap((n) => n.label)
 
           for (const label of labelsContainer.children) {

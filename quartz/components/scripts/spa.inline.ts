@@ -1,16 +1,11 @@
 import micromorph from 'micromorph'
-import {
-  type FullSlug,
-  getFullSlug,
-  normalizeRelativeURLs,
-  type RelativeURL,
-} from '../../util/path'
+import { FullSlug, RelativeURL, getFullSlug, normalizeRelativeURLs } from '../../util/path'
 import { fetchCanonical } from './util'
 
 // adapted from `micromorph`
 // https://github.com/natemoo-re/micromorph
 const NODE_TYPE_ELEMENT = 1
-const announcer = document.createElement('route-announcer')
+let announcer = document.createElement('route-announcer')
 const isElement = (target: EventTarget | null): target is Element =>
   (target as Node)?.nodeType === NODE_TYPE_ELEMENT
 const isLocalUrl = (href: string) => {
@@ -19,7 +14,7 @@ const isLocalUrl = (href: string) => {
     if (window.location.origin === url.origin) {
       return true
     }
-  } catch (_e) {}
+  } catch (e) {}
   return false
 }
 
@@ -206,6 +201,9 @@ if (!customElements.get('route-announcer')) {
   customElements.define(
     'route-announcer',
     class RouteAnnouncer extends HTMLElement {
+      constructor() {
+        super()
+      }
       connectedCallback() {
         for (const [key, value] of Object.entries(attrs)) {
           this.setAttribute(key, value)

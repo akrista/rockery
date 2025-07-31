@@ -1,7 +1,7 @@
+import test, { describe, beforeEach } from 'node:test'
 import assert from 'node:assert'
-import test, { beforeEach, describe } from 'node:test'
 import { FileTrieNode } from './fileTrie'
-import type { FullSlug } from './path'
+import { FullSlug } from './path'
 
 interface TestData {
   title: string

@@ -39,13 +39,13 @@ jobs:
       - run: bun install
 
       - name: Check types and style
-        run: bun run check
+        run: bun check
 
       - name: Test
         run: bun test
 
       - name: Ensure Quartz builds, check bundle info
-        run: bun run quartz build --bundleInfo
+        run: bun quartz build --bundleInfo
 
   publish-tag:
     if: ${{ github.repository == 'akrista/rockery' && github.ref == 'refs/heads/master' }}

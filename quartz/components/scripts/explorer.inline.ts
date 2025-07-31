@@ -1,6 +1,6 @@
-import type { ContentDetails } from '../../plugins/emitters/contentIndex'
 import { FileTrieNode } from '../../util/fileTrie'
-import { type FullSlug, resolveRelative, simplifySlug } from '../../util/path'
+import { FullSlug, resolveRelative, simplifySlug } from '../../util/path'
+import { ContentDetails } from '../../plugins/emitters/contentIndex'
 
 type MaybeHTMLElement = HTMLElement | undefined
 
@@ -160,9 +160,9 @@ async function setupExplorer(currentSlug: FullSlug) {
       folderDefaultState: (explorer.dataset.collapsed || 'collapsed') as 'collapsed' | 'open',
       useSavedState: explorer.dataset.savestate === 'true',
       order: dataFns.order || ['filter', 'map', 'sort'],
-      sortFn: new Function(`return ${dataFns.sortFn || 'undefined'}`)(),
-      filterFn: new Function(`return ${dataFns.filterFn || 'undefined'}`)(),
-      mapFn: new Function(`return ${dataFns.mapFn || 'undefined'}`)(),
+      sortFn: new Function('return ' + (dataFns.sortFn || 'undefined'))(),
+      filterFn: new Function('return ' + (dataFns.filterFn || 'undefined'))(),
+      mapFn: new Function('return ' + (dataFns.mapFn || 'undefined'))(),
     }
 
     // Get folder state from local storage
@@ -286,7 +286,7 @@ document.addEventListener('nav', async (e: CustomEventMap['nav']) => {
   }
 })
 
-window.addEventListener('resize', () => {
+window.addEventListener('resize', function () {
   // Desktop explorer opens by default, and it stays open when the window is resized
   // to mobile screen size. Applies `no-scroll` to <html> in this edge case.
   const explorer = document.querySelector('.explorer')

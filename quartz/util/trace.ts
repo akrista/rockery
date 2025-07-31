@@ -1,10 +1,10 @@
-import process from 'node:process'
-import { styleText } from 'node:util'
+import { styleText } from 'util'
+import process from 'process'
 import { isMainThread } from 'workerpool'
 
 const rootFile = /.*at file:/
 export function trace(msg: string, err: Error) {
-  const stack = err.stack ?? ''
+  let stack = err.stack ?? ''
 
   const lines: string[] = []
 

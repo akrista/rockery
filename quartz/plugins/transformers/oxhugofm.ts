@@ -1,4 +1,4 @@
-import type { QuartzTransformerPlugin } from '../types'
+import { QuartzTransformerPlugin } from '../types'
 
 export interface Options {
   /** Replace {{ relref }} with quartz wikilinks []() */

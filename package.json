@@ -12,13 +12,12 @@
     "url": "https://github.com/akrista/rockery.git"
   },
   "scripts": {
-    "quartz": "./quartz/bootstrap-cli.mjs",
-    "docs": "npx quartz build --serve -d docs",
-    "check": "tsc --noEmit && npx biome check --write",
-    "lint": "npx biome lint --write",
-    "format": "npx biome format --write",
+    "quartz": "bun quartz/bootstrap-cli.mjs",
+    "check": "tsc --noEmit && bunx biome check --write",
+    "lint": "bunx biome lint --write",
+    "format": "bunx biome format --write",
     "test": "tsx --test",
-    "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1"
+    "profile": "0x -D prof quartz/bootstrap-cli.mjs build --concurrency=1"
   },
   "engines": {
     "npm": ">=10.9.2",

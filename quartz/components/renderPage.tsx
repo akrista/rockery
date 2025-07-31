@@ -1,14 +1,14 @@
-import type { Element, ElementContent, Root } from 'hast'
 import { render } from 'preact-render-to-string'
-import { visit } from 'unist-util-visit'
-import type { GlobalConfiguration } from '../cfg'
-import { i18n } from '../i18n'
-import { clone } from '../util/clone'
-import { type FullSlug, joinSegments, normalizeHastElement, type RelativeURL } from '../util/path'
-import { JSResourceToScriptElement, type StaticResources } from '../util/resources'
-import BodyConstructor from './Body'
+import { QuartzComponent, QuartzComponentProps } from './types'
 import HeaderConstructor from './Header'
-import type { QuartzComponent, QuartzComponentProps } from './types'
+import BodyConstructor from './Body'
+import { JSResourceToScriptElement, StaticResources } from '../util/resources'
+import { FullSlug, RelativeURL, joinSegments, normalizeHastElement } from '../util/path'
+import { clone } from '../util/clone'
+import { visit } from 'unist-util-visit'
+import { Root, Element, ElementContent } from 'hast'
+import { GlobalConfiguration } from '../cfg'
+import { i18n } from '../i18n'
 
 interface RenderComponents {
   head: QuartzComponent
@@ -111,9 +111,9 @@ function renderTranscludes(
         } else if (blockRef?.startsWith('#') && page.htmlAst) {
           // header transclude
           blockRef = blockRef.slice(1)
-          let startIdx
-          let startDepth
-          let endIdx
+          let startIdx = undefined
+          let startDepth = undefined
+          let endIdx = undefined
           for (const [i, el] of page.htmlAst.children.entries()) {
             // skip non-headers
             if (!(el.type === 'element' && el.tagName.match(headerRegex))) continue
@@ -270,5 +270,5 @@ export function renderPage(
     </html>
   )
 
-  return `<!DOCTYPE html>\n${render(doc)}`
+  return '<!DOCTYPE html>\n' + render(doc)
 }

@@ -142,7 +142,7 @@ const cssVars = [
   '--codeFont',
 ] as const
 
-let mermaidImport
+let mermaidImport = undefined
 document.addEventListener('nav', async () => {
   const center = document.querySelector('.center') as HTMLElement
   const nodes = center.querySelectorAll('code.mermaid') as NodeListOf<HTMLElement>
@@ -230,7 +230,7 @@ document.addEventListener('nav', async () => {
       removeAllChildren(content)
 
       // Clone the mermaid content
-      const mermaidContent = codeBlock.querySelector('svg')?.cloneNode(true) as SVGElement
+      const mermaidContent = codeBlock.querySelector('svg')!.cloneNode(true) as SVGElement
       content.appendChild(mermaidContent)
 
       // Show container

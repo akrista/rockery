@@ -1,7 +1,7 @@
-import type { Root as HTMLRoot } from 'hast'
+import { Root as HTMLRoot } from 'hast'
 import { toString } from 'hast-util-to-string'
+import { QuartzTransformerPlugin } from '../types'
 import { escapeHTML } from '../../util/escape'
-import type { QuartzTransformerPlugin } from '../types'
 
 export interface Options {
   descriptionLength: number
@@ -16,7 +16,7 @@ const defaultOptions: Options = {
 }
 
 const urlRegex = new RegExp(
-  /(https?:\/\/)?(?<domain>([\da-z.-]+)\.([a-z.]{2,6})(:\d+)?)(?<path>[/\w.-]*)(\?[/\w.=&;-]*)?/,
+  /(https?:\/\/)?(?<domain>([\da-z\.-]+)\.([a-z\.]{2,6})(:\d+)?)(?<path>[\/\w\.-]*)(\?[\/\w\.=&;-]*)?/,
   'g',
 )
 
@@ -56,7 +56,7 @@ export const Description: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
               const sentence = sentences[sentenceIdx]
               if (!sentence) break
 
-              const currentSentence = sentence.endsWith('.') ? sentence : `${sentence}.`
+              const currentSentence = sentence.endsWith('.') ? sentence : sentence + '.'
               const nextLength = finalDesc.length + currentSentence.length + (finalDesc ? 1 : 0)
 
               // Add the sentence if we're under the guideline length
@@ -72,7 +72,7 @@ export const Description: QuartzTransformerPlugin<Partial<Options>> = (userOpts)
             // truncate to max length if necessary
             file.data.description =
               finalDesc.length > opts.maxDescriptionLength
-                ? `${finalDesc.slice(0, opts.maxDescriptionLength)}...`
+                ? finalDesc.slice(0, opts.maxDescriptionLength) + '...'
                 : finalDesc
             file.data.text = text
           }

@@ -1,18 +1,18 @@
-import path from 'node:path'
-import type { Root } from 'hast'
-import isAbsoluteUrl from 'is-absolute-url'
-import { visit } from 'unist-util-visit'
+import { QuartzTransformerPlugin } from '../types'
 import {
-  type FullSlug,
-  type RelativeURL,
-  type SimpleSlug,
+  FullSlug,
+  RelativeURL,
+  SimpleSlug,
+  TransformOptions,
+  stripSlashes,
   simplifySlug,
   splitAnchor,
-  stripSlashes,
-  type TransformOptions,
   transformLink,
 } from '../../util/path'
-import type { QuartzTransformerPlugin } from '../types'
+import path from 'path'
+import { visit } from 'unist-util-visit'
+import isAbsoluteUrl from 'is-absolute-url'
+import { Root } from 'hast'
 
 interface Options {
   /** How to resolve Markdown paths */
@@ -109,7 +109,7 @@ export const CrawlLinks: QuartzTransformerPlugin<Partial<Options>> = (userOpts) 
 
                   // url.resolve is considered legacy
                   // WHATWG equivalent https://nodejs.dev/en/api/v18/url/#urlresolvefrom-to
-                  const url = new URL(dest, `https://base.com/${stripSlashes(curSlug, true)}`)
+                  const url = new URL(dest, 'https://base.com/' + stripSlashes(curSlug, true))
                   const canonicalDest = url.pathname
                   let [destCanonical, _destAnchor] = splitAnchor(canonicalDest)
                   if (destCanonical.endsWith('/')) {

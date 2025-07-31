@@ -1,15 +1,15 @@
-import { promises as fs } from 'node:fs'
-import path from 'node:path'
-import { styleText } from 'node:util'
-import type { JSXInternal } from 'preact/src/jsx'
-import readingTime from 'reading-time'
-import type { FontWeight, SatoriOptions } from 'satori/wasm'
-import type { GlobalConfiguration } from '../cfg'
-import { formatDate, getDate } from '../components/Date'
-import { i18n } from '../i18n'
-import type { QuartzPluginData } from '../plugins/vfile'
+import { promises as fs } from 'fs'
+import { FontWeight, SatoriOptions } from 'satori/wasm'
+import { GlobalConfiguration } from '../cfg'
+import { QuartzPluginData } from '../plugins/vfile'
+import { JSXInternal } from 'preact/src/jsx'
+import { FontSpecification, getFontSpecificationName, ThemeKey } from './theme'
+import path from 'path'
 import { QUARTZ } from './path'
-import { type FontSpecification, getFontSpecificationName, type ThemeKey } from './theme'
+import { formatDate, getDate } from '../components/Date'
+import readingTime from 'reading-time'
+import { i18n } from '../i18n'
+import { styleText } from 'util'
 
 const defaultHeaderWeight = [700]
 const defaultBodyWeight = [400]
@@ -84,7 +84,7 @@ export async function fetchTtf(
   try {
     await fs.access(cachePath)
     return fs.readFile(cachePath)
-  } catch (_error) {
+  } catch (error) {
     // ignore errors and fetch font
   }
 

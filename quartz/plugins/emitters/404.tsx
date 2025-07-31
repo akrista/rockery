@@ -1,14 +1,14 @@
-import { sharedPageComponents } from '../../../quartz.layout'
-import type { FullPageLayout } from '../../cfg'
-import { NotFound } from '../../components'
+import { QuartzEmitterPlugin } from '../types'
+import { QuartzComponentProps } from '../../components/types'
 import BodyConstructor from '../../components/Body'
 import { pageResources, renderPage } from '../../components/renderPage'
-import type { QuartzComponentProps } from '../../components/types'
-import { i18n } from '../../i18n'
-import type { FullSlug } from '../../util/path'
-import type { QuartzEmitterPlugin } from '../types'
+import { FullPageLayout } from '../../cfg'
+import { FullSlug } from '../../util/path'
+import { sharedPageComponents } from '../../../quartz.layout'
+import { NotFound } from '../../components'
 import { defaultProcessedContent } from '../vfile'
 import { write } from './helpers'
+import { i18n } from '../../i18n'
 
 export const NotFoundPage: QuartzEmitterPlugin = () => {
   const opts: FullPageLayout = {

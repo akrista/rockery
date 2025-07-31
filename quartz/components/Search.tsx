@@ -1,9 +1,9 @@
-import { i18n } from '../i18n'
-import { classNames } from '../util/lang'
+import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from './types'
+import style from './styles/search.scss'
 // @ts-ignore
 import script from './scripts/search.inline'
-import style from './styles/search.scss'
-import type { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from './types'
+import { classNames } from '../util/lang'
+import { i18n } from '../i18n'
 
 export interface SearchOptions {
   enablePreview: boolean

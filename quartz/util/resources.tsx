@@ -1,6 +1,6 @@
-import { randomUUID } from 'node:crypto'
-import type { JSX } from 'preact/jsx-runtime'
-import type { QuartzPluginData } from '../plugins/vfile'
+import { randomUUID } from 'crypto'
+import { JSX } from 'preact/jsx-runtime'
+import { QuartzPluginData } from '../plugins/vfile'
 
 export type JSResource = {
   loadTime: 'beforeDOMReady' | 'afterDOMReady'

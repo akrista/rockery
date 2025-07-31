@@ -1,26 +1,25 @@
-import path from 'node:path'
-import { defaultListPageLayout, sharedPageComponents } from '../../../quartz.layout'
-import type { FullPageLayout } from '../../cfg'
-import { FolderContent } from '../../components'
-import BodyConstructor from '../../components/Body'
+import { QuartzEmitterPlugin } from '../types'
+import { QuartzComponentProps } from '../../components/types'
 import HeaderConstructor from '../../components/Header'
+import BodyConstructor from '../../components/Body'
 import { pageResources, renderPage } from '../../components/renderPage'
-import type { QuartzComponentProps } from '../../components/types'
-import { i18n, type TRANSLATIONS } from '../../i18n'
-import type { BuildCtx } from '../../util/ctx'
+import { ProcessedContent, QuartzPluginData, defaultProcessedContent } from '../vfile'
+import { FullPageLayout } from '../../cfg'
+import path from 'path'
 import {
-  type FullSlug,
+  FullSlug,
+  SimpleSlug,
+  stripSlashes,
   joinSegments,
   pathToRoot,
-  type SimpleSlug,
   simplifySlug,
-  stripSlashes,
 } from '../../util/path'
-import type { StaticResources } from '../../util/resources'
-import type { QuartzEmitterPlugin } from '../types'
-import { defaultProcessedContent, type ProcessedContent, type QuartzPluginData } from '../vfile'
+import { defaultListPageLayout, sharedPageComponents } from '../../../quartz.layout'
+import { FolderContent } from '../../components'
 import { write } from './helpers'
-
+import { i18n, TRANSLATIONS } from '../../i18n'
+import { BuildCtx } from '../../util/ctx'
+import { StaticResources } from '../../util/resources'
 interface FolderPageOptions extends FullPageLayout {
   sort?: (f1: QuartzPluginData, f2: QuartzPluginData) => number
 }

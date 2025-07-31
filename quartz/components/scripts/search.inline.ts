@@ -1,7 +1,7 @@
 import FlexSearch from 'flexsearch'
-import type { ContentDetails } from '../../plugins/emitters/contentIndex'
-import { type FullSlug, normalizeRelativeURLs, resolveRelative } from '../../util/path'
+import { ContentDetails } from '../../plugins/emitters/contentIndex'
 import { registerEscapeHandler, removeAllChildren } from './util'
+import { FullSlug, normalizeRelativeURLs, resolveRelative } from '../../util/path'
 
 interface Item {
   id: number
@@ -16,7 +16,7 @@ type SearchType = 'basic' | 'tags'
 let searchType: SearchType = 'basic'
 let currentSearchTerm: string = ''
 const encoder = (str: string) => str.toLowerCase().split(/([^a-z]|[^\x00-\x7F])/)
-const index = new FlexSearch.Document<Item>({
+let index = new FlexSearch.Document<Item>({
   charset: 'latin:extra',
   encode: encoder,
   document: {
@@ -164,8 +164,8 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
   }
 
   const enablePreview = searchLayout.dataset.preview === 'true'
-  let preview: HTMLDivElement | undefined
-  let previewInner: HTMLDivElement | undefined
+  let preview: HTMLDivElement | undefined = undefined
+  let previewInner: HTMLDivElement | undefined = undefined
   const results = document.createElement('div')
   results.className = 'results-container'
   appendLayout(results)
@@ -401,7 +401,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
     if (searchType === 'tags') {
       currentSearchTerm = currentSearchTerm.substring(1).trim()
       const separatorIndex = currentSearchTerm.indexOf(' ')
-      if (separatorIndex !== -1) {
+      if (separatorIndex != -1) {
         // search by title and content index and then filter by tag (implemented in flexsearch)
         const tag = currentSearchTerm.substring(0, separatorIndex)
         const query = currentSearchTerm.substring(separatorIndex + 1).trim()
@@ -412,7 +412,7 @@ async function setupSearch(searchElement: Element, currentSlug: FullSlug, data: 
           index: ['title', 'content'],
           tag: tag,
         })
-        for (const searchResult of searchResults) {
+        for (let searchResult of searchResults) {
           searchResult.result = searchResult.result.slice(0, numSearchResults)
         }
         // set search type to basic and remove tag from term for proper highlightning and scroll

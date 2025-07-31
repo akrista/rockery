@@ -1,6 +1,6 @@
-import path from 'node:path'
+import path from 'path'
+import { FilePath } from './path'
 import { globby } from 'globby'
-import type { FilePath } from './path'
 
 export function toPosixPath(fp: string): string {
   return fp.split(path.sep).join('/')

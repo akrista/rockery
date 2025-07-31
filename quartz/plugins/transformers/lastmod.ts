@@ -1,8 +1,8 @@
-import fs from 'node:fs'
-import path from 'node:path'
-import { styleText } from 'node:util'
+import fs from 'fs'
 import { Repository } from '@napi-rs/simple-git'
-import type { QuartzTransformerPlugin } from '../types'
+import { QuartzTransformerPlugin } from '../types'
+import path from 'path'
+import { styleText } from 'util'
 
 export interface Options {
   priority: ('frontmatter' | 'git' | 'filesystem')[]
@@ -24,7 +24,7 @@ function coerceDate(fp: string, d: any): Date {
   }
 
   const dt = new Date(d)
-  const invalidDate = Number.isNaN(dt.getTime()) || dt.getTime() === 0
+  const invalidDate = isNaN(dt.getTime()) || dt.getTime() === 0
   if (invalidDate && d !== undefined) {
     console.log(
       styleText(
@@ -45,13 +45,13 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
     markdownPlugins(ctx) {
       return [
         () => {
-          let repo: Repository | undefined
+          let repo: Repository | undefined = undefined
           let repositoryWorkdir: string
           if (opts.priority.includes('git')) {
             try {
               repo = Repository.discover(ctx.argv.directory)
               repositoryWorkdir = repo.workdir() ?? ctx.argv.directory
-            } catch (_e) {
+            } catch (e) {
               console.log(
                 styleText(
                   'yellow',
@@ -62,9 +62,9 @@ export const CreatedModifiedDate: QuartzTransformerPlugin<Partial<Options>> = (u
           }
 
           return async (_tree, file) => {
-            let created: MaybeDate
-            let modified: MaybeDate
-            let published: MaybeDate
+            let created: MaybeDate = undefined
+            let modified: MaybeDate = undefined
+            let published: MaybeDate = undefined
 
             const fp = file.data.relativePath!
             const fullFp = file.data.filePath!

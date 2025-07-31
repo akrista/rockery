@@ -1,6 +1,6 @@
-import type { ComponentChildren } from 'preact'
+import { ComponentChildren } from 'preact'
 import { htmlToJsx } from '../../util/jsx'
-import type { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from '../types'
+import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from '../types'
 
 const Content: QuartzComponent = ({ fileData, tree }: QuartzComponentProps) => {
   const content = htmlToJsx(fileData.filePath!, tree) as ComponentChildren

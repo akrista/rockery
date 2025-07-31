@@ -1,23 +1,20 @@
-import path from 'node:path'
-import type { Element, Root as HtmlRoot, Literal } from 'hast'
-import { toHtml } from 'hast-util-to-html'
-import type {
-  BlockContent,
-  Code,
-  DefinitionContent,
-  Html,
-  Paragraph,
-  PhrasingContent,
-  Root,
-} from 'mdast'
+import { QuartzTransformerPlugin } from '../types'
 import {
-  findAndReplace as mdastFindReplace,
-  type ReplaceFunction,
-} from 'mdast-util-find-and-replace'
-import { toHast } from 'mdast-util-to-hast'
+  Root,
+  Html,
+  BlockContent,
+  PhrasingContent,
+  DefinitionContent,
+  Paragraph,
+  Code,
+} from 'mdast'
+import { Element, Literal, Root as HtmlRoot } from 'hast'
+import { ReplaceFunction, findAndReplace as mdastFindReplace } from 'mdast-util-find-and-replace'
 import rehypeRaw from 'rehype-raw'
-import type { PluggableList } from 'unified'
 import { SKIP, visit } from 'unist-util-visit'
+import path from 'path'
+import { splitAnchor } from '../../util/path'
+import { JSResource, CSSResource } from '../../util/resources'
 // @ts-ignore
 import calloutScript from '../../components/scripts/callout.inline'
 // @ts-ignore
@@ -25,10 +22,11 @@ import checkboxScript from '../../components/scripts/checkbox.inline'
 // @ts-ignore
 import mermaidScript from '../../components/scripts/mermaid.inline'
 import mermaidStyle from '../../components/styles/mermaid.inline.scss'
+import { FilePath, pathToRoot, slugTag, slugifyFilePath } from '../../util/path'
+import { toHast } from 'mdast-util-to-hast'
+import { toHtml } from 'hast-util-to-html'
 import { capitalize } from '../../util/lang'
-import { type FilePath, pathToRoot, slugifyFilePath, slugTag, splitAnchor } from '../../util/path'
-import type { CSSResource, JSResource } from '../../util/resources'
-import type { QuartzTransformerPlugin } from '../types'
+import { PluggableList } from 'unified'
 
 export interface Options {
   comments: boolean
@@ -118,7 +116,9 @@ export const arrowRegex = new RegExp(/(-{1,2}>|={1,2}>|<-{1,2}|<={1,2})/g)
 // ([^\[\]\|\#]+)     -> one or more non-special characters ([,],|, or #) (name)
 // (#[^\[\]\|\#]+)?   -> # then one or more non-special characters (heading link)
 // (\\?\|[^\[\]\#]+)? -> optional escape \ then | then zero or more non-special characters (alias)
-export const wikilinkRegex = new RegExp(/!?\[\[([^[\]|#\\]+)?(#+[^[\]|#\\]+)?(\\?\|[^[\]#]*)?\]\]/g)
+export const wikilinkRegex = new RegExp(
+  /!?\[\[([^\[\]\|\#\\]+)?(#+[^\[\]\|\#\\]+)?(\\?\|[^\[\]\#]*)?\]\]/g,
+)
 
 // ^\|([^\n])+\|\n(\|) -> matches the header row
 // ( ?:?-{3,}:? ?\|)+  -> matches the header row separator
@@ -131,8 +131,8 @@ export const tableWikilinkRegex = new RegExp(/(!?\[\[[^\]]*?\]\]|\[\^[^\]]*?\])/
 const highlightRegex = new RegExp(/==([^=]+)==/g)
 const commentRegex = new RegExp(/%%[\s\S]*?%%/g)
 // from https://github.com/escwxyz/remark-obsidian-callout/blob/main/src/index.ts
-const calloutRegex = new RegExp(/^\[!([\w-]+)\|?(.+?)?\]([+-]?)/)
-const calloutLineRegex = new RegExp(/^> *\[!\w+\|?.*?\][+-]?.*$/gm)
+const calloutRegex = new RegExp(/^\[\!([\w-]+)\|?(.+?)?\]([+-]?)/)
+const calloutLineRegex = new RegExp(/^> *\[\!\w+\|?.*?\][+-]?.*$/gm)
 // (?<=^| )             -> a lookbehind assertion, tag should start be separated by a space or be the start of the line
 // #(...)               -> capturing group, tag itself must start with #
 // (?:[-_\p{L}\d\p{Z}])+       -> non-capturing group, non-empty string of (Unicode-aware) alpha-numeric characters and symbols, hyphens and/or underscores
@@ -141,7 +141,7 @@ const tagRegex = new RegExp(
   /(?<=^| )#((?:[-_\p{L}\p{Emoji}\p{M}\d])+(?:\/[-_\p{L}\p{Emoji}\p{M}\d]+)*)/gu,
 )
 const blockReferenceRegex = new RegExp(/\^([-_A-Za-z0-9]+)$/g)
-const ytLinkRegex = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
+const ytLinkRegex = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/
 const ytPlaylistLinkRegex = /[?&]list=([^#?&]*)/
 const videoExtensionRegex = new RegExp(/\.(mp4|webm|ogg|avi|mov|flv|wmv|mkv|mpg|mpeg|3gp|m4v)$/)
 const wikilinkImageEmbedRegex = new RegExp(
@@ -168,7 +168,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
       if (opts.callouts) {
         src = src.replace(calloutLineRegex, (value) => {
           // force newline after title of callout
-          return `${value}\n> `
+          return value + '\n> '
         })
       }
 
@@ -193,7 +193,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
           const [rawFp, rawHeader, rawAlias]: (string | undefined)[] = capture
 
           const [fp, anchor] = splitAnchor(`${rawFp ?? ''}${rawHeader ?? ''}`)
-          const blockRef = rawHeader?.startsWith('#^') ? '^' : ''
+          const blockRef = Boolean(rawHeader?.startsWith('#^')) ? '^' : ''
           const displayAnchor = anchor ? `#${blockRef}${anchor.trim().replace(/^#+/, '')}` : ''
           const displayAlias = rawAlias ?? rawHeader?.replace('#', '|') ?? ''
           const embedDisplay = value.startsWith('!') ? '!' : ''
@@ -221,7 +221,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
             replacements.push([
               wikilinkRegex,
               (value: string, ...capture: string[]) => {
-                const [rawFp, rawHeader, rawAlias] = capture
+                let [rawFp, rawHeader, rawAlias] = capture
                 const fp = rawFp?.trim() ?? ''
                 const anchor = rawHeader?.trim() ?? ''
                 const alias: string | undefined = rawAlias?.slice(1).trim()
@@ -280,7 +280,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 // treat as broken link if slug not in ctx.allSlugs
                 if (opts.disableBrokenWikilinks) {
                   const slug = slugifyFilePath(fp as FilePath)
-                  const exists = ctx.allSlugs?.includes(slug)
+                  const exists = ctx.allSlugs && ctx.allSlugs.includes(slug)
                   if (!exists) {
                     return {
                       type: 'html',
@@ -338,7 +338,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
               tagRegex,
               (_value: string, tag: string) => {
                 // Check if the tag only includes numbers and slashes
-                if (/^[/\d]+$/.test(tag)) {
+                if (/^[\/\d]+$/.test(tag)) {
                   return false
                 }
 
@@ -350,7 +350,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
 
                 return {
                   type: 'link',
-                  url: `${base}/tags/${tag}`,
+                  url: base + `/tags/${tag}`,
                   data: {
                     hProperties: {
                       className: ['tag-link'],
@@ -397,7 +397,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
         plugins.push(() => {
           return (tree: Root, _file) => {
             visit(tree, 'image', (node, index, parent) => {
-              if (parent && index !== undefined && videoExtensionRegex.test(node.url)) {
+              if (parent && index != undefined && videoExtensionRegex.test(node.url)) {
                 const newNode: Html = {
                   type: 'html',
                   value: `<video controls src="${node.url}"></video>`,
@@ -431,7 +431,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
               const remainingText = remainingLines.join('\n')
 
               const match = firstLine.match(calloutRegex)
-              if (match?.input) {
+              if (match && match.input) {
                 const [calloutDirective, typeString, calloutMetaData, collapseChar] = match
                 const calloutType = canonicalizeCallout(typeString.toLowerCase())
                 const collapse = collapseChar === '+' || collapseChar === '-'
@@ -445,7 +445,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                       type: 'text',
                       value: useDefaultTitle
                         ? capitalize(typeString).replace(/-/g, ' ')
-                        : `${titleContent} `,
+                        : titleContent + ' ',
                     },
                     ...restOfTitle,
                   ],
@@ -564,10 +564,10 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 const nextChild = parent?.children.at(index! + 2) as Element
                 if (nextChild && nextChild.tagName === 'p') {
                   const text = nextChild.children.at(0) as Literal
-                  if (text?.value && text.type === 'text') {
+                  if (text && text.value && text.type === 'text') {
                     const matches = text.value.match(blockReferenceRegex)
                     if (matches && matches.length >= 1) {
-                      parent?.children.splice(index! + 2, 1)
+                      parent!.children.splice(index! + 2, 1)
                       const block = matches[0].slice(1)
 
                       if (!Object.keys(file.data.blocks!).includes(block)) {
@@ -582,7 +582,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 }
               } else if (inlineTagTypes.has(node.tagName)) {
                 const last = node.children.at(-1) as Literal
-                if (last?.value && typeof last.value === 'string') {
+                if (last && last.value && typeof last.value === 'string') {
                   const matches = last.value.match(blockReferenceRegex)
                   if (matches && matches.length >= 1) {
                     last.value = last.value.slice(0, -matches[0].length)
@@ -634,7 +634,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
             visit(tree, 'element', (node) => {
               if (node.tagName === 'img' && typeof node.properties.src === 'string') {
                 const match = node.properties.src.match(ytLinkRegex)
-                const videoId = match && match[2].length === 11 ? match[2] : null
+                const videoId = match && match[2].length == 11 ? match[2] : null
                 const playlistId = node.properties.src.match(ytPlaylistLinkRegex)?.[1]
                 if (videoId) {
                   // YouTube video (with optional playlist)

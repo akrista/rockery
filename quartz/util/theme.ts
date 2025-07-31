@@ -126,8 +126,8 @@ export async function processGoogleFonts(
   const fontFiles: GoogleFontFile[] = []
   let processedStylesheet = stylesheet
 
-  let match = fontSourceRegex.exec(stylesheet)
-  while (match !== null) {
+  let match
+  while ((match = fontSourceRegex.exec(stylesheet)) !== null) {
     const url = match[1]
     const filename = match[2]
     const extension = fontMimeMap[match[3].toLowerCase()]
@@ -135,8 +135,6 @@ export async function processGoogleFonts(
 
     processedStylesheet = processedStylesheet.replace(url, staticUrl)
     fontFiles.push({ url, filename, extension })
-    
-    match = fontSourceRegex.exec(stylesheet)
   }
 
   return { processedStylesheet, fontFiles }

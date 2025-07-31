@@ -47,7 +47,7 @@ async function mouseEnterHandler(
   const prevPopoverElement = document.getElementById(popoverId)
 
   // dont refetch if there's already a popover
-  if (document.getElementById(popoverId)) {
+  if (!!document.getElementById(popoverId)) {
     showPopover(prevPopoverElement as HTMLElement)
     return
   }
@@ -57,8 +57,8 @@ async function mouseEnterHandler(
   })
 
   if (!response) return
-  const [contentType] = response.headers.get('Content-Type')?.split(';') ?? []
-  const [contentTypeCategory, typeInfo] = contentType?.split('/') ?? []
+  const [contentType] = response.headers.get('Content-Type')!.split(';')
+  const [contentTypeCategory, typeInfo] = contentType.split('/')
 
   const popoverElement = document.createElement('div')
   popoverElement.id = popoverId
@@ -69,27 +69,25 @@ async function mouseEnterHandler(
   popoverElement.appendChild(popoverInner)
 
   switch (contentTypeCategory) {
-    case 'image': {
+    case 'image':
       const img = document.createElement('img')
       img.src = targetUrl.toString()
       img.alt = targetUrl.pathname
 
       popoverInner.appendChild(img)
       break
-    }
     case 'application':
       switch (typeInfo) {
-        case 'pdf': {
+        case 'pdf':
           const pdf = document.createElement('iframe')
           pdf.src = targetUrl.toString()
           popoverInner.appendChild(pdf)
           break
-        }
         default:
           break
       }
       break
-    default: {
+    default:
       const contents = await response.text()
       const html = p.parseFromString(contents, 'text/html')
       normalizeRelativeURLs(html, targetUrl)
@@ -102,10 +100,9 @@ async function mouseEnterHandler(
       if (elts.length === 0) return
 
       elts.forEach((elt) => popoverInner.appendChild(elt))
-    }
   }
 
-  if (document.getElementById(popoverId)) {
+  if (!!document.getElementById(popoverId)) {
     return
   }
 

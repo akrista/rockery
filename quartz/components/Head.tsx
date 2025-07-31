@@ -1,10 +1,10 @@
 import { i18n } from '../i18n'
-import { CustomOgImagesEmitterName } from '../plugins/emitters/ogImage'
-import { unescapeHTML } from '../util/escape'
-import { type FullSlug, getFileExtension, joinSegments, pathToRoot } from '../util/path'
+import { FullSlug, getFileExtension, joinSegments, pathToRoot } from '../util/path'
 import { CSSResourceToStyleElement, JSResourceToScriptElement } from '../util/resources'
 import { googleFontHref, googleFontSubsetHref } from '../util/theme'
-import type { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from './types'
+import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from './types'
+import { unescapeHTML } from '../util/escape'
+import { CustomOgImagesEmitterName } from '../plugins/emitters/ogImage'
 export default (() => {
   const Head: QuartzComponent = ({
     cfg,

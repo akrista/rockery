@@ -1,18 +1,12 @@
-import type { Root } from 'hast'
-import { toHtml } from 'hast-util-to-html'
-import type { GlobalConfiguration } from '../../cfg'
+import { Root } from 'hast'
+import { GlobalConfiguration } from '../../cfg'
 import { getDate } from '../../components/Date'
-import { i18n } from '../../i18n'
 import { escapeHTML } from '../../util/escape'
-import {
-  type FilePath,
-  type FullSlug,
-  joinSegments,
-  type SimpleSlug,
-  simplifySlug,
-} from '../../util/path'
-import type { QuartzEmitterPlugin } from '../types'
+import { FilePath, FullSlug, SimpleSlug, joinSegments, simplifySlug } from '../../util/path'
+import { QuartzEmitterPlugin } from '../types'
+import { toHtml } from 'hast-util-to-html'
 import { write } from './helpers'
+import { i18n } from '../../i18n'
 
 export type ContentIndexMap = Map<FullSlug, ContentDetails>
 export type ContentDetails = {
@@ -89,7 +83,7 @@ function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndexMap, limit?:
     <channel>
       <title>${escapeHTML(cfg.pageTitle)}</title>
       <link>https://${base}</link>
-      <description>${limit ? i18n(cfg.locale).pages.rss.lastFewNotes({ count: limit }) : i18n(cfg.locale).pages.rss.recentNotes} on ${escapeHTML(
+      <description>${!!limit ? i18n(cfg.locale).pages.rss.lastFewNotes({ count: limit }) : i18n(cfg.locale).pages.rss.recentNotes} on ${escapeHTML(
         cfg.pageTitle,
       )}</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>

@@ -1,13 +1,13 @@
-import { i18n } from '../i18n'
+import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from './types'
+import legacyStyle from './styles/legacyToc.scss'
+import modernStyle from './styles/toc.scss'
 import { classNames } from '../util/lang'
-import { concatenateResources } from '../util/resources'
-import OverflowListFactory from './OverflowList'
 
 // @ts-ignore
 import script from './scripts/toc.inline'
-import legacyStyle from './styles/legacyToc.scss'
-import modernStyle from './styles/toc.scss'
-import type { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from './types'
+import { i18n } from '../i18n'
+import OverflowListFactory from './OverflowList'
+import { concatenateResources } from '../util/resources'
 
 interface Options {
   layout: 'modern' | 'legacy'

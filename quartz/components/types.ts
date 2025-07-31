@@ -1,9 +1,9 @@
-import type { Node } from 'hast'
-import type { ComponentType, JSX } from 'preact'
-import type { GlobalConfiguration } from '../cfg'
-import type { QuartzPluginData } from '../plugins/vfile'
-import type { BuildCtx } from '../util/ctx'
-import type { StaticResources, StringResource } from '../util/resources'
+import { ComponentType, JSX } from 'preact'
+import { StaticResources, StringResource } from '../util/resources'
+import { QuartzPluginData } from '../plugins/vfile'
+import { GlobalConfiguration } from '../cfg'
+import { Node } from 'hast'
+import { BuildCtx } from '../util/ctx'
 
 export type QuartzComponentProps = {
   ctx: BuildCtx

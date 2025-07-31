@@ -1,9 +1,9 @@
+import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from './types'
+import style from './styles/backlinks.scss'
+import { resolveRelative, simplifySlug } from '../util/path'
 import { i18n } from '../i18n'
 import { classNames } from '../util/lang'
-import { resolveRelative, simplifySlug } from '../util/path'
 import OverflowListFactory from './OverflowList'
-import style from './styles/backlinks.scss'
-import type { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from './types'
 
 interface BacklinksOptions {
   hideWhenEmpty: boolean
@@ -25,7 +25,7 @@ export default ((opts?: Partial<BacklinksOptions>) => {
   }: QuartzComponentProps) => {
     const slug = simplifySlug(fileData.slug!)
     const backlinkFiles = allFiles.filter((file) => file.links?.includes(slug))
-    if (options.hideWhenEmpty && backlinkFiles.length === 0) {
+    if (options.hideWhenEmpty && backlinkFiles.length == 0) {
       return null
     }
     return (

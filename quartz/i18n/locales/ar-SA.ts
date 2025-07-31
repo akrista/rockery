@@ -1,4 +1,4 @@
-import type { Translation } from './definition'
+import { Translation } from './definition'
 
 export default {
   propertyDefaults: {
@@ -58,9 +58,9 @@ export default {
     },
     contentMeta: {
       readingTime: ({ minutes }) =>
-        minutes === 1
+        minutes == 1
           ? `دقيقة أو أقل للقراءة`
-          : minutes === 2
+          : minutes == 2
             ? `دقيقتان للقراءة`
             : `${minutes} دقائق للقراءة`,
     },

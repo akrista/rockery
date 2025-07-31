@@ -72,7 +72,7 @@ function sluggify(s: string): string {
 export function slugifyFilePath(fp: FilePath, excludeExt?: boolean): FullSlug {
   fp = stripSlashes(fp) as FilePath
   let ext = getFileExtension(fp)
-  const withoutFileExt = fp.replace(new RegExp(`${ext}$`), '')
+  const withoutFileExt = fp.replace(new RegExp(ext + '$'), '')
   if (excludeExt || ['.md', '.html', undefined].includes(ext)) {
     ext = ''
   }
@@ -93,12 +93,12 @@ export function simplifySlug(fp: FullSlug): SimpleSlug {
 }
 
 export function transformInternalLink(link: string): RelativeURL {
-  const [fplike, anchor] = splitAnchor(decodeURI(link))
+  let [fplike, anchor] = splitAnchor(decodeURI(link))
 
   const folderPath = isFolderPath(fplike)
-  const segments = fplike.split('/').filter((x) => x.length > 0)
-  const prefix = segments.filter(isRelativeSegment).join('/')
-  const fp = segments.filter((seg) => !isRelativeSegment(seg) && seg !== '').join('/')
+  let segments = fplike.split('/').filter((x) => x.length > 0)
+  let prefix = segments.filter(isRelativeSegment).join('/')
+  let fp = segments.filter((seg) => !isRelativeSegment(seg) && seg !== '').join('/')
 
   // manually add ext here as we want to not strip 'index' if it has an extension
   const simpleSlug = simplifySlug(slugifyFilePath(fp as FilePath))
@@ -178,7 +178,7 @@ export function splitAnchor(link: string): [string, string] {
   if (fp.endsWith('.pdf')) {
     return [fp, anchor === undefined ? '' : `#${anchor}`]
   }
-  anchor = anchor === undefined ? '' : `#${slugAnchor(anchor)}`
+  anchor = anchor === undefined ? '' : '#' + slugAnchor(anchor)
   return [fp, anchor]
 }
 
@@ -201,12 +201,12 @@ export function joinSegments(...args: string[]): string {
 
   // if the first segment starts with a slash, add it back
   if (args[0].startsWith('/')) {
-    joined = `/${joined}`
+    joined = '/' + joined
   }
 
   // if the last segment is a folder, add a trailing slash
   if (args[args.length - 1].endsWith('/')) {
-    joined = `${joined}/`
+    joined = joined + '/'
   }
 
   return joined
@@ -227,14 +227,14 @@ export interface TransformOptions {
 }
 
 export function transformLink(src: FullSlug, target: string, opts: TransformOptions): RelativeURL {
-  const targetSlug = transformInternalLink(target)
+  let targetSlug = transformInternalLink(target)
 
   if (opts.strategy === 'relative') {
     return targetSlug as RelativeURL
   } else {
     const folderTail = isFolderPath(targetSlug) ? '/' : ''
     const canonicalSlug = stripSlashes(targetSlug.slice('.'.length))
-    const [targetCanonical, targetAnchor] = splitAnchor(canonicalSlug)
+    let [targetCanonical, targetAnchor] = splitAnchor(canonicalSlug)
 
     if (opts.strategy === 'shortest') {
       // if the file name is unique, then it's just the filename
@@ -267,7 +267,7 @@ export function isFolderPath(fplike: string): boolean {
 }
 
 export function endsWith(s: string, suffix: string): boolean {
-  return s === suffix || s.endsWith(`/${suffix}`)
+  return s === suffix || s.endsWith('/' + suffix)
 }
 
 export function trimSuffix(s: string, suffix: string): string {

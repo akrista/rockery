@@ -1,19 +1,19 @@
-import path from 'node:path'
-import { styleText } from 'node:util'
 import esbuild from 'esbuild'
-import type { Root as HTMLRoot } from 'hast'
 import remarkParse from 'remark-parse'
-import type { Root as MDRoot } from 'remark-parse/lib'
 import remarkRehype from 'remark-rehype'
-import { read } from 'to-vfile'
-import { type Processor, unified } from 'unified'
-import workerpool, { type Promise as WorkerPromise } from 'workerpool'
-import type { MarkdownContent, ProcessedContent } from '../plugins/vfile'
-import type { BuildCtx, WorkerSerializableBuildCtx } from '../util/ctx'
-import { QuartzLogger } from '../util/log'
-import { type FilePath, QUARTZ, slugifyFilePath } from '../util/path'
+import { Processor, unified } from 'unified'
+import { Root as MDRoot } from 'remark-parse/lib'
+import { Root as HTMLRoot } from 'hast'
+import { MarkdownContent, ProcessedContent } from '../plugins/vfile'
 import { PerfTimer } from '../util/perf'
+import { read } from 'to-vfile'
+import { FilePath, QUARTZ, slugifyFilePath } from '../util/path'
+import path from 'path'
+import workerpool, { Promise as WorkerPromise } from 'workerpool'
+import { QuartzLogger } from '../util/log'
 import { trace } from '../util/trace'
+import { BuildCtx, WorkerSerializableBuildCtx } from '../util/ctx'
+import { styleText } from 'util'
 
 export type QuartzMdProcessor = Processor<MDRoot, MDRoot, MDRoot>
 export type QuartzHtmlProcessor = Processor<undefined, MDRoot, HTMLRoot>
@@ -96,7 +96,7 @@ export function createFileParser(ctx: BuildCtx, fps: FilePath[]) {
 
         // Text -> Text transforms
         for (const plugin of cfg.plugins.transformers.filter((p) => p.textTransform)) {
-          file.value = plugin.textTransform?.(ctx, file.value.toString()) ?? file.value
+          file.value = plugin.textTransform!(ctx, file.value.toString())
         }
 
         // base data properties that plugins may use

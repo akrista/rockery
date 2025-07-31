@@ -1,7 +1,7 @@
-import assert from 'node:assert'
 import test, { describe } from 'node:test'
-import type { FullSlug, SimpleSlug, TransformOptions } from './path'
 import * as path from './path'
+import assert from 'node:assert'
+import { FullSlug, TransformOptions, SimpleSlug } from './path'
 
 describe('typeguards', () => {
   test('isSimpleSlug', () => {

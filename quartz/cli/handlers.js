@@ -1,18 +1,18 @@
-import { execSync, spawnSync } from 'node:child_process'
-import { randomUUID } from 'node:crypto'
-import fs, { promises } from 'node:fs'
-import { rm } from 'node:fs/promises'
-import http from 'node:http'
-import path from 'node:path'
-import { styleText } from 'node:util'
 import { intro, outro, select, text } from '@clack/prompts'
 import { Mutex } from 'async-mutex'
+import { execSync, spawnSync } from 'child_process'
 import chokidar from 'chokidar'
+import { randomUUID } from 'crypto'
 import esbuild from 'esbuild'
 import { sassPlugin } from 'esbuild-sass-plugin'
+import fs, { promises } from 'fs'
+import { rm } from 'fs/promises'
 import { globby } from 'globby'
+import http from 'http'
+import path from 'path'
 import prettyBytes from 'pretty-bytes'
 import serveHandler from 'serve-handler'
+import { styleText } from 'util'
 import { WebSocketServer } from 'ws'
 import { CreateArgv } from './args.js'
 import {
@@ -216,7 +216,7 @@ See the [documentation](https://quartz.jzhao.xyz) for how to get started.
 
   // setup remote
   execSync(
-    `git remote show upstream || git remote add upstream https://github.com/akrista/rockery.git`,
+    `git remote show upstream || git remote add upstream https://github.com/jackyzha0/quartz.git`,
     { stdio: 'ignore' },
   )
 
@@ -302,7 +302,7 @@ export async function handleBuild(argv) {
   let lastBuildMs = 0
   let cleanupBuild = null
   const build = async (clientRefresh) => {
-    const buildStart = Date.now()
+    const buildStart = new Date().getTime()
     lastBuildMs = buildStart
     const release = await buildMutex.acquire()
     if (lastBuildMs > buildStart) {
@@ -348,7 +348,7 @@ export async function handleBuild(argv) {
     clientRefresh = () => connections.forEach((conn) => conn.send('rebuild'))
 
     if (argv.baseDir !== '' && !argv.baseDir.startsWith('/')) {
-      argv.baseDir = `/${argv.baseDir}`
+      argv.baseDir = '/' + argv.baseDir
     }
 
     await build(clientRefresh)
@@ -445,7 +445,7 @@ export async function handleBuild(argv) {
         // does /regular/index.html exist? if so, redirect to /regular/
         const indexFp = path.posix.join(fp, 'index.html')
         if (fs.existsSync(path.posix.join(argv.output, indexFp))) {
-          return redirect(`${fp}/`)
+          return redirect(fp + '/')
         }
       }
 
@@ -494,7 +494,7 @@ export async function handleUpdate(argv) {
   console.log(`\n${styleText(['bgGreen', 'black'], ` Rockery v${version} `)} \n`)
   console.log('Backing up your content')
   execSync(
-    `git remote show upstream || git remote add upstream https://github.com/akrista/rockery.git`,
+    `git remote show upstream || git remote add upstream https://github.com/jackyzha0/quartz.git`,
   )
   await stashContentFolder(contentFolder)
   console.log(
