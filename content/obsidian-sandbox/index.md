@@ -1,5 +1,5 @@
 ---
-title: Obsidian Sandbox
+title: About Obsidian
 ---
 
 Hi, welcome to Obsidian!
