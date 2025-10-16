@@ -1,5 +1,5 @@
-import type { PageLayout, SharedLayout } from './quartz/cfg'
-import * as Component from './quartz/components'
+import { PageLayout, SharedLayout } from "./quartz/cfg"
+import * as Component from "./quartz/components"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -8,7 +8,7 @@ export const sharedPageComponents: SharedLayout = {
   afterBody: [],
   footer: Component.Footer({
     links: {
-      GitHub: 'https://github.com/akrista/rockery',
+      GitHub: "https://github.com/akrista/rockery",
     },
   }),
 }
@@ -18,7 +18,7 @@ export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
     Component.ConditionalRender({
       component: Component.Breadcrumbs(),
-      condition: (page) => page.fileData.slug !== 'index',
+      condition: (page) => page.fileData.slug !== "index",
     }),
     Component.ArticleTitle(),
     Component.ContentMeta(),

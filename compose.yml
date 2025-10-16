@@ -3,7 +3,7 @@ services:
     image: ghcr.io/silverbulletmd/silverbullet:v2
     restart: unless-stopped
     environment:
-    - SB_USER=admin:admin
+      - SB_USER=admin:admin
     volumes:
       - ./content:/space
     ports:

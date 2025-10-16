@@ -1,4 +1,4 @@
-import { QuartzTransformerPlugin } from '../types'
+import { QuartzTransformerPlugin } from "../types"
 import {
   Root,
   Html,
@@ -7,26 +7,26 @@ import {
   DefinitionContent,
   Paragraph,
   Code,
-} from 'mdast'
-import { Element, Literal, Root as HtmlRoot } from 'hast'
-import { ReplaceFunction, findAndReplace as mdastFindReplace } from 'mdast-util-find-and-replace'
-import rehypeRaw from 'rehype-raw'
-import { SKIP, visit } from 'unist-util-visit'
-import path from 'path'
-import { splitAnchor } from '../../util/path'
-import { JSResource, CSSResource } from '../../util/resources'
+} from "mdast"
+import { Element, Literal, Root as HtmlRoot } from "hast"
+import { ReplaceFunction, findAndReplace as mdastFindReplace } from "mdast-util-find-and-replace"
+import rehypeRaw from "rehype-raw"
+import { SKIP, visit } from "unist-util-visit"
+import path from "path"
+import { splitAnchor } from "../../util/path"
+import { JSResource, CSSResource } from "../../util/resources"
 // @ts-ignore
-import calloutScript from '../../components/scripts/callout.inline'
+import calloutScript from "../../components/scripts/callout.inline"
 // @ts-ignore
-import checkboxScript from '../../components/scripts/checkbox.inline'
+import checkboxScript from "../../components/scripts/checkbox.inline"
 // @ts-ignore
-import mermaidScript from '../../components/scripts/mermaid.inline'
-import mermaidStyle from '../../components/styles/mermaid.inline.scss'
-import { FilePath, pathToRoot, slugTag, slugifyFilePath } from '../../util/path'
-import { toHast } from 'mdast-util-to-hast'
-import { toHtml } from 'hast-util-to-html'
-import { capitalize } from '../../util/lang'
-import { PluggableList } from 'unified'
+import mermaidScript from "../../components/scripts/mermaid.inline"
+import mermaidStyle from "../../components/styles/mermaid.inline.scss"
+import { FilePath, pathToRoot, slugTag, slugifyFilePath } from "../../util/path"
+import { toHast } from "mdast-util-to-hast"
+import { toHtml } from "hast-util-to-html"
+import { capitalize } from "../../util/lang"
+import { PluggableList } from "unified"
 
 export interface Options {
   comments: boolean
@@ -61,44 +61,44 @@ const defaultOptions: Options = {
 }
 
 const calloutMapping = {
-  note: 'note',
-  abstract: 'abstract',
-  summary: 'abstract',
-  tldr: 'abstract',
-  info: 'info',
-  todo: 'todo',
-  tip: 'tip',
-  hint: 'tip',
-  important: 'tip',
-  success: 'success',
-  check: 'success',
-  done: 'success',
-  question: 'question',
-  help: 'question',
-  faq: 'question',
-  warning: 'warning',
-  attention: 'warning',
-  caution: 'warning',
-  failure: 'failure',
-  missing: 'failure',
-  fail: 'failure',
-  danger: 'danger',
-  error: 'danger',
-  bug: 'bug',
-  example: 'example',
-  quote: 'quote',
-  cite: 'quote',
+  note: "note",
+  abstract: "abstract",
+  summary: "abstract",
+  tldr: "abstract",
+  info: "info",
+  todo: "todo",
+  tip: "tip",
+  hint: "tip",
+  important: "tip",
+  success: "success",
+  check: "success",
+  done: "success",
+  question: "question",
+  help: "question",
+  faq: "question",
+  warning: "warning",
+  attention: "warning",
+  caution: "warning",
+  failure: "failure",
+  missing: "failure",
+  fail: "failure",
+  danger: "danger",
+  error: "danger",
+  bug: "bug",
+  example: "example",
+  quote: "quote",
+  cite: "quote",
 } as const
 
 const arrowMapping: Record<string, string> = {
-  '->': '&rarr;',
-  '-->': '&rArr;',
-  '=>': '&rArr;',
-  '==>': '&rArr;',
-  '<-': '&larr;',
-  '<--': '&lArr;',
-  '<=': '&lArr;',
-  '<==': '&lArr;',
+  "->": "&rarr;",
+  "-->": "&rArr;",
+  "=>": "&rArr;",
+  "==>": "&rArr;",
+  "<-": "&larr;",
+  "<--": "&lArr;",
+  "<=": "&lArr;",
+  "<==": "&lArr;",
 }
 
 function canonicalizeCallout(calloutName: string): keyof typeof calloutMapping {
@@ -157,18 +157,18 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
   }
 
   return {
-    name: 'ObsidianFlavoredMarkdown',
+    name: "ObsidianFlavoredMarkdown",
     textTransform(_ctx, src) {
       // do comments at text level
       if (opts.comments) {
-        src = src.replace(commentRegex, '')
+        src = src.replace(commentRegex, "")
       }
 
       // pre-transform blockquotes
       if (opts.callouts) {
         src = src.replace(calloutLineRegex, (value) => {
           // force newline after title of callout
-          return value + '\n> '
+          return value + "\n> "
         })
       }
 
@@ -179,10 +179,10 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
           // escape all aliases and headers in wikilinks inside a table
           return value.replace(tableWikilinkRegex, (_value, raw) => {
             // const [raw]: (string | undefined)[] = capture
-            let escaped = raw ?? ''
-            escaped = escaped.replace('#', '\\#')
+            let escaped = raw ?? ""
+            escaped = escaped.replace("#", "\\#")
             // escape pipe characters if they are not already escaped
-            escaped = escaped.replace(/((^|[^\\])(\\\\)*)\|/g, '$1\\|')
+            escaped = escaped.replace(/((^|[^\\])(\\\\)*)\|/g, "$1\\|")
 
             return escaped
           })
@@ -192,14 +192,14 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
         src = src.replace(wikilinkRegex, (value, ...capture) => {
           const [rawFp, rawHeader, rawAlias]: (string | undefined)[] = capture
 
-          const [fp, anchor] = splitAnchor(`${rawFp ?? ''}${rawHeader ?? ''}`)
-          const blockRef = Boolean(rawHeader?.startsWith('#^')) ? '^' : ''
-          const displayAnchor = anchor ? `#${blockRef}${anchor.trim().replace(/^#+/, '')}` : ''
-          const displayAlias = rawAlias ?? rawHeader?.replace('#', '|') ?? ''
-          const embedDisplay = value.startsWith('!') ? '!' : ''
+          const [fp, anchor] = splitAnchor(`${rawFp ?? ""}${rawHeader ?? ""}`)
+          const blockRef = Boolean(rawHeader?.startsWith("#^")) ? "^" : ""
+          const displayAnchor = anchor ? `#${blockRef}${anchor.trim().replace(/^#+/, "")}` : ""
+          const displayAlias = rawAlias ?? rawHeader?.replace("#", "|") ?? ""
+          const embedDisplay = value.startsWith("!") ? "!" : ""
 
           if (rawFp?.match(externalLinkRegex)) {
-            return `${embedDisplay}[${displayAlias.replace(/^\|/, '')}](${rawFp})`
+            return `${embedDisplay}[${displayAlias.replace(/^\|/, "")}](${rawFp})`
           }
 
           return `${embedDisplay}[[${fp}${displayAnchor}${displayAlias}]]`
@@ -222,21 +222,21 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
               wikilinkRegex,
               (value: string, ...capture: string[]) => {
                 let [rawFp, rawHeader, rawAlias] = capture
-                const fp = rawFp?.trim() ?? ''
-                const anchor = rawHeader?.trim() ?? ''
+                const fp = rawFp?.trim() ?? ""
+                const anchor = rawHeader?.trim() ?? ""
                 const alias: string | undefined = rawAlias?.slice(1).trim()
 
                 // embed cases
-                if (value.startsWith('!')) {
+                if (value.startsWith("!")) {
                   const ext: string = path.extname(fp).toLowerCase()
                   const url = slugifyFilePath(fp as FilePath)
-                  if (['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.svg', '.webp'].includes(ext)) {
-                    const match = wikilinkImageEmbedRegex.exec(alias ?? '')
-                    const alt = match?.groups?.alt ?? ''
-                    const width = match?.groups?.width ?? 'auto'
-                    const height = match?.groups?.height ?? 'auto'
+                  if ([".png", ".jpg", ".jpeg", ".gif", ".bmp", ".svg", ".webp"].includes(ext)) {
+                    const match = wikilinkImageEmbedRegex.exec(alias ?? "")
+                    const alt = match?.groups?.alt ?? ""
+                    const width = match?.groups?.width ?? "auto"
+                    const height = match?.groups?.height ?? "auto"
                     return {
-                      type: 'image',
+                      type: "image",
                       url,
                       data: {
                         hProperties: {
@@ -246,27 +246,27 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                         },
                       },
                     }
-                  } else if (['.mp4', '.webm', '.ogv', '.mov', '.mkv'].includes(ext)) {
+                  } else if ([".mp4", ".webm", ".ogv", ".mov", ".mkv"].includes(ext)) {
                     return {
-                      type: 'html',
+                      type: "html",
                       value: `<video src="${url}" controls></video>`,
                     }
                   } else if (
-                    ['.mp3', '.webm', '.wav', '.m4a', '.ogg', '.3gp', '.flac'].includes(ext)
+                    [".mp3", ".webm", ".wav", ".m4a", ".ogg", ".3gp", ".flac"].includes(ext)
                   ) {
                     return {
-                      type: 'html',
+                      type: "html",
                       value: `<audio src="${url}" controls></audio>`,
                     }
-                  } else if (['.pdf'].includes(ext)) {
+                  } else if ([".pdf"].includes(ext)) {
                     return {
-                      type: 'html',
+                      type: "html",
                       value: `<iframe src="${url}" class="pdf"></iframe>`,
                     }
                   } else {
                     const block = anchor
                     return {
-                      type: 'html',
+                      type: "html",
                       data: { hProperties: { transclude: true } },
                       value: `<blockquote class="transclude" data-url="${url}" data-block="${block}" data-embed-alias="${alias}"><a href="${
                         url + anchor
@@ -283,7 +283,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                   const exists = ctx.allSlugs && ctx.allSlugs.includes(slug)
                   if (!exists) {
                     return {
-                      type: 'html',
+                      type: "html",
                       value: `<a class=\"internal broken\">${alias ?? fp}</a>`,
                     }
                   }
@@ -293,11 +293,11 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 const url = fp + anchor
 
                 return {
-                  type: 'link',
+                  type: "link",
                   url,
                   children: [
                     {
-                      type: 'text',
+                      type: "text",
                       value: alias ?? fp,
                     },
                   ],
@@ -312,7 +312,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
               (_value: string, ...capture: string[]) => {
                 const [inner] = capture
                 return {
-                  type: 'html',
+                  type: "html",
                   value: `<span class="text-highlight">${inner}</span>`,
                 }
               },
@@ -326,7 +326,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 const maybeArrow = arrowMapping[value]
                 if (maybeArrow === undefined) return SKIP
                 return {
-                  type: 'html',
+                  type: "html",
                   value: `<span>${maybeArrow}</span>`,
                 }
               },
@@ -349,16 +349,16 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 }
 
                 return {
-                  type: 'link',
+                  type: "link",
                   url: base + `/tags/${tag}`,
                   data: {
                     hProperties: {
-                      className: ['tag-link'],
+                      className: ["tag-link"],
                     },
                   },
                   children: [
                     {
-                      type: 'text',
+                      type: "text",
                       value: tag,
                     },
                   ],
@@ -368,18 +368,18 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
           }
 
           if (opts.enableInHtmlEmbed) {
-            visit(tree, 'html', (node: Html) => {
+            visit(tree, "html", (node: Html) => {
               for (const [regex, replace] of replacements) {
-                if (typeof replace === 'string') {
+                if (typeof replace === "string") {
                   node.value = node.value.replace(regex, replace)
                 } else {
                   node.value = node.value.replace(regex, (substring: string, ...args) => {
                     const replaceValue = replace(substring, ...args)
-                    if (typeof replaceValue === 'string') {
+                    if (typeof replaceValue === "string") {
                       return replaceValue
                     } else if (Array.isArray(replaceValue)) {
-                      return replaceValue.map(mdastToHtml).join('')
-                    } else if (typeof replaceValue === 'object' && replaceValue !== null) {
+                      return replaceValue.map(mdastToHtml).join("")
+                    } else if (typeof replaceValue === "object" && replaceValue !== null) {
                       return mdastToHtml(replaceValue)
                     } else {
                       return substring
@@ -396,10 +396,10 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
       if (opts.enableVideoEmbed) {
         plugins.push(() => {
           return (tree: Root, _file) => {
-            visit(tree, 'image', (node, index, parent) => {
+            visit(tree, "image", (node, index, parent) => {
               if (parent && index != undefined && videoExtensionRegex.test(node.url)) {
                 const newNode: Html = {
-                  type: 'html',
+                  type: "html",
                   value: `<video controls src="${node.url}"></video>`,
                 }
 
@@ -414,38 +414,38 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
       if (opts.callouts) {
         plugins.push(() => {
           return (tree: Root, _file) => {
-            visit(tree, 'blockquote', (node) => {
+            visit(tree, "blockquote", (node) => {
               if (node.children.length === 0) {
                 return
               }
 
               // find first line and callout content
               const [firstChild, ...calloutContent] = node.children
-              if (firstChild.type !== 'paragraph' || firstChild.children[0]?.type !== 'text') {
+              if (firstChild.type !== "paragraph" || firstChild.children[0]?.type !== "text") {
                 return
               }
 
               const text = firstChild.children[0].value
               const restOfTitle = firstChild.children.slice(1)
-              const [firstLine, ...remainingLines] = text.split('\n')
-              const remainingText = remainingLines.join('\n')
+              const [firstLine, ...remainingLines] = text.split("\n")
+              const remainingText = remainingLines.join("\n")
 
               const match = firstLine.match(calloutRegex)
               if (match && match.input) {
                 const [calloutDirective, typeString, calloutMetaData, collapseChar] = match
                 const calloutType = canonicalizeCallout(typeString.toLowerCase())
-                const collapse = collapseChar === '+' || collapseChar === '-'
-                const defaultState = collapseChar === '-' ? 'collapsed' : 'expanded'
+                const collapse = collapseChar === "+" || collapseChar === "-"
+                const defaultState = collapseChar === "-" ? "collapsed" : "expanded"
                 const titleContent = match.input.slice(calloutDirective.length).trim()
-                const useDefaultTitle = titleContent === '' && restOfTitle.length === 0
+                const useDefaultTitle = titleContent === "" && restOfTitle.length === 0
                 const titleNode: Paragraph = {
-                  type: 'paragraph',
+                  type: "paragraph",
                   children: [
                     {
-                      type: 'text',
+                      type: "text",
                       value: useDefaultTitle
-                        ? capitalize(typeString).replace(/-/g, ' ')
-                        : titleContent + ' ',
+                        ? capitalize(typeString).replace(/-/g, " ")
+                        : titleContent + " ",
                     },
                     ...restOfTitle,
                   ],
@@ -455,23 +455,23 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 const toggleIcon = `<div class="fold-callout-icon"></div>`
 
                 const titleHtml: Html = {
-                  type: 'html',
+                  type: "html",
                   value: `<div
                   class="callout-title"
                 >
                   <div class="callout-icon"></div>
                   <div class="callout-title-inner">${title}</div>
-                  ${collapse ? toggleIcon : ''}
+                  ${collapse ? toggleIcon : ""}
                 </div>`,
                 }
 
                 const blockquoteContent: (BlockContent | DefinitionContent)[] = [titleHtml]
                 if (remainingText.length > 0) {
                   blockquoteContent.push({
-                    type: 'paragraph',
+                    type: "paragraph",
                     children: [
                       {
-                        type: 'text',
+                        type: "text",
                         value: remainingText,
                       },
                     ],
@@ -486,18 +486,9 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                   node.children = [
                     node.children[0],
                     {
-                      data: { hProperties: { className: ['callout-content'] }, hName: 'div' },
-                      type: 'blockquote',
-                      children: [
-                        {
-                          data: {
-                            hProperties: { className: ['callout-content-inner'] },
-                            hName: 'div',
-                          },
-                          type: 'blockquote',
-                          children: [...calloutContent],
-                        },
-                      ],
+                      data: { hProperties: { className: ["callout-content"] }, hName: "div" },
+                      type: "blockquote",
+                      children: [...calloutContent],
                     },
                   ]
                 }
@@ -505,22 +496,22 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 // replace first line of blockquote with title and rest of the paragraph text
                 node.children.splice(0, 1, ...blockquoteContent)
 
-                const classNames = ['callout', calloutType]
+                const classNames = ["callout", calloutType]
                 if (collapse) {
-                  classNames.push('is-collapsible')
+                  classNames.push("is-collapsible")
                 }
-                if (defaultState === 'collapsed') {
-                  classNames.push('is-collapsed')
+                if (defaultState === "collapsed") {
+                  classNames.push("is-collapsed")
                 }
 
                 // add properties to base blockquote
                 node.data = {
                   hProperties: {
                     ...(node.data?.hProperties ?? {}),
-                    className: classNames.join(' '),
-                    'data-callout': calloutType,
-                    'data-callout-fold': collapse,
-                    'data-callout-metadata': calloutMetaData,
+                    className: classNames.join(" "),
+                    "data-callout": calloutType,
+                    "data-callout-fold": collapse,
+                    "data-callout-metadata": calloutMetaData,
                   },
                 }
               }
@@ -532,13 +523,13 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
       if (opts.mermaid) {
         plugins.push(() => {
           return (tree: Root, file) => {
-            visit(tree, 'code', (node: Code) => {
-              if (node.lang === 'mermaid') {
+            visit(tree, "code", (node: Code) => {
+              if (node.lang === "mermaid") {
                 file.data.hasMermaidDiagram = true
                 node.data = {
                   hProperties: {
-                    className: ['mermaid'],
-                    'data-clipboard': JSON.stringify(node.value),
+                    className: ["mermaid"],
+                    "data-clipboard": JSON.stringify(node.value),
                   },
                 }
               }
@@ -554,17 +545,17 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
 
       if (opts.parseBlockReferences) {
         plugins.push(() => {
-          const inlineTagTypes = new Set(['p', 'li'])
-          const blockTagTypes = new Set(['blockquote'])
+          const inlineTagTypes = new Set(["p", "li"])
+          const blockTagTypes = new Set(["blockquote"])
           return (tree: HtmlRoot, file) => {
             file.data.blocks = {}
 
-            visit(tree, 'element', (node, index, parent) => {
+            visit(tree, "element", (node, index, parent) => {
               if (blockTagTypes.has(node.tagName)) {
                 const nextChild = parent?.children.at(index! + 2) as Element
-                if (nextChild && nextChild.tagName === 'p') {
+                if (nextChild && nextChild.tagName === "p") {
                   const text = nextChild.children.at(0) as Literal
-                  if (text && text.value && text.type === 'text') {
+                  if (text && text.value && text.type === "text") {
                     const matches = text.value.match(blockReferenceRegex)
                     if (matches && matches.length >= 1) {
                       parent!.children.splice(index! + 2, 1)
@@ -582,20 +573,20 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                 }
               } else if (inlineTagTypes.has(node.tagName)) {
                 const last = node.children.at(-1) as Literal
-                if (last && last.value && typeof last.value === 'string') {
+                if (last && last.value && typeof last.value === "string") {
                   const matches = last.value.match(blockReferenceRegex)
                   if (matches && matches.length >= 1) {
                     last.value = last.value.slice(0, -matches[0].length)
                     const block = matches[0].slice(1)
 
-                    if (last.value === '') {
+                    if (last.value === "") {
                       // this is an inline block ref but the actual block
                       // is the previous element above it
                       let idx = (index ?? 1) - 1
                       while (idx >= 0) {
                         const element = parent?.children.at(idx)
                         if (!element) break
-                        if (element.type !== 'element') {
+                        if (element.type !== "element") {
                           idx -= 1
                         } else {
                           if (!Object.keys(file.data.blocks!).includes(block)) {
@@ -631,31 +622,31 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
       if (opts.enableYouTubeEmbed) {
         plugins.push(() => {
           return (tree: HtmlRoot) => {
-            visit(tree, 'element', (node) => {
-              if (node.tagName === 'img' && typeof node.properties.src === 'string') {
+            visit(tree, "element", (node) => {
+              if (node.tagName === "img" && typeof node.properties.src === "string") {
                 const match = node.properties.src.match(ytLinkRegex)
                 const videoId = match && match[2].length == 11 ? match[2] : null
                 const playlistId = node.properties.src.match(ytPlaylistLinkRegex)?.[1]
                 if (videoId) {
                   // YouTube video (with optional playlist)
-                  node.tagName = 'iframe'
+                  node.tagName = "iframe"
                   node.properties = {
-                    class: 'external-embed youtube',
-                    allow: 'fullscreen',
+                    class: "external-embed youtube",
+                    allow: "fullscreen",
                     frameborder: 0,
-                    width: '600px',
+                    width: "600px",
                     src: playlistId
                       ? `https://www.youtube.com/embed/${videoId}?list=${playlistId}`
                       : `https://www.youtube.com/embed/${videoId}`,
                   }
                 } else if (playlistId) {
                   // YouTube playlist only.
-                  node.tagName = 'iframe'
+                  node.tagName = "iframe"
                   node.properties = {
-                    class: 'external-embed youtube',
-                    allow: 'fullscreen',
+                    class: "external-embed youtube",
+                    allow: "fullscreen",
                     frameborder: 0,
-                    width: '600px',
+                    width: "600px",
                     src: `https://www.youtube.com/embed/videoseries?list=${playlistId}`,
                   }
                 }
@@ -668,14 +659,14 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
       if (opts.enableCheckbox) {
         plugins.push(() => {
           return (tree: HtmlRoot, _file) => {
-            visit(tree, 'element', (node) => {
-              if (node.tagName === 'input' && node.properties.type === 'checkbox') {
+            visit(tree, "element", (node) => {
+              if (node.tagName === "input" && node.properties.type === "checkbox") {
                 const isChecked = node.properties?.checked ?? false
                 node.properties = {
-                  type: 'checkbox',
+                  type: "checkbox",
                   disabled: false,
                   checked: isChecked,
-                  class: 'checkbox-toggle',
+                  class: "checkbox-toggle",
                 }
               }
             })
@@ -686,37 +677,37 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
       if (opts.mermaid) {
         plugins.push(() => {
           return (tree: HtmlRoot, _file) => {
-            visit(tree, 'element', (node: Element, _idx, parent) => {
+            visit(tree, "element", (node: Element, _idx, parent) => {
               if (
-                node.tagName === 'code' &&
-                ((node.properties?.className ?? []) as string[])?.includes('mermaid')
+                node.tagName === "code" &&
+                ((node.properties?.className ?? []) as string[])?.includes("mermaid")
               ) {
                 parent!.children = [
                   {
-                    type: 'element',
-                    tagName: 'button',
+                    type: "element",
+                    tagName: "button",
                     properties: {
-                      className: ['expand-button'],
-                      'aria-label': 'Expand mermaid diagram',
-                      'data-view-component': true,
+                      className: ["expand-button"],
+                      "aria-label": "Expand mermaid diagram",
+                      "data-view-component": true,
                     },
                     children: [
                       {
-                        type: 'element',
-                        tagName: 'svg',
+                        type: "element",
+                        tagName: "svg",
                         properties: {
                           width: 16,
                           height: 16,
-                          viewBox: '0 0 16 16',
-                          fill: 'currentColor',
+                          viewBox: "0 0 16 16",
+                          fill: "currentColor",
                         },
                         children: [
                           {
-                            type: 'element',
-                            tagName: 'path',
+                            type: "element",
+                            tagName: "path",
                             properties: {
-                              fillRule: 'evenodd',
-                              d: 'M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z',
+                              fillRule: "evenodd",
+                              d: "M3.72 3.72a.75.75 0 011.06 1.06L2.56 7h10.88l-2.22-2.22a.75.75 0 011.06-1.06l3.5 3.5a.75.75 0 010 1.06l-3.5 3.5a.75.75 0 11-1.06-1.06l2.22-2.22H2.56l2.22 2.22a.75.75 0 11-1.06 1.06l-3.5-3.5a.75.75 0 010-1.06l3.5-3.5z",
                             },
                             children: [],
                           },
@@ -726,19 +717,19 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
                   },
                   node,
                   {
-                    type: 'element',
-                    tagName: 'div',
-                    properties: { id: 'mermaid-container', role: 'dialog' },
+                    type: "element",
+                    tagName: "div",
+                    properties: { id: "mermaid-container", role: "dialog" },
                     children: [
                       {
-                        type: 'element',
-                        tagName: 'div',
-                        properties: { id: 'mermaid-space' },
+                        type: "element",
+                        tagName: "div",
+                        properties: { id: "mermaid-space" },
                         children: [
                           {
-                            type: 'element',
-                            tagName: 'div',
-                            properties: { className: ['mermaid-content'] },
+                            type: "element",
+                            tagName: "div",
+                            properties: { className: ["mermaid-content"] },
                             children: [],
                           },
                         ],
@@ -761,25 +752,25 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
       if (opts.enableCheckbox) {
         js.push({
           script: checkboxScript,
-          loadTime: 'afterDOMReady',
-          contentType: 'inline',
+          loadTime: "afterDOMReady",
+          contentType: "inline",
         })
       }
 
       if (opts.callouts) {
         js.push({
           script: calloutScript,
-          loadTime: 'afterDOMReady',
-          contentType: 'inline',
+          loadTime: "afterDOMReady",
+          contentType: "inline",
         })
       }
 
       if (opts.mermaid) {
         js.push({
           script: mermaidScript,
-          loadTime: 'afterDOMReady',
-          contentType: 'inline',
-          moduleType: 'module',
+          loadTime: "afterDOMReady",
+          contentType: "inline",
+          moduleType: "module",
         })
 
         css.push({
@@ -793,7 +784,7 @@ export const ObsidianFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options>>
   }
 }
 
-declare module 'vfile' {
+declare module "vfile" {
   interface DataMap {
     blocks: Record<string, Element>
     htmlAst: HtmlRoot

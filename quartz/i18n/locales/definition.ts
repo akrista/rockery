@@ -1,4 +1,4 @@
-import { FullSlug } from '../../util/path'
+import { FullSlug } from "../../util/path"
 
 export interface CalloutTranslation {
   note: string
@@ -21,6 +21,7 @@ export interface Translation {
     title: string
     description: string
   }
+  direction?: "ltr" | "rtl"
   components: {
     callout: CalloutTranslation
     backlinks: {
