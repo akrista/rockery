@@ -145,8 +145,8 @@ Here are some example image components you can use as a starting point:
 
 This example will generate images that look as follows:
 
-| Light                                      | Dark                                      |
-| ------------------------------------------ | ----------------------------------------- |
+| Light                                                                                                                                                        | Dark                                                                                                                                                       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ![custom-social-image-preview-light.png](https://raw.githubusercontent.com/jackyzha0/quartz/refs/heads/v4/docs/images/custom-social-image-preview-light.png) | ![custom-social-image-preview-dark.png](https://raw.githubusercontent.com/jackyzha0/quartz/refs/heads/v4/docs/images/custom-social-image-preview-dark.png) |
 
 ```tsx

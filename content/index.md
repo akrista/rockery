@@ -44,9 +44,10 @@ This is my space for **[learning in public](https://www.swyx.io/learn-in-public)
 
 ## 🤝 Open Source & Contributions
 
-This digital rockery is completely **open source**! You can find the source code and all articles in the GitHub repository: **[akrista/rockery](https://github.com/akrista/rockery)**. 
+This digital rockery is completely **open source**! You can find the source code and all articles in the GitHub repository: **[akrista/rockery](https://github.com/akrista/rockery)**.
 
 Contributions, suggestions, and improvements are always welcome! Feel free to:
+
 - Open issues for suggestions or corrections
 - Submit pull requests with improvements
 - Share feedback on content or technical aspects
@@ -61,5 +62,4 @@ Unlike traditional blogs, this rockery contains work in progress, incomplete tho
 
 ---
 
-*Ready to explore? Remember: in a rockery, the most interesting discoveries often happen off the beaten path.* 🛤️
-
+_Ready to explore? Remember: in a rockery, the most interesting discoveries often happen off the beaten path._ 🛤️

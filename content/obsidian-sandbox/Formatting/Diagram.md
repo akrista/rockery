@@ -17,6 +17,7 @@ sequenceDiagram
 ```
 
 Obsidian supports linking to notes in Mermaid:
+
 <pre><code>```mermaid
 graph TD
 
@@ -26,6 +27,7 @@ class Biology,Chemistry internal-link;
 ```</code></pre>
 
 An easier way to do it is the following: ^376b9d
+
 <pre><code>```mermaid
 graph TD
 

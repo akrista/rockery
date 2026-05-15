@@ -48,7 +48,7 @@ function resolveContentPath(contentPath) {
  */
 export async function handleCreate(argv) {
   console.log()
-  intro(styleText(['bgGreen', 'black'], ` Rockery v${version} `))
+  intro(styleText(["bgGreen", "black"], ` Rockery v${version} `))
   const contentFolder = resolveContentPath(argv.directory)
   let setupStrategy = argv.strategy?.toLowerCase()
   let linkResolutionStrategy = argv.links?.toLowerCase()
@@ -237,7 +237,7 @@ export async function handleBuild(argv) {
     argv.watch = true
   }
 
-  console.log(`\n${styleText(['bgGreen', 'black'], ` Rockery v${version} `)} \n`)
+  console.log(`\n${styleText(["bgGreen", "black"], ` Rockery v${version} `)} \n`)
   const ctx = await esbuild.context({
     entryPoints: [fp],
     outfile: cacheFile,
@@ -318,7 +318,7 @@ export async function handleBuild(argv) {
 
     const result = await ctx.rebuild().catch((err) => {
       console.error(`${styleText("red", "Couldn't parse Quartz configuration:")} ${fp}`)
-      console.log(`Reason: ${styleText("grey", err)}`)
+      console.log(`Reason: ${styleText("gray", err)}`)
       process.exit(1)
     })
     release()
@@ -395,7 +395,7 @@ export async function handleBuild(argv) {
           status >= 200 && status < 300
             ? styleText("green", `[${status}]`)
             : styleText("red", `[${status}]`)
-        console.log(statusString + styleText("grey", ` ${argv.baseDir}${req.url}`))
+        console.log(statusString + styleText("gray", ` ${argv.baseDir}${req.url}`))
         release()
       }
 
@@ -406,7 +406,7 @@ export async function handleBuild(argv) {
         })
         console.log(
           styleText("yellow", "[302]") +
-            styleText("grey", ` ${argv.baseDir}${req.url} -> ${newFp}`),
+            styleText("gray", ` ${argv.baseDir}${req.url} -> ${newFp}`),
         )
         res.end()
       }
@@ -482,7 +482,7 @@ export async function handleBuild(argv) {
       .on("change", () => build(clientRefresh))
       .on("unlink", () => build(clientRefresh))
 
-    console.log(styleText("grey", "hint: exit with ctrl+c"))
+    console.log(styleText("gray", "hint: exit with ctrl+c"))
   }
 }
 
@@ -492,8 +492,8 @@ export async function handleBuild(argv) {
  */
 export async function handleUpdate(argv) {
   const contentFolder = resolveContentPath(argv.directory)
-  console.log(`\n${styleText(['bgGreen', 'black'], ` Rockery v${version} `)} \n`)
-  console.log('Backing up your content')
+  console.log(`\n${styleText(["bgGreen", "black"], ` Rockery v${version} `)} \n`)
+  console.log("Backing up your content")
   execSync(
     `git remote show upstream || git remote add upstream https://github.com/jackyzha0/quartz.git`,
   )
@@ -553,8 +553,8 @@ export async function handleRestore(argv) {
  */
 export async function handleSync(argv) {
   const contentFolder = resolveContentPath(argv.directory)
-  console.log(`\n${styleText(['bgGreen', 'black'], ` Rockery v${version} `)}\n`)
-  console.log('Backing up your content')
+  console.log(`\n${styleText(["bgGreen", "black"], ` Rockery v${version} `)}\n`)
+  console.log("Backing up your content")
 
   if (argv.commit) {
     const contentStat = await fs.promises.lstat(contentFolder)

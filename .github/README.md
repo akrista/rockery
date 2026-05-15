@@ -81,16 +81,19 @@ rockery/
 Contributions are welcome! You can help in several ways:
 
 ### 📝 Content
+
 - Fix typos or grammatical errors
 - Suggest improvements to existing articles
 - Propose new topics
 
 ### 🔧 Code
+
 - UI/UX improvements
 - Performance optimizations
 - New features
 
 ### 🐛 Report Issues
+
 - Website bugs
 - Accessibility problems
 - UX/UI suggestions
@@ -106,9 +109,11 @@ Contributions are welcome! You can help in several ways:
 ## 📄 Licenses
 
 ### Source Code
+
 The source code of this project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
 
 ### Content
+
 All content (articles, notes, images) is licensed under **[Creative Commons BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)**. This means you can:
 
 - ✅ Share and adapt the content
@@ -132,4 +137,4 @@ This project is inspired by the concept of **digital gardens** and the philosoph
 
 ---
 
-*Built with ❤️ using Quartz and Obsidian*
+_Built with ❤️ using Quartz and Obsidian_

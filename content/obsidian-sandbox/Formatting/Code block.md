@@ -10,15 +10,14 @@ function fancyAlert(arg) {
 
 ```js
 function fancyAlert(arg) {
-  if(arg) {
-    $.facebox({div:'#foo'})
+  if (arg) {
+    $.facebox({ div: "#foo" })
   }
 }
 ```
-    
-	
+
 ```md
-    Text indented with a tab is formatted like this, and will also look like a code block in preview. 
+    Text indented with a tab is formatted like this, and will also look like a code block in preview.
 ```
 
-    Text indented with a tab is formatted like this, and will also look like a code block in preview. 
+    Text indented with a tab is formatted like this, and will also look like a code block in preview.

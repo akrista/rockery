@@ -1,12 +1,16 @@
 ```md
-$$\begin{vmatrix}a & b\\
+$$
+\begin{vmatrix}a & b\\
 c & d
-\end{vmatrix}=ad-bc$$
+\end{vmatrix}=ad-bc
+$$
 ```
 
-$$\begin{vmatrix}a & b\\
+$$
+\begin{vmatrix}a & b\\
 c & d
-\end{vmatrix}=ad-bc$$
+\end{vmatrix}=ad-bc
+$$
 
 You can also do inline math like $e^{2i\pi} = 1$ .
 

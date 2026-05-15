@@ -64,4 +64,4 @@ If you have questions about using the content or need additional permissions, do
 
 ---
 
-*For more information about Creative Commons and its licenses, visit [creativecommons.org](https://creativecommons.org/)*
+_For more information about Creative Commons and its licenses, visit [creativecommons.org](https://creativecommons.org/)_

@@ -14,6 +14,7 @@ Use the following syntax to denote a callout block: `> [!INFO]`.
 ```
 
 It will show up like this:
+
 > [!INFO]
 > Here's a callout block.
 > It supports **markdown** and [[Internal link|wikilinks]].

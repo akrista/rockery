@@ -51,6 +51,11 @@ export type Analytics =
       provider: "vercel"
     }
   | {
+      provider: "rybbit"
+      siteId: string
+      host?: string
+    }
+  | {
       provider: "akrista"
       projectId: string
       tagId: string

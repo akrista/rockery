@@ -6,9 +6,7 @@ Okay, enough for how complicated it can get. The good news is how easy it is to 
 
 1. Set up a nice place for yourself
    → [[Create a vault]]
-   
 2. Jot down some notes
    → [[Create your first note]]
-   
 3. Let your ideas mingle
    → [[Link notes]]

@@ -1,4 +1,4 @@
-Obsidian is a Markdown-based note-taking and knowledge base app. 
+Obsidian is a Markdown-based note-taking and knowledge base app.
 
 We currently support the formats below:
 
@@ -41,4 +41,3 @@ We currently support the formats below:
 ![[Callout]]
 
 ![[Diagram]]
-
