@@ -19,7 +19,10 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "rockery.notakrista.com",
-    ignorePatterns: ["private", "templates", ".obsidian", "CONFIG.md"],
+    ignorePatterns: [
+      ".obsidian",
+      "CONFIG.md"
+    ],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
