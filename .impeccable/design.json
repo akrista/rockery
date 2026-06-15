@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-15T23:11:00Z",
+  "title": "Design System: Akrista's Rockery",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Terracotta Red", "canonical": "hex #CC241D", "tonalRamp": ["#330907", "#5a0f0d", "#8f1915", "#cc241d", "#d6504a", "#e07c77", "#f1a9a7", "#f5d7d5"] },
+      "secondary": { "role": "secondary", "displayName": "Ochre Gold", "canonical": "hex #D79921", "tonalRamp": ["#362608", "#61450f", "#9c6e18", "#d79921", "#e0ad4d", "#ebd779", "#f2dfa5", "#faf3d2"] },
+      "neutral-bg": { "role": "neutral", "displayName": "Clay Light Background", "canonical": "hex #FBF1C7", "tonalRamp": ["#3c3836", "#504945", "#665c54", "#7c6f64", "#a89984", "#bdae93", "#d5c4a1", "#fbf1c7"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero/page titles." },
+      "body": { "displayName": "Body", "purpose": "Prose/content." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Standard easing for interactions." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "800px" },
+      { "name": "desktop", "value": "1200px" }
+    ]
+  },
+  "components": [],
+  "narrative": {
+    "northStar": "The Basalt Scriptorium",
+    "overview": "Akrista's Rockery is a digital garden designed around the metaphor of enduring stone and mineral structures. The aesthetic is clean, grounded, and rustic yet modern. It values typographic durability and comfortable reading above all else.\n\nThis design system rejects the ephemeral, over-decorated visual grammar of standard SaaS landing pages, avoiding unnecessary floating cards, artificial glassmorphism blurs, and decorative text gradients. Instead, it relies on solid typographic hierarchy and clear structural organization.",
+    "keyCharacteristics": [
+      "Mineral Grounding: Grounded structures using raw, mineral-inspired background levels.",
+      "Typographic Resilience: Strong display letterforms paired with readable, spacious humanist body text.",
+      "Tonal Depth: Layering defined by color contrast steps rather than artificial shadows.",
+      "Deliberate Accents: High-chroma accents used only to guide the eye and denote links."
+    ],
+    "rules": [
+      { "name": "The Rarity of Red Rule", "body": "Terracotta Red is used on <=10% of any given screen. Its rarity is what makes it an effective call to attention.", "section": "colors" },
+      { "name": "The 75ch Ceiling", "body": "Long-form prose must never exceed 75ch in width to ensure optimal readability and eye-tracking.", "section": "typography" },
+      { "name": "The Flat Grounding Rule", "body": "All containers, dialogs, and cards are flat at rest. Overlays and hover states differentiate themselves using background step shifts and solid borders, never shadows.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do limit Terracotta Red accents to <=10% of page area.",
+      "Do ensure all text hits a contrast ratio of at least 4.5:1 against its background.",
+      "Do constrain long-form reading columns to a maximum of 75 characters (75ch).",
+      "Do use background tonal steps (#FBF1C7 vs #EBDBB2) to indicate structure."
+    ],
+    "donts": [
+      "Don't use border-left or border-right greater than 1px as a colored stripe on callouts or cards (use complete borders instead).",
+      "Don't use gradient text (background-clip: text with a gradient) for headings.",
+      "Don't use glassmorphism, blurs, or drop shadows for visual styling.",
+      "Don't put a tiny, tracked uppercase eyebrow above every section title.",
+      "Don't use standard default Quartz styling without Gruvbox-inspired Clay/Basalt overrides."
+    ]
+  }
+}

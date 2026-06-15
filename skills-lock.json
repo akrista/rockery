@@ -1,11 +1,149 @@
 {
   "version": 1,
   "skills": {
+    "betting": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/betting/SKILL.md",
+      "computedHash": "f43e2f6c9c4fd78387a92033b92fd6889e36d2f83eb8110e43d240064cdfdf26"
+    },
+    "cbb-data": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/cbb-data/SKILL.md",
+      "computedHash": "19bfb503a0c8dc8f8ea72a4ae5c70b63f7c25b5632c5ee09ece44fa488d5b33d"
+    },
+    "cfb-data": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/cfb-data/SKILL.md",
+      "computedHash": "377350c0f603921f68b092d7f8d2d21404a8e85fb32de893cfc953adf87deca8"
+    },
+    "cricket-data": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/cricket-data/SKILL.md",
+      "computedHash": "715f41185a8246eedf8a89a096a2af3586827aa55d2a2be34152da8a48c1da69"
+    },
+    "fastf1": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/fastf1/SKILL.md",
+      "computedHash": "c0e83730ff481e60173c0a4ce2059a68086186704d13066cf15828421d32c1d3"
+    },
+    "football-data": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/football-data/SKILL.md",
+      "computedHash": "1388eff3589a0206025c8ea6bca52d1e1e6fd8bd51a147bd039886af7ca410b4"
+    },
+    "golf-data": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/golf-data/SKILL.md",
+      "computedHash": "903f3e0363d7d6a693bdbb745a42dfccd9a6deb115632aebb63ed8903f564572"
+    },
     "impeccable": {
       "source": "pbakaus/impeccable",
       "sourceType": "github",
       "skillPath": "skill/SKILL.md",
       "computedHash": "c8f645c3e9aace8baf528021165168bac77d4f761f0ab7baf45e06e01691500f"
+    },
+    "kalshi": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/kalshi/SKILL.md",
+      "computedHash": "ff20afd4c7c2f3c40ec67f9c25641096aa786e26c11b71d3e05291dfb1eb3b9c"
+    },
+    "machina": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/machina/SKILL.md",
+      "computedHash": "dcea1985caf07fce684805f2127d94a0719ee0966934b8bc3b55ec2cd5fdcaa9"
+    },
+    "markets": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/markets/SKILL.md",
+      "computedHash": "f53eac12c3c47b15591727ed991aeaf130adb974181e690773b50ee452b39ab4"
+    },
+    "metadata": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/metadata/SKILL.md",
+      "computedHash": "588426bd2d24cf922163bdbd1659eb2f985e493c2006a1b41331647dbc09ef20"
+    },
+    "mlb-data": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/mlb-data/SKILL.md",
+      "computedHash": "36b0b8bc724a49aab1bfe607f97169e1e386ea5772a3fca63dec01265ce697f2"
+    },
+    "nba-data": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/nba-data/SKILL.md",
+      "computedHash": "471d7f6c7c0db38264d022a057b30b31a25a358d1b8174a2a20ebebab925a66a"
+    },
+    "nfl-data": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/nfl-data/SKILL.md",
+      "computedHash": "376336f7dc02b7c38d04688327c433205fcc02e8c6727aa260027888452d11b2"
+    },
+    "nhl-data": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/nhl-data/SKILL.md",
+      "computedHash": "b6fb781ac34ecfe435136e92d6c0cb25c19d9a102b3ca50399ea6ead85f65ed2"
+    },
+    "polymarket": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/polymarket/SKILL.md",
+      "computedHash": "2a35561db2553ebf28e474a5c2ee79d869e0017e1fdf95a8c952860694fb5b62"
+    },
+    "sports-news": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/sports-news/SKILL.md",
+      "computedHash": "d024caee4e55acb947a8d81019adde5f5bf0abcc6817a65ae9909dfa7e0d2e26"
+    },
+    "sports-reporter": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/sports-reporter/SKILL.md",
+      "computedHash": "352c04ec653f607a93b36438c23f54efe4e831f30e6f4e64eae54e72da14c6aa"
+    },
+    "tennis-data": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/tennis-data/SKILL.md",
+      "computedHash": "8b8e9bd57c88eff92f3fa242aca44e7e18f5a79d0c69d4576853c6283d804efb"
+    },
+    "volleyball-data": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/volleyball-data/SKILL.md",
+      "computedHash": "1faef6b642e947d4657aa07e555588cb88a125cb192feb97f97796f00cb4c360"
+    },
+    "wnba-data": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/wnba-data/SKILL.md",
+      "computedHash": "780895bcde5a8b9344a7999306eaf8e4e75032c6fcacf26fa6d2594196277e7c"
+    },
+    "world-cup": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/world-cup/SKILL.md",
+      "computedHash": "76b208b34cb07e8c91e05b18c0c30515f09f96aff1c02227f878b8288665aabd"
+    },
+    "xctf-data": {
+      "source": "machina-sports/sports-skills",
+      "sourceType": "github",
+      "skillPath": "skills/xctf-data/SKILL.md",
+      "computedHash": "6cbcd1e6cf91e04360894614e3bfbdca7721fb5502d79d585bb371176dfcacb3"
     }
   }
 }
