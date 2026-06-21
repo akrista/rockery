@@ -25,6 +25,12 @@
       "skillPath": "skills/cricket-data/SKILL.md",
       "computedHash": "715f41185a8246eedf8a89a096a2af3586827aa55d2a2be34152da8a48c1da69"
     },
+    "defuddle": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "skillPath": "skills/defuddle/SKILL.md",
+      "computedHash": "ad2cf050eced5f0d9057d534bf6e084bd8d6e521529b5b783940b20fd835c4df"
+    },
     "fastf1": {
       "source": "machina-sports/sports-skills",
       "sourceType": "github",
@@ -43,11 +49,11 @@
       "skillPath": "skills/golf-data/SKILL.md",
       "computedHash": "903f3e0363d7d6a693bdbb745a42dfccd9a6deb115632aebb63ed8903f564572"
     },
-    "impeccable": {
-      "source": "pbakaus/impeccable",
+    "json-canvas": {
+      "source": "kepano/obsidian-skills",
       "sourceType": "github",
-      "skillPath": "skill/SKILL.md",
-      "computedHash": "c8f645c3e9aace8baf528021165168bac77d4f761f0ab7baf45e06e01691500f"
+      "skillPath": "skills/json-canvas/SKILL.md",
+      "computedHash": "bb7aa4f03414d50d91736f824bc5f79122b38a895deb03c0260700842a338580"
     },
     "kalshi": {
       "source": "machina-sports/sports-skills",
@@ -96,6 +102,24 @@
       "sourceType": "github",
       "skillPath": "skills/nhl-data/SKILL.md",
       "computedHash": "b6fb781ac34ecfe435136e92d6c0cb25c19d9a102b3ca50399ea6ead85f65ed2"
+    },
+    "obsidian-bases": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "skillPath": "skills/obsidian-bases/SKILL.md",
+      "computedHash": "0d9958e07672384650f404bda4fc9268e1720e9234d42eeca29fc356b1e2a277"
+    },
+    "obsidian-cli": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "skillPath": "skills/obsidian-cli/SKILL.md",
+      "computedHash": "89ded0eb1499286d5c95217df0ff7015aa46b7efe4646fafaba38cbac3289392"
+    },
+    "obsidian-markdown": {
+      "source": "kepano/obsidian-skills",
+      "sourceType": "github",
+      "skillPath": "skills/obsidian-markdown/SKILL.md",
+      "computedHash": "d65bfcd6012560c61da9c88c79679a9a8218ac6b4928df9b55ae451949a1618a"
     },
     "polymarket": {
       "source": "machina-sports/sports-skills",

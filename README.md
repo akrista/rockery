@@ -13,24 +13,24 @@ A digital garden built on solid foundations - exploring ideas through Obsidian a
 A **rockery** is a garden built on stones that thrives in challenging conditions. Like a traditional rock garden, this digital space is built on solid foundations using:
 
 - **🔹 Obsidian** - For creating interconnected notes
-- **💎 Quartz** - For transforming notes into this beautiful website
+- **💎 Quartz 5** - For transforming notes into this beautiful website
 - **🏗️ Solid principles** - Durable, interconnected, and resilient ideas
 
 ## 🛠️ Tech Stack
 
 This project is built with:
 
-- **[Quartz](https://quartz.jzhao.xyz/)** - Static site generator for digital gardens
+- **[Quartz 5](https://quartz.jzhao.xyz/)** - Static site generator for digital gardens
 - **[Obsidian](https://obsidian.md/)** - Knowledge management and writing tool
 - **TypeScript** - For robust and maintainable code
 - **SCSS** - For custom styling
-- **Bun** - Runtime and package manager
 
 ## 🚀 Local Development
 
 ### Prerequisites
 
-- [Bun](https://bun.sh/) installed on your system
+- [Node.js](https://nodejs.org/) v22+
+- npm v10.9.2+
 
 ### Installation
 
@@ -40,10 +40,10 @@ git clone https://github.com/akrista/rockery.git
 cd rockery
 
 # Install dependencies
-bun install
+npm ci
 
 # Start development server
-bun run dev
+npm run dev
 ```
 
 The site will be available at `http://localhost:8080`
@@ -52,14 +52,14 @@ The site will be available at `http://localhost:8080`
 
 ```bash
 # Development
-bun run dev          # Development server with hot reload
+npm run dev          # Development server with hot reload
 
 # Build
-bun run build        # Build site for production
-bun run serve        # Serve built site locally
+npm run build        # Build site for production
+npm run serve        # Serve built site locally
 
 # Utilities
-bun run clean        # Clean build files
+npm run clean        # Clean build files
 ```
 
 ## 📁 Project Structure
@@ -70,9 +70,10 @@ rockery/
 │   ├── index.md      # Main page
 │   ├── LICENSE.md    # Content license
 │   └── ...           # Other articles and notes
-├── quartz/           # Quartz configuration and components
-├── quartz.config.ts  # Main configuration
-├── quartz.layout.ts  # Site layout
+├── quartz/             # Quartz source and components
+├── quartz.config.yaml  # Main configuration (YAML)
+├── quartz.ts           # TypeScript config override (analytics)
+├── quartz.lock.json    # Plugin lock file
 └── package.json      # Dependencies and scripts
 ```
 

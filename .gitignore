@@ -1,4 +1,5 @@
 .DS_Store
+.gitignore
 node_modules
 public
 prof
@@ -8,7 +9,11 @@ tsconfig.tsbuildinfo
 private/
 .replit
 replit.nix
+.quartz/
+quartz/cli/tui/dist/
 .agents
 .codex
 .claude
+.opencode
+.gemini
 .github/skills

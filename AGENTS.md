@@ -1,5 +1,3 @@
-Remember to check the README.md on .github folder for more context
-
 ## Developer Communication & Cognitive Ergonomics
 
 As an AI assistant, your primary goal when explaining concepts, architectural decisions, code changes, or debugging steps is to prevent **Cognitive Overload** for the developer. You MUST adhere to the following cognitive ergonomics rules:
@@ -27,32 +25,44 @@ As an AI assistant, your primary goal when explaining concepts, architectural de
 
 ## Rockery PKB Workflow & Content Guidelines
 
-You are operating within a Digital Garden built on Obsidian and Quartz. Your primary goal is to help the user grow, organize, and publish their personal knowledge base.
+You are operating within a **Digital Garden** built on Obsidian and Quartz. Your primary goal is to help the user grow, organize, and publish their personal knowledge base.
 
 ### 1. Content Routing Matrix
-- **Public Content (`content/`)**: General knowledge, tutorials, tool documentations, published thoughts, and "Learning in Public" articles.
-- **Private Content (`content/private/`)**: Pending projects, personal ideas, drafts, and sensitive information.
+
+| Type | Path | Git-tracked | Purpose |
+|------|------|-------------|---------|
+| **Public daily notes** | `content/daily/` | Yes | Learning-in-public, daily exploration notes |
+| **Public topics** | `content/topics/` | Yes | Deep-dive concept notes, tutorials, tool docs |
+| **Public projects** | `content/projects/` | Yes | Long-form project documentation |
+| **Private daily notes** | `content/private/daily/` | **No** | Personal daily logs, sensitive explorations |
+| **Private tasks** | `content/private/tasks/` | **No** | Task management (replaces deeply nested Workspace/Projects/Client/Program) |
+| **Private scratch** | `content/private/scratch/` | **No** | Drafts, pending ideas, WIP content |
+
 - **No `.gitkeep` files in private**: Do not use or create `.gitkeep` files inside `content/private/` or its subdirectories. This folder is synced via external methods (like Syncthing) and ignored by Git, so these files are unnecessary.
 - *Rule:* If unsure about the content's nature, **ALWAYS default to `content/private/`** to prevent accidental public disclosure.
 
-### 2. Privacy & Data Sanitization
+### 2. Daily Notes Protocol
+
+When the user discusses a topic, concept, tool, or workflow, the agent MUST:
+
+1. **Create a daily note** at `content/daily/YYYY-MM-DD-<topic-slug>.md` (public) or `content/private/daily/YYYY-MM-DD-<topic-slug>.md` (private) depending on content sensitivity.
+2. **Include YAML frontmatter** with `title`, `date` (YYYY-MM-DD), and `tags`.
+3. **Summarize the key learning** in 3-5 bullet points — concise, actionable, linkable.
+4. **Use wikilinks** to connect to related notes in `content/topics/`, `content/projects/`, or other daily notes.
+5. **Ask the user** if they want the note published publicly or kept private before writing, if the domain isn't obvious.
+
+### 3. Privacy & Data Sanitization
 
 > **CRITICAL**: This rule applies BEFORE writing any file, spec, commit, or artifact to a git-tracked location.
 
-- **Strict Isolation**: NEVER place sensitive data (company names, client names, program names, people's names, credentials, internal project names, etc.) in ANY git-tracked location — including `@openspec/**`, config files, or commit messages.
+- **Strict Isolation**: NEVER place sensitive data (company names, client names, program names, people's names, credentials, internal project names, etc.) in ANY git-tracked location — including config files or commit messages.
 - **Sanitization Rule**: When writing specs, proposals, tasks, or design docs that refer to content within `content/private/`, you MUST use generic placeholders instead of real names:
   - Companies/clients → "Client A", "Client B", "External Client 1"
   - Programs/projects → "Program X", "Internal Project 2"
   - People → "Collaborator A", "Team Member B"
-- **Applies to ALL tracked artifacts**: OpenSpec changes, implementation plans, commit messages, folder names in tracked directories, and any file outside `content/private/`.
+- **Applies to ALL tracked artifacts**: Implementation plans, commit messages, folder names in tracked directories, and any file outside `content/private/`.
 - **Pre-Write Check**: Before creating or editing ANY tracked file, ask: *"Does this file contain a real client name, program name, or internal identifier?"* If yes — sanitize first, write second.
 - **Trace Management**: Always ensure that git history and project artifacts remain free of sensitive identifiers. If in doubt, default to a placeholder.
-
-### 3. Spec & Planning Workflow
-
-- **We use OpenSpec** (`@openspec/`) for all specs, proposals, and implementation plans — NOT `docs/` or `docs/superpowers/specs/`.
-- When any skill (e.g. superpowers brainstorming) instructs writing to `docs/superpowers/specs/`, **override that** and use `openspec new change "<name>"` instead.
-- The OpenSpec workflow replaces the superpowers writing-plans + docs workflow entirely.
 
 ### 4. Formatting & Markdown Syntax
 - **Frontmatter**: Every new note MUST include YAML frontmatter containing `title`, `date` (YYYY-MM-DD), and `tags`.
@@ -68,31 +78,29 @@ When asked to create, document, or brainstorm a project/idea/tool:
 
 ## Task & Work Management
 
-The PKB is the source of truth for the user's work tasks. **Never search Notion or external tools** when asked about tasks — always read from `content/private/` first.
+The PKB is the source of truth for the user's work tasks — always read from `content/private/tasks/` first. If needed, you may search external tools (Notion, etc.), but ask the user whether any findings should be added to the PKB.
 
 ### 1. Task Location & Structure
 
-Tasks live under `content/private/<Workspace>/Projects/<Client>/<Program>/`.
-
-The workspace structure and client/program names exist only in `content/private/` (git-ignored). Discover them at runtime by globbing — never hardcode them here.
+Tasks live under `content/private/tasks/` as individual `.md` files.
 
 Each task file has YAML frontmatter with at minimum:
 - `title` — task name
 - `status` — one of: `pending`, `active`, `done`, `blocked`
-- `tags` — for filtering
+- `tags` — for filtering (include client/program as tags, not folder names)
 
 ### 2. Daily Briefing Protocol
 
-When the user asks **"qué hay para hoy"**, **"what's up"**, **"mis tareas"**, or any equivalent:
+When the user asks **"what's up"**, **"my tasks"**, or any equivalent:
 
-1. Glob all `.md` files under `content/private/` recursively
+1. Glob all `.md` files under `content/private/tasks/` recursively
 2. Read `status` from each file's frontmatter
-3. Group and display by status → client → program:
-   - **En curso** (`active`) — show first
-   - **Pendiente** (`pending`) — show second
-   - **Bloqueado** (`blocked`) — highlight with a warning
+3. Group and display by status:
+   - **Active** (`active`) — show first
+   - **Pending** (`pending`) — show second
+   - **Blocked** (`blocked`) — highlight with a warning
    - Omit `done` unless explicitly asked
-4. Keep output scannable: one line per task, bolded client name
+4. Keep output scannable: one line per task, bolded task name
 
 ### 3. Task Status Conventions
 
@@ -103,4 +111,4 @@ When the user asks **"qué hay para hoy"**, **"what's up"**, **"mis tareas"**, o
 
 ### 4. Updating Tasks
 
-When the user updates a task status or adds notes, edit the frontmatter and/or body of the relevant file in `content/private/`. Never write client names, program names, or task details into any git-tracked file.
+When the user updates a task status or adds notes, edit the frontmatter and/or body of the relevant file in `content/private/tasks/`. Never write client names, program names, or task details into any git-tracked file.

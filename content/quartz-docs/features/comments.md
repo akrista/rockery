@@ -6,7 +6,10 @@ tags:
 
 Quartz also has the ability to hook into various providers to enable readers to leave comments on your site.
 
-![giscus-example.png](https://raw.githubusercontent.com/jackyzha0/quartz/refs/heads/v4/docs/images/giscus-example.png)
+> [!note]
+> For information on how to add, remove or configure plugins, see the [[configuration#Plugins|Configuration]] page.
+
+![giscus-example.png](https://raw.githubusercontent.com/jackyzha0/quartz/refs/heads/v5/docs/images/giscus-example.png)
 
 As of today, only [Giscus](https://giscus.app/) is supported out of the box but PRs to support other providers are welcome!
 
@@ -22,35 +25,61 @@ First, make sure that the [[setting up your GitHub repository|GitHub]] repositor
 
 Then, use the [Giscus site](https://giscus.app/#repository) to figure out what your `repoId` and `categoryId` should be. Make sure you select `Announcements` for the Discussion category.
 
-![giscus-repo.png](https://raw.githubusercontent.com/jackyzha0/quartz/refs/heads/v4/docs/images/giscus-repo.png)
+![giscus-repo.png](https://raw.githubusercontent.com/jackyzha0/quartz/refs/heads/v5/docs/images/giscus-repo.png)
 
-![giscus-discussion.png](https://raw.githubusercontent.com/jackyzha0/quartz/refs/heads/v4/docs/images/giscus-discussion.png)
+![giscus-discussion.png](https://raw.githubusercontent.com/jackyzha0/quartz/refs/heads/v5/docs/images/giscus-discussion.png)
 
 After entering both your repository and selecting the discussion category, Giscus will compute some IDs that you'll need to provide back to Quartz. You won't need to manually add the script yourself as Quartz will handle that part for you but will need these values in the next step!
 
-![giscus-results.png](https://raw.githubusercontent.com/jackyzha0/quartz/refs/heads/v4/docs/images/giscus-results.png)
+![giscus-results.png](https://raw.githubusercontent.com/jackyzha0/quartz/refs/heads/v5/docs/images/giscus-results.png)
 
-Finally, in `quartz.layout.ts`, edit the `afterBody` field of `sharedPageComponents` to include the following options but with the values you got from above:
+Finally, in `quartz.config.yaml`, add the comments plugin with the following options (using the values you got from above):
 
-```ts title="quartz.layout.ts"
-afterBody: [
-  Component.Comments({
-    provider: 'giscus',
-    options: {
-      // from data-repo
-      repo: 'jackyzha0/quartz',
-      // from data-repo-id
-      repoId: 'MDEwOlJlcG9zaXRvcnkzODcyMTMyMDg',
-      // from data-category
-      category: 'Announcements',
-      // from data-category-id
-      categoryId: 'DIC_kwDOFxRnmM4B-Xg6',
-      // from data-lang
-      lang: 'en'
-    }
-  }),
-],
+```yaml title="quartz.config.yaml"
+plugins:
+  - source: github:quartz-community/comments
+    enabled: true
+    options:
+      provider: giscus
+      options:
+        repo: jackyzha0/quartz
+        repoId: MDEwOlJlcG9zaXRvcnkzODcyMTMyMDg
+        category: Announcements
+        categoryId: DIC_kwDOFxRnmM4B-Xg6
+        lang: en
+    layout:
+      position: afterBody
+      priority: 10
 ```
+
+For the TS override approach:
+
+```ts title="quartz.ts (override)"
+// If using quartz.ts overrides instead of YAML:
+import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
+
+const config = await loadQuartzConfig()
+export default config
+export const layout = await loadQuartzLayout({
+  defaults: {
+    afterBody: [
+      ExternalPlugin.Comments({
+        provider: "giscus",
+        options: {
+          repo: "jackyzha0/quartz",
+          repoId: "MDEwOlJlcG9zaXRvcnkzODcyMTMyMDg",
+          category: "Announcements",
+          categoryId: "DIC_kwDOFxRnmM4B-Xg6",
+          lang: "en",
+        },
+      }),
+    ],
+  },
+})
+```
+
+> [!note]
+> Install the comments plugin first: `npx quartz plugin add github:quartz-community/comments`
 
 ### Customization
 
@@ -106,19 +135,39 @@ Quartz supports custom theme for Giscus. To use a custom CSS theme, place the `.
 
 For example, if you have a light theme `light-theme.css`, a dark theme `dark-theme.css`, and your Quartz site is hosted at `https://example.com/`:
 
-```ts
-afterBody: [
-  Component.Comments({
-    provider: 'giscus',
-    options: {
-      // Other options
+```yaml title="quartz.config.yaml"
+plugins:
+  - source: github:quartz-community/comments
+    enabled: true
+    options:
+      provider: giscus
+      options:
+        # Other options...
+        themeUrl: "https://example.com/static/giscus" # corresponds to quartz/static/giscus/
+        lightTheme: light-theme # corresponds to light-theme.css in quartz/static/giscus/
+        darkTheme: dark-theme # corresponds to dark-theme.css in quartz/static/giscus/
+```
 
-      themeUrl: "https://example.com/static/giscus", // corresponds to quartz/static/giscus/
-      lightTheme: "light-theme", // corresponds to light-theme.css in quartz/static/giscus/
-      darkTheme: "dark-theme", // corresponds to dark-theme.css quartz/static/giscus/
-    }
-  }),
-],
+```ts title="quartz.ts (override)"
+import { loadQuartzConfig, loadQuartzLayout } from "./quartz/plugins/loader/config-loader"
+
+const config = await loadQuartzConfig()
+export default config
+export const layout = await loadQuartzLayout({
+  defaults: {
+    afterBody: [
+      ExternalPlugin.Comments({
+        provider: "giscus",
+        options: {
+          // Other options...
+          themeUrl: "https://example.com/static/giscus",
+          lightTheme: "light-theme",
+          darkTheme: "dark-theme",
+        },
+      }),
+    ],
+  },
+})
 ```
 
 #### Conditionally display comments
