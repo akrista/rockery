@@ -4,9 +4,51 @@
   "title": "Design System: Akrista's Rockery",
   "extensions": {
     "colorMeta": {
-      "primary": { "role": "primary", "displayName": "Terracotta Red", "canonical": "hex #CC241D", "tonalRamp": ["#330907", "#5a0f0d", "#8f1915", "#cc241d", "#d6504a", "#e07c77", "#f1a9a7", "#f5d7d5"] },
-      "secondary": { "role": "secondary", "displayName": "Ochre Gold", "canonical": "hex #D79921", "tonalRamp": ["#362608", "#61450f", "#9c6e18", "#d79921", "#e0ad4d", "#ebd779", "#f2dfa5", "#faf3d2"] },
-      "neutral-bg": { "role": "neutral", "displayName": "Clay Light Background", "canonical": "hex #FBF1C7", "tonalRamp": ["#3c3836", "#504945", "#665c54", "#7c6f64", "#a89984", "#bdae93", "#d5c4a1", "#fbf1c7"] }
+      "primary": {
+        "role": "primary",
+        "displayName": "Terracotta Red",
+        "canonical": "hex #CC241D",
+        "tonalRamp": [
+          "#330907",
+          "#5a0f0d",
+          "#8f1915",
+          "#cc241d",
+          "#d6504a",
+          "#e07c77",
+          "#f1a9a7",
+          "#f5d7d5"
+        ]
+      },
+      "secondary": {
+        "role": "secondary",
+        "displayName": "Ochre Gold",
+        "canonical": "hex #D79921",
+        "tonalRamp": [
+          "#362608",
+          "#61450f",
+          "#9c6e18",
+          "#d79921",
+          "#e0ad4d",
+          "#ebd779",
+          "#f2dfa5",
+          "#faf3d2"
+        ]
+      },
+      "neutral-bg": {
+        "role": "neutral",
+        "displayName": "Clay Light Background",
+        "canonical": "hex #FBF1C7",
+        "tonalRamp": [
+          "#3c3836",
+          "#504945",
+          "#665c54",
+          "#7c6f64",
+          "#a89984",
+          "#bdae93",
+          "#d5c4a1",
+          "#fbf1c7"
+        ]
+      }
     },
     "typographyMeta": {
       "display": { "displayName": "Display", "purpose": "Hero/page titles." },
@@ -14,7 +56,11 @@
     },
     "shadows": [],
     "motion": [
-      { "name": "ease-standard", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Standard easing for interactions." }
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Standard easing for interactions."
+      }
     ],
     "breakpoints": [
       { "name": "mobile", "value": "800px" },
@@ -32,9 +78,21 @@
       "Deliberate Accents: High-chroma accents used only to guide the eye and denote links."
     ],
     "rules": [
-      { "name": "The Rarity of Red Rule", "body": "Terracotta Red is used on <=10% of any given screen. Its rarity is what makes it an effective call to attention.", "section": "colors" },
-      { "name": "The 75ch Ceiling", "body": "Long-form prose must never exceed 75ch in width to ensure optimal readability and eye-tracking.", "section": "typography" },
-      { "name": "The Flat Grounding Rule", "body": "All containers, dialogs, and cards are flat at rest. Overlays and hover states differentiate themselves using background step shifts and solid borders, never shadows.", "section": "elevation" }
+      {
+        "name": "The Rarity of Red Rule",
+        "body": "Terracotta Red is used on <=10% of any given screen. Its rarity is what makes it an effective call to attention.",
+        "section": "colors"
+      },
+      {
+        "name": "The 75ch Ceiling",
+        "body": "Long-form prose must never exceed 75ch in width to ensure optimal readability and eye-tracking.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Grounding Rule",
+        "body": "All containers, dialogs, and cards are flat at rest. Overlays and hover states differentiate themselves using background step shifts and solid borders, never shadows.",
+        "section": "elevation"
+      }
     ],
     "dos": [
       "Do limit Terracotta Red accents to <=10% of page area.",
