@@ -240,7 +240,7 @@ Individual `.md` files with YAML frontmatter:
 - `status` — `pending`, `active`, `done`, or `blocked`
 - `tags` — for filtering
 
-When asked "what's up" or "my tasks", glob all `.md` files under both `content/tasks/` and `content/private/tasks/`, read `status` from frontmatter, and group by status (active → pending → blocked, omit done).
+When asked "what's up" or "my tasks", find all `.md` files under both `content/tasks/` and `content/private/tasks/`. Use the **bash tool** (`Get-ChildItem -Recurse -Filter "*.md"`) instead of the glob tool, because `private/` is in `.gitignore` and the glob tool respects `.gitignore` rules, which hides private files. Read `status` from frontmatter, and group by status (active → pending → blocked, omit done).
 
 ## Pull Request Guidelines
 
