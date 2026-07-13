@@ -177,7 +177,7 @@ Tests use the **Node.js built-in test runner** (`node:test`). No Jest or Vitest.
 ### Structure conventions
 
 - **Folder names**: lowercase (`daily/`, `topics/`, `ideas/`)
-- **index.md**: top-level content directories get a curated `index.md` (homepage cursor). Subdirectories rely on Quartz's auto-generated folder pages.
+- **index.md**: top-level content directories get a curated `index.md` (homepage cursor). Subdirectories rely on Quartz's auto-generated folder pages. `content/private/index.md` follows the same pattern, with quick links to open work by status tag.
 - **.gitkeep**: No `.gitkeep` files inside `content/private/`
 - **Default**: if unsure about content nature, default to private
 - **Site config notes**: `CONFIG.md` at content root is ignored by Quartz (`ignorePatterns`)
@@ -190,15 +190,17 @@ Tests use the **Node.js built-in test runner** (`node:test`). No Jest or Vitest.
 | Public topics       | `content/topics/{category}/`         | Yes         | Deep-dive concept notes, tutorials    |
 | Public projects     | `content/projects/{project}/`        | Yes         | Long-form project docs                |
 | Public ideas        | `content/ideas/`                     | Yes         | Half-baked concepts, brainstorms      |
-| Public tasks        | `content/tasks/`                     | Yes         | Open work tracking                    |
+| Public tasks        | `content/tasks/{entity}/`†           | Yes         | Open work tracking                    |
 | Private daily notes | `content/private/daily/{yyyy}/{mm}/` | **No**      | Personal daily logs                   |
-| Private tasks       | `content/private/tasks/`             | **No**      | Task management                       |
+| Private tasks       | `content/private/tasks/{entity}/`†   | **No**      | Task management                       |
 | Private scratch     | `content/private/scratch/`           | **No**      | Drafts, WIP content                   |
 | Private ideas       | `content/private/ideas/`             | **No**      | Private brainstorms                   |
 | Private projects    | `content/private/projects/`          | **No**      | Private project docs                  |
 | Archive             | `content/archive/`                   | Yes         | Moved-outdated content                |
 | Quartz docs         | `content/quartz-docs/`               | Yes         | Quartz reference docs                 |
 | Obsidian sandbox    | `content/obsidian-sandbox/`          | Yes         | Obsidian feature exploration          |
+
+† See [Task subcategorization](#task-subcategorization) — entity subfolder only once a project/entity has 3+ tasks; flat otherwise.
 
 ### Topics subcategorization
 
@@ -213,6 +215,10 @@ Topics are grouped into subdirectories by domain. Current categories:
 | Tools      | `content/topics/tools/`      | create-ap                                       |
 
 Add new subdirectories when a category reaches 3+ notes. Keep orphan topics flat in `topics/` until they have siblings.
+
+### Task subcategorization
+
+Tasks are grouped into subdirectories by project or entity, mirroring the Topics convention above. For example, once "Entity A" has 3+ tasks, they move into `content/tasks/entity-a/` (public) or `content/private/tasks/entity-a/` (private). Keep orphan tasks flat until an entity has enough tasks to warrant its own subfolder.
 
 ### Daily Notes Protocol
 
@@ -232,13 +238,15 @@ Add new subdirectories when a category reaches 3+ notes. Keep orphan topics flat
 
 ### Task Management
 
-Tasks can be **public** (`content/tasks/`) or **private** (`content/private/tasks/`). Both follow the same format:
+Tasks can be **public** (`content/tasks/`) or **private** (`content/private/tasks/`). Both follow the same format, and both use the entity-based subcategorization described above.
 
 Individual `.md` files with YAML frontmatter:
 
-- `title` — task name
+- `title` — task name (English)
 - `status` — `pending`, `active`, `done`, or `blocked`
-- `tags` — for filtering
+- `tags` — for filtering. Include a hierarchical `status/<value>` tag matching the `status` field (e.g. `status: pending` → tag `status/pending`) so open work is browsable via tag pages (`/tags/status/pending`, `/tags/status`, etc). Keep the tag in sync whenever `status` changes.
+
+**Filenames must be in English** (lowercase, hyphens). Example: `content/private/tasks/entity-a/update-transactions.md`.
 
 When asked "what's up" or "my tasks", find all `.md` files under both `content/tasks/` and `content/private/tasks/`. Use the **bash tool** (`Get-ChildItem -Recurse -Filter "*.md"`) instead of the glob tool, because `private/` is in `.gitignore` and the glob tool respects `.gitignore` rules, which hides private files. Read `status` from frontmatter, and group by status (active → pending → blocked, omit done).
 

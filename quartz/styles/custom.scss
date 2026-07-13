@@ -1,11 +1,68 @@
 @use "./variables.scss" as *;
 
 // ==========================================================================
-// Basalt Scriptorium — design system overrides for Quartz v5
-// Implements the rules in DESIGN.md (Akrista's Rockery)
+// www.notakrista.com Design & Style System for Quartz v5
 // ==========================================================================
 
-// --- Typography: hierarchy & micro-typography ---
+// --- Style overrides for colors and surface levels ---
+:root {
+  --light: oklch(0.27 0.005 65);
+  --lightgray: oklch(0.38 0.008 60);
+  --gray: oklch(0.65 0.02 80);
+  --darkgray: oklch(0.91 0.03 88);
+  --dark: oklch(0.91 0.03 88);
+  --secondary: oklch(0.7 0.18 50);
+  --tertiary: oklch(0.76 0.09 145);
+  --highlight: oklch(0.7 0.18 50 / 0.15);
+  --textHighlight: oklch(0.7 0.18 50 / 0.3);
+
+  --surface: oklch(0.32 0.005 65);
+  --surface-raised: oklch(0.38 0.008 60);
+  --bg: oklch(0.27 0.005 65);
+  --primary: oklch(0.7 0.18 50);
+  --border: oklch(0.38 0.008 60);
+
+  // Monospace Stack Override
+  --codeFont: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+:root[saved-theme="dark"] {
+  --light: oklch(0.27 0.005 65);
+  --lightgray: oklch(0.38 0.008 60);
+  --gray: oklch(0.65 0.02 80);
+  --darkgray: oklch(0.91 0.03 88);
+  --dark: oklch(0.91 0.03 88);
+  --secondary: oklch(0.7 0.18 50);
+  --tertiary: oklch(0.76 0.09 145);
+  --highlight: oklch(0.7 0.18 50 / 0.15);
+  --textHighlight: oklch(0.7 0.18 50 / 0.3);
+
+  --surface: oklch(0.32 0.005 65);
+  --surface-raised: oklch(0.38 0.008 60);
+  --bg: oklch(0.27 0.005 65);
+  --primary: oklch(0.7 0.18 50);
+  --border: oklch(0.38 0.008 60);
+}
+
+:root[saved-theme="light"] {
+  --light: oklch(0.955 0.03 95);
+  --lightgray: oklch(0.81 0.04 85);
+  --gray: oklch(0.53 0.013 65);
+  --darkgray: oklch(0.23 0.005 70);
+  --dark: oklch(0.23 0.005 70);
+  --secondary: oklch(0.49 0.18 45);
+  --tertiary: oklch(0.51 0.08 150);
+  --highlight: oklch(0.49 0.18 45 / 0.15);
+  --textHighlight: oklch(0.49 0.18 45 / 0.3);
+
+  --surface: oklch(0.905 0.03 90);
+  --surface-raised: oklch(0.905 0.03 90);
+  --bg: oklch(0.955 0.03 95);
+  --primary: oklch(0.49 0.18 45);
+  --border: oklch(0.81 0.04 85);
+}
+
+// --- Typography hierarchy & constraints ---
 
 article > h1,
 article > h2,
@@ -14,72 +71,109 @@ article > h3 {
 }
 
 article > h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.1;
-  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.025em;
 }
 
 article > h2 {
-  font-size: clamp(1.5rem, 4vw, 2.2rem);
-  line-height: 1.2;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  line-height: 1.1;
   font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 article > h3 {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   line-height: 1.3;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: normal;
 }
 
 article > p,
 article > li {
-  max-width: 75ch;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 70ch; // Cap line length between 65-75ch
 }
 
-.sidebar.right {
-  font-size: 0.9rem;
+// Label: Instrument Sans 600, 0.75rem, uppercase, letter-spacing: 0.08em
+.kicker,
+.eyebrow,
+.label {
+  font-family: var(--headerFont);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+// Mono Stack elements
+.content-meta,
+.content-meta span,
+time,
+.date,
+.count,
+.version,
+.status {
+  font-family: var(--codeFont) !important;
+  font-size: 0.875rem !important;
+}
+
+// --- Focus Rings: custom two-ring outline ---
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: none !important;
+  box-shadow:
+    0 0 0 2px var(--bg),
+    0 0 0 4px var(--primary) !important;
+}
+
+// --- Borders, Corners & Flat-by-default overrides ---
+button,
+input,
+textarea,
+select,
+.callout,
+pre {
+  border-radius: 8px !important; // rounded-md = 8px
+  box-shadow: none !important; // flat by default, no shadows
+}
+
+a.tag-link {
+  font-family: var(--headerFont);
+  font-size: 0.85rem;
+  border: 1px solid var(--lightgray);
+  border-radius: 9999px !important; // pills reserved for status/category tags
+  padding: 0 0.5rem;
+  background: transparent;
+  font-weight: 400;
+  line-height: 1.5rem;
 }
 
 // --- Links: no background highlight on internal links ---
-
 a.internal {
   background-color: transparent;
   padding: 0;
   border-radius: 0;
 }
 
-// --- Tags: chip-style inline labels ---
-
-a.tag-link {
-  font-size: 0.85rem;
-  border: 1px solid var(--lightgray);
-  border-radius: 4px;
-  padding: 0 0.35rem;
-  background: transparent;
-  font-weight: 400;
-  line-height: 1.5rem;
-}
-
 // --- Search: flat-grounding-compliant modal ---
-
 .search > .search-container {
   backdrop-filter: none;
   background: color-mix(in srgb, var(--light) 85%, transparent);
 }
 
 .search > .search-container > .search-space > *:not(.ghost-text):not(.tag-suggestions) {
-  box-shadow: none;
+  box-shadow: none !important;
   border: 1px solid var(--lightgray);
 }
 
-// --- Code blocks: flat, no shadow ---
-
-pre {
-  box-shadow: none;
-}
-
 // --- Reduced motion ---
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
