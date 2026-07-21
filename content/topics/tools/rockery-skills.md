@@ -56,13 +56,13 @@ Task CRUD with status tracking. Each task is a markdown file with a `status` fro
 
 ## Privacy routing summary
 
-| Skill | Default | Public path | Private path |
-|-------|---------|-------------|--------------|
-| Daily note | Public | `content/daily/{yyyy}/{mm}/` | `content/private/daily/{yyyy}/{mm}/` |
-| Topic | Public | `content/topics/{category}/` | N/A (topics are always public) |
-| Idea | Private | `content/ideas/` | `content/private/ideas/` |
-| Project | Public | `content/projects/{name}/` | `content/private/projects/{name}/` |
-| Task | Private | `content/tasks/` | `content/private/tasks/` |
+| Skill      | Default | Public path                  | Private path                         |
+| ---------- | ------- | ---------------------------- | ------------------------------------ |
+| Daily note | Public  | `content/daily/{yyyy}/{mm}/` | `content/private/daily/{yyyy}/{mm}/` |
+| Topic      | Public  | `content/topics/{category}/` | N/A (topics are always public)       |
+| Idea       | Private | `content/ideas/`             | `content/private/ideas/`             |
+| Project    | Public  | `content/projects/{name}/`   | `content/private/projects/{name}/`   |
+| Task       | Private | `content/tasks/`             | `content/private/tasks/`             |
 
 The default-to-private rule applies when in doubt: if content could involve sensitive information, route it to the private path.
 

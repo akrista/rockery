@@ -19,6 +19,22 @@ tags:
 
 Hello! I'm Jorge Thomas (akrista), and this is my digital **[rockery](https://en.wikipedia.org/wiki/Rock_garden)** - a personal space where I cultivate ideas, thoughts, and knowledge on solid foundations.
 
+> [!IMPORTANT] Support Earthquake Recovery / Apoyo para la Recuperación 🇻🇪
+>
+> <details>
+> <summary><b>Read in English</b></summary>
+>
+> Following the earthquake on June 24, 2026, my home in Venezuela sustained structural damage. You can track the rebuild updates on the **[[projects/earthquake-recovery/|Earthquake Recovery]]** project page, or support directly via my **[Donations Page](https://www.notakrista.com/donations)**.
+>
+> </details>
+>
+> <details>
+> <summary><b>Leer en Español</b></summary>
+>
+> Tras el terremoto del 24 de junio de 2026, mi hogar en Venezuela sufrió daños estructurales. Puedes seguir las actualizaciones de la reconstrucción en la página de **[[projects/earthquake-recovery/|Recuperación del Terremoto]]**, o apoyar directamente a través de mi **[Página de Donaciones](https://www.notakrista.com/donations)**.
+>
+> </details>
+
 ## 🔮 Why "Rockery"?
 
 A **rockery** is a garden built on stones that thrives in challenging conditions. Like a traditional rock garden, my digital space is built on solid foundations using:

@@ -181,6 +181,16 @@ Tests use the **Node.js built-in test runner** (`node:test`). No Jest or Vitest.
 - **.gitkeep**: No `.gitkeep` files inside `content/private/`
 - **Default**: if unsure about content nature, default to private
 - **Site config notes**: `CONFIG.md` at content root is ignored by Quartz (`ignorePatterns`)
+- **Tag/Category pluralization**: Always pluralize tags and categories (e.g. `tags: [topics]` instead of `[topic]`).
+- **Property Standardization**: Naming of YAML properties should be reusable across categories, composable, and compact (e.g. `start` and `end` instead of `start_date` / `end_date`). Default to list type if there is any chance a property might contain multiple values in the future.
+- **Rating system**: Rate reviews or media using a granular 1-to-7 integer scale:
+  - `7` — Perfect, life-changing, go out of your way to seek this out
+  - `6` — Excellent, worth repeating
+  - `5` — Good, don't go out of your way, but enjoyable
+  - `4` — Passable, works in a pinch
+  - `3` — Bad, don't do this if you can
+  - `2` — Atrocious, actively avoid
+  - `1` — Evil, life-changing in a bad way
 
 ### Content Routing Matrix
 
