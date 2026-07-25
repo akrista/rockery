@@ -22,7 +22,7 @@ This project is built with:
 
 - **[Quartz 5](https://quartz.jzhao.xyz/)** - Static site generator for digital gardens
 - **[Obsidian](https://obsidian.md/)** - Knowledge management and writing tool
-- **TypeScript** - For robust and maintainable code
+- **TypeScript** - Type checking for Quartz plugins and core scripts
 - **SCSS** - For custom styling
 
 ## 🚀 Local Development

@@ -29,7 +29,7 @@ export function removeAllChildren(node: HTMLElement) {
 // containing the URL it's redirecting to.
 // Extracting it here with regex is _probably_ faster than parsing the entire HTML
 // with a DOMParser effectively twice (here and later in the SPA code), even if
-// way less robust - we only care about our own generated redirects after all.
+// naive check - we only care about our own generated redirects after all.
 const canonicalRegex = /<link rel="canonical" href="([^"]*)">/
 
 export async function fetchCanonical(url: URL): Promise<Response> {

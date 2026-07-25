@@ -10,7 +10,7 @@ Akrista (the author) writing and organizing personal/public knowledge, and curio
 
 ## Product Purpose
 
-A personal knowledge base (PKB) and digital garden to publish thoughts and organize ideas. Built on Obsidian and Quartz, designed to showcase learning in public in a robust, resilient, and interconnected manner.
+A personal knowledge base (PKB) and digital garden to publish thoughts and organize ideas. Built on Obsidian and Quartz, designed to publish notes in public in a resilient, interconnected structure.
 
 ## Brand Personality
 

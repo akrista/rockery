@@ -62,6 +62,7 @@ You can browse all photos and video documentation of the earthquake damage and o
 Chronological updates on the situation:
 
 - **[[daily/2026/07/2026-07-21-earthquake-recovery-init|2026-07-21]]** — Initial setup of the documentation in this Rockery, aligning the roadmap for relief fundraising.
+- **[[daily/2026/07/2026-07-17-plumbing-repairs-pipe-capping|2026-07-17]]** — Plumber hired to cap damaged main water pipe in bathroom and kitchen ($300 spent). Pipe replacement materials estimated at ~$860.
 - **[[daily/2026/07/2026-07-09-gas-inspection-government-meeting|2026-07-09]]** — Gas line inspection completed and safety confirmed. Met with councilwoman Yenny Mao regarding building classification.
 - **[[daily/2026/06/2026-06-27-engineer-assessment-media-coverage|2026-06-27]]** — Structural check by engineers Raul Hernandez and Marco Polo confirms building stability. Media coverage by TalCualDigital.
 - **[[daily/2026/06/2026-06-26-venapp-report-government-check|2026-06-26]]** — Initial GNB / Protección Civil visit declaring building uninhabitable up to floor 5. VenApp report filed.
@@ -122,6 +123,7 @@ Puedes explorar todas las fotos y la documentación en video de los daños del t
 Actualizaciones cronológicas de la situación:
 
 - **[[daily/2026/07/2026-07-21-earthquake-recovery-init|2026-07-21]]** — Configuración inicial de la documentación en este Rockery, alineando la hoja de ruta para la recaudación de fondos de ayuda.
+- **[[daily/2026/07/2026-07-17-plumbing-repairs-pipe-capping|2026-07-17]]** — Contratación de plomero para clausurar tubería principal dañada en el baño y cocina ($300 gastados). Materiales de tuberías nuevas estimados en ~$860.
 - **[[daily/2026/07/2026-07-09-gas-inspection-government-meeting|2026-07-09]]** — Inspección de seguridad de gas aprobada. Reunión con la concejala Yenny Mao sobre la clasificación del edificio.
 - **[[daily/2026/06/2026-06-27-engineer-assessment-media-coverage|2026-06-27]]** — Inspección de ingenieros confirma estabilidad. Cobertura de prensa por TalCualDigital.
 - **[[daily/2026/06/2026-06-26-venapp-report-government-check|2026-06-26]]** — Inspección de GNB/Protección Civil declara inhabitable hasta piso 5. Registro de reporte en VenApp.

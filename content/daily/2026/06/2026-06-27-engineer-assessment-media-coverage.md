@@ -12,12 +12,12 @@ tags:
 <details>
 <summary><b>Read in English</b> (Click to expand)</summary>
 
-Today, independent civil engineers conducted a comprehensive assessment of our building, and media coverage was arranged to document our situation.
+Today, independent civil engineers inspected our building, and media coverage was arranged to document our situation.
 
 ## 📝 Event Log
 
 - **Structural Engineering Review**: Two civil engineers visited to perform an inspect: my uncle, Raul Hernandez, and Marco Polo, a volunteer engineer aiding affected families. The contact was made possible by my cousin, Sebastian Luy.
-- **Safety Assessment**: Both engineers concluded that the building is structurally safe. The structural concrete skeleton (columns and beams) suffered no damage. However, the damage to the exterior facade and interior masonry partition walls is significant and needs to be resolved as soon as possible to ensure proper living conditions.
+- **Safety Assessment**: Both engineers concluded that the building is structurally safe. The structural concrete skeleton (columns and beams) suffered no damage. However, the exterior facade and interior masonry partition walls cracked, requiring repair before moving back in.
 - **Press Coverage**: Sebastian also coordinated a visit by journalist Constanza Cegarra to document the situation for the national media outlet _TalCualDigital_.
 
 ## 🔗 External Links & Media Updates
