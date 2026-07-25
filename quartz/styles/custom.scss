@@ -6,60 +6,60 @@
 
 // --- Style overrides for colors and surface levels ---
 :root {
-  --light: oklch(0.27 0.005 65);
-  --lightgray: oklch(0.38 0.008 60);
-  --gray: oklch(0.65 0.02 80);
-  --darkgray: oklch(0.91 0.03 88);
-  --dark: oklch(0.91 0.03 88);
-  --secondary: oklch(0.7 0.18 50);
-  --tertiary: oklch(0.76 0.09 145);
-  --highlight: oklch(0.7 0.18 50 / 0.15);
-  --textHighlight: oklch(0.7 0.18 50 / 0.3);
+  --light: #282624;
+  --lightgray: #46413e;
+  --gray: #968e82;
+  --darkgray: #eae1cb;
+  --dark: #eae1cb;
+  --secondary: #f37513;
+  --tertiary: #8dc18e;
+  --highlight: rgba(243, 117, 19, 0.15);
+  --textHighlight: rgba(243, 117, 19, 0.3);
 
-  --surface: oklch(0.32 0.005 65);
-  --surface-raised: oklch(0.38 0.008 60);
-  --bg: oklch(0.27 0.005 65);
-  --primary: oklch(0.7 0.18 50);
-  --border: oklch(0.38 0.008 60);
+  --surface: #32302e;
+  --surface-raised: #46413e;
+  --bg: #282624;
+  --primary: #f37513;
+  --border: #46413e;
 
   // Monospace Stack Override
   --codeFont: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 :root[saved-theme="dark"] {
-  --light: oklch(0.27 0.005 65);
-  --lightgray: oklch(0.38 0.008 60);
-  --gray: oklch(0.65 0.02 80);
-  --darkgray: oklch(0.91 0.03 88);
-  --dark: oklch(0.91 0.03 88);
-  --secondary: oklch(0.7 0.18 50);
-  --tertiary: oklch(0.76 0.09 145);
-  --highlight: oklch(0.7 0.18 50 / 0.15);
-  --textHighlight: oklch(0.7 0.18 50 / 0.3);
+  --light: #282624;
+  --lightgray: #46413e;
+  --gray: #968e82;
+  --darkgray: #eae1cb;
+  --dark: #eae1cb;
+  --secondary: #f37513;
+  --tertiary: #8dc18e;
+  --highlight: rgba(243, 117, 19, 0.15);
+  --textHighlight: rgba(243, 117, 19, 0.3);
 
-  --surface: oklch(0.32 0.005 65);
-  --surface-raised: oklch(0.38 0.008 60);
-  --bg: oklch(0.27 0.005 65);
-  --primary: oklch(0.7 0.18 50);
-  --border: oklch(0.38 0.008 60);
+  --surface: #32302e;
+  --surface-raised: #46413e;
+  --bg: #282624;
+  --primary: #f37513;
+  --border: #46413e;
 }
 
 :root[saved-theme="light"] {
-  --light: oklch(0.955 0.03 95);
-  --lightgray: oklch(0.81 0.04 85);
-  --gray: oklch(0.53 0.013 65);
-  --darkgray: oklch(0.23 0.005 70);
-  --dark: oklch(0.23 0.005 70);
-  --secondary: oklch(0.49 0.18 45);
-  --tertiary: oklch(0.51 0.08 150);
-  --highlight: oklch(0.49 0.18 45 / 0.15);
-  --textHighlight: oklch(0.49 0.18 45 / 0.3);
+  --light: #f6f0da;
+  --lightgray: #cdbfa4;
+  --gray: #716a64;
+  --darkgray: #1e1d1a;
+  --dark: #1e1d1a;
+  --secondary: #ac2c00;
+  --tertiary: #42734d;
+  --highlight: rgba(172, 44, 0, 0.15);
+  --textHighlight: rgba(172, 44, 0, 0.3);
 
-  --surface: oklch(0.905 0.03 90);
-  --surface-raised: oklch(0.905 0.03 90);
-  --bg: oklch(0.955 0.03 95);
-  --primary: oklch(0.49 0.18 45);
-  --border: oklch(0.81 0.04 85);
+  --surface: #eae1cb;
+  --surface-raised: #eae1cb;
+  --bg: #f6f0da;
+  --primary: #ac2c00;
+  --border: #cdbfa4;
 }
 
 // --- Typography hierarchy & constraints ---
