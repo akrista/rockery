@@ -6,3 +6,7 @@ description: Half-baked concepts, brainstorms, and sparks worth capturing
 A garden for raw ideas. These are seedlings — half-formed thoughts, brainstorms, interesting questions, and potential projects. Expect rough edges, incomplete logic, and shifting direction.
 
 If an idea solidifies, it either gets promoted to a topic (deep dive) or a project (execution).
+
+### Active Seeds
+
+- [[flipper-wifi-projects|Flipper Zero WiFi Board Projects]] — Experiments and ideas using the ESP32 developer board.

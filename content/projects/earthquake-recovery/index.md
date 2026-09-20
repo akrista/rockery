@@ -4,7 +4,6 @@ date: 2026-07-21
 tags:
   - projects
   - logs
-  - donations
 ---
 
 # Earthquake Recovery & Rebuild / Recuperación y Reconstrucción del Terremoto
@@ -28,28 +27,7 @@ On June 24, 2026, a significant earthquake struck Venezuela, causing structural 
 - **Garage Water Filtration**: Inspect and resolve a chronic water filtration issue in the garage that has persisted for 15 years.
 - **Beam Fractures**: Repair and reinforce structural beams (_vigas_) on the west wing of the building that sustained minor hairline cracks (_fisuras_) of roughly 1 mm.
 
-## 🤝 How to Support & Donation Channels
-
-For absolute transparency, you can view the live **budget details, expense breakdown, and monthly logs** directly on the **[notakrista.com/donations Campaign Page](https://www.notakrista.com/donations)**.
-
-If you would like to help support the reconstruction and workspace recovery, here are the active donation channels:
-
-- **PayPal (USD)**: [paypal.me/akristax](https://paypal.me/akristax) (using Friends & Family to avoid fees)
-- **Binance Pay (USDT)**: Use Pay ID `akrista` or ID `39193465` (Direct QR link: [Binance Pay QR](https://app.binance.com/uni-qr/YXX86CKj))
-- **Facebank (Puerto Rico) USD**:
-  - **Account Number**: `27040002774`
-  - **ABA Routing**: `021502189`
-  - **SWIFT Code**: `FILCPR22`
-- **Bancamiga (Venezuela) VES**:
-  - **Account Number**: `01720111511118373305`
-  - **ID / Cédula**: `V-22438686`
-  - **Pago Móvil**: Phone `04142034875` | CI `22438686`
-- **Banco de Venezuela (BDV) VES**:
-  - **Account Number**: `01020107150000144571`
-  - **ID / Cédula**: `V-22438686`
-  - **Pago Móvil**: Phone `04142034875` | CI `22438686`
-
-All task progress for the site integration is tracked under [[add-donations-section]].
+The support campaign associated with the initial recovery effort is now closed. This page remains as a public record of the damage, repairs, and rebuilding work; it is not a request for donations.
 
 ## 📸 Full Media Gallery
 
@@ -61,7 +39,7 @@ You can browse all photos and video documentation of the earthquake damage and o
 
 Chronological updates on the situation:
 
-- **[[daily/2026/07/2026-07-21-earthquake-recovery-init|2026-07-21]]** — Initial setup of the documentation in this Rockery, aligning the roadmap for relief fundraising.
+- **[[daily/2026/07/2026-07-21-earthquake-recovery-init|2026-07-21]]** — Initial setup of the documentation in this Rockery.
 - **[[daily/2026/07/2026-07-17-plumbing-repairs-pipe-capping|2026-07-17]]** — Plumber hired to cap damaged main water pipe in bathroom and kitchen ($300 spent). Pipe replacement materials estimated at ~$860.
 - **[[daily/2026/07/2026-07-09-gas-inspection-government-meeting|2026-07-09]]** — Gas line inspection completed and safety confirmed. Met with councilwoman Yenny Mao regarding building classification.
 - **[[daily/2026/06/2026-06-27-engineer-assessment-media-coverage|2026-06-27]]** — Structural check by engineers Raul Hernandez and Marco Polo confirms building stability. Media coverage by TalCualDigital.
@@ -89,28 +67,7 @@ El 24 de junio de 2026, un terremoto significativo sacudió a Venezuela, causand
 - **Filtración del Estacionamiento**: Inspeccionar y corregir una filtración de agua crónica en el garaje que ha estado presente por al menos 15 años.
 - **Vigas del Ala Oeste**: Reparar y reforzar las vigas estructurales del ala oeste del edificio que presentan fisuras menores de aproximadamente 1 mm.
 
-## 🤝 Cómo Apoyar y Canales de Donación
-
-Para una transparencia absoluta, puedes ver el **presupuesto detallado, el desglose de gastos y el registro mensual** directamente en la **[Página de la Campaña en notakrista.com/donations](https://www.notakrista.com/donations)**.
-
-Si deseas apoyar en la reconstrucción y recuperación de mi espacio de trabajo, aquí están los canales de donación activos:
-
-- **PayPal (USD)**: [paypal.me/akristax](https://paypal.me/akristax) (usando la opción Familiares y Amigos para evitar comisiones)
-- **Binance Pay (USDT)**: Usa el Pay ID `akrista` o el ID `39193465` (Enlace directo: [QR de Binance Pay](https://app.binance.com/uni-qr/YXX86CKj))
-- **Facebank (Puerto Rico) USD**:
-  - **Número de Cuenta**: `27040002774`
-  - **Ruta ABA**: `021502189`
-  - **Código SWIFT**: `FILCPR22`
-- **Bancamiga (Venezuela) VES**:
-  - **Número de Cuenta**: `01720111511118373305`
-  - **Cédula**: `V-22438686`
-  - **Pago Móvil**: Teléfono `04142034875` | CI `22438686`
-- **Banco de Venezuela (BDV) VES**:
-  - **Número de Cuenta**: `01020107150000144571`
-  - **Cédula**: `V-22438686`
-  - **Pago Móvil**: Teléfono `04142034875` | CI `22438686`
-
-El progreso de las tareas para la integración del sitio se registra en [[add-donations-section]].
+La campaña de apoyo asociada al esfuerzo inicial de recuperación ya está cerrada. Esta página permanece como registro público de los daños, las reparaciones y la reconstrucción; no es una solicitud de donaciones.
 
 ## 📸 Galería Completa de Medios
 
@@ -122,7 +79,7 @@ Puedes explorar todas las fotos y la documentación en video de los daños del t
 
 Actualizaciones cronológicas de la situación:
 
-- **[[daily/2026/07/2026-07-21-earthquake-recovery-init|2026-07-21]]** — Configuración inicial de la documentación en este Rockery, alineando la hoja de ruta para la recaudación de fondos de ayuda.
+- **[[daily/2026/07/2026-07-21-earthquake-recovery-init|2026-07-21]]** — Configuración inicial de la documentación en este Rockery.
 - **[[daily/2026/07/2026-07-17-plumbing-repairs-pipe-capping|2026-07-17]]** — Contratación de plomero para clausurar tubería principal dañada en el baño y cocina ($300 gastados). Materiales de tuberías nuevas estimados en ~$860.
 - **[[daily/2026/07/2026-07-09-gas-inspection-government-meeting|2026-07-09]]** — Inspección de seguridad de gas aprobada. Reunión con la concejala Yenny Mao sobre la clasificación del edificio.
 - **[[daily/2026/06/2026-06-27-engineer-assessment-media-coverage|2026-06-27]]** — Inspección de ingenieros confirma estabilidad. Cobertura de prensa por TalCualDigital.

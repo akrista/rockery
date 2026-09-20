@@ -30,7 +30,7 @@ This project is built with:
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) v22+
-- npm v10.9.2+
+- npm v10.9.2 (npm 11 is not supported)
 
 ### Installation
 

@@ -8,7 +8,7 @@
 
 | Layer       | Technology                                    |
 | ----------- | --------------------------------------------- |
-| Runtime     | Node.js ≥22, npm ≥10.9.2                      |
+| Runtime     | Node.js ≥22, npm 10.9.2                      |
 | Language    | TypeScript (strict), Preact JSX, SCSS         |
 | Bundler     | esbuild + esbuild-sass-plugin                 |
 | CSS         | LightningCSS                                  |

@@ -16,7 +16,7 @@ A unified personal brand, landing page, and application hub for Jorge Thomas (ak
 
 The primary goal of `notakrista.com` is to serve as the canonical entry point for my online identity, hosting tools, project showcases, and personal support pages.
 
-Due to structural damages sustained during the 2026-06-24 earthquake in Venezuela, the site will prominently feature a dedicated funding and support section to coordinate donations.
+Due to structural damages sustained during the 2026-06-24 earthquake in Venezuela, the site includes historical documentation of the recovery work.
 
 Additionally, the project involves migrating and consolidating existing standalone tools—such as the Todoticket calculator currently built in Astro—into a single Laravel backend to simplify deployment and maintenance.
 
@@ -24,7 +24,6 @@ Additionally, the project involves migrating and consolidating existing standalo
 
 ### P0 — Critical & Immediate
 
-- [ ] **Donations & Support Section**: Add a clear, accessible section to coordinate financial assistance for home repair following the 2026-06-24 earthquake.
 - [ ] **Laravel Foundation Setup**: Initialize the new Laravel project codebase and configure deployment to the Contabo VPS (`notakrista`).
 
 ### P1 — Core Features
@@ -55,7 +54,7 @@ Additionally, the project involves migrating and consolidating existing standalo
 
 - Initiated the project organization and drafted the initial project outline.
 - Defined the target stack transition from Astro to Laravel.
-- Prioritized the earthquake relief donation section as the primary immediate milestone.
+- Recorded the earthquake recovery work as part of the site's project history.
 
 ## Related
 
