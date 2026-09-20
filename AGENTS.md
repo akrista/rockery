@@ -8,7 +8,7 @@
 
 | Layer       | Technology                                    |
 | ----------- | --------------------------------------------- |
-| Runtime     | Node.js ≥22, npm 10.9.2                      |
+| Runtime     | Node.js ≥22, npm ≥10.9.2                      |
 | Language    | TypeScript (strict), Preact JSX, SCSS         |
 | Bundler     | esbuild + esbuild-sass-plugin                 |
 | CSS         | LightningCSS                                  |
@@ -149,7 +149,7 @@ Tests use the **Node.js built-in test runner** (`node:test`). No Jest or Vitest.
 
 ### Build pipeline
 
-1. `npm run prebuild` → installs/updates plugins from `quartz.lock.json`
+1. `npx quartz plugin install` → installs plugins from `quartz.lock.json`
 2. `npx quartz build` → parses content, applies plugins, emits static site to `public/`
 3. Output is in `public/` (HTML, CSS, JS, assets)
 
