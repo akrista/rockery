@@ -20,7 +20,7 @@ It is a bridge framework that allows the Flipper Zero to communicate with web se
 
 You need the compiled firmware files for the ESP32-S2 chip.
 
-1. Navigate to the official [FlipperHTTP GitHub Release page](https://github.com/jblanked/FlipperHTTP).
+1. Open the official [FlipperHTTP GitHub Release page](https://github.com/jblanked/FlipperHTTP).
 2. Download these three files:
    - `flipper_http_bootloader.bin`
    - `flipper_http_firmware_a.bin`

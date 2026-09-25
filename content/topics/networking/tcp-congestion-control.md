@@ -12,19 +12,19 @@ tags:
 
 ## Congestion control algorithms
 
-| Algorithm | Behavior                                                                                                                                                                                                                                                                                                                                                       |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `cubic`   | Linux's traditional default. Treats packet loss as the primary congestion signal and backs off aggressively on loss, then slowly probes back up. Works well on stable, low-latency links, but reacts poorly to non-congestion loss (common on WiFi, mobile, or unreliable links), mistaking it for congestion and throttling unnecessarily.                    |
-| `bbr`     | Bottleneck Bandwidth and RTT (Google). Actively models the actual bottleneck bandwidth and round-trip time of the path and paces sending to match, ignoring random loss that isn't actually caused by congestion. Gets much better throughput on lossy or high-latency real-world links. In mainline Linux since kernel 4.9 (2016) — mature, not experimental. |
+| Algorithm | Behavior                                                                                                                                                                                                                                                                                                                                                      |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cubic`   | Linux's traditional default. Treats packet loss as the primary congestion signal and backs off aggressively on loss, then slowly probes back up. Works well on stable, low-latency links, but reacts poorly to non-congestion loss (common on WiFi, mobile, or unreliable links), mistaking it for congestion and throttling unnecessarily.                   |
+| `bbr`     | Bottleneck Bandwidth and RTT (Google). Actively models the actual bottleneck bandwidth and round-trip time of the path and paces sending to match, ignoring random loss that isn't actually caused by congestion. Gets much better throughput on lossy or high-latency real-world links. In mainline Linux since kernel 4.9 (2016); mature, not experimental. |
 
 ## Queueing disciplines
 
-| qdisc      | Behavior                                                                                                                                                                                                                          |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `fq_codel` | Fair Queuing + CoDel (Controlled Delay). Fights bufferbloat — the problem where an oversized buffer lets packets queue so long that latency balloons even without outright packet loss. Solid general-purpose default.            |
-| `fq`       | Fair Queuing without CoDel. Co-designed with and expected by BBR — BBR does its own pacing/timing math, and `fq` enforces the per-flow pacing BBR calculates. Pairing BBR with `fq_codel` instead can interfere with that pacing. |
+| qdisc      | Behavior                                                                                                                                                                                                                         |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fq_codel` | Fair Queuing + CoDel (Controlled Delay). Fights bufferbloat; the problem where an oversized buffer lets packets queue so long that latency balloons even without outright packet loss. Solid general-purpose default.            |
+| `fq`       | Fair Queuing without CoDel. Co-designed with and expected by BBR; BBR does its own pacing/timing math, and `fq` enforces the per-flow pacing BBR calculates. Pairing BBR with `fq_codel` instead can interfere with that pacing. |
 
-`bbr` + `fq` is a matched pair for this reason — mixing BBR with a qdisc built around a different congestion-control model can lose some of BBR's benefit.
+`bbr` + `fq` is a matched pair for this reason; mixing BBR with a qdisc built around a different congestion-control model can lose some of BBR's benefit.
 
 ## Checking and applying
 
@@ -46,11 +46,11 @@ printf 'net.core.default_qdisc=fq\nnet.ipv4.tcp_congestion_control=bbr\n' | sudo
 
 ## Safety notes
 
-- Only affects **new** TCP connections going forward — existing connections keep whatever algorithm they already negotiated, so this can't disrupt an active session (including the one applying the change over SSH).
+- Only affects **new** TCP connections going forward; existing connections keep whatever algorithm they already negotiated, so this can't disrupt an active session (including the one applying the change over SSH).
 - Fails safe: if `tcp_bbr` isn't loadable, the `sysctl` write is rejected with an error rather than silently half-applying.
-- Fully and instantly reversible by setting the values back — no reboot required in either direction.
+- Fully and instantly reversible by setting the values back; no reboot required in either direction.
 
 ## Related
 
-- [[netstat]] — inspecting active connections and their state
-- [[ssh]] — a protocol whose connections are directly affected by the active congestion-control algorithm
+- [[netstat]]: inspecting active connections and their state
+- [[ssh]]: a protocol whose connections are directly affected by the active congestion-control algorithm

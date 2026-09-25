@@ -7,4 +7,4 @@ Public tasks I'm tracking. Filter by tags or status to see what's active, planne
 
 Tasks here tend to be open-source improvements, writing projects, or PKB infrastructure work. Private tasks live under `private/tasks/`.
 
-Once a project or entity has 3+ tasks, it gets its own subfolder (e.g. `tasks/<entity>/`) — same convention used for [topics](/topics).
+Once a project or entity has 3+ tasks, it gets its own subfolder (e.g. `tasks/<entity>/`); same convention used for [topics](/topics).

@@ -14,8 +14,8 @@ tags:
 
 SSH uses a client-server model. The client authenticates to the server using:
 
-- **Password authentication** — username and password sent over the encrypted tunnel
-- **Public-key authentication** — the client proves identity using a private key; the server verifies against an authorized public key (more secure, recommended)
+- **Password authentication**: username and password sent over the encrypted tunnel
+- **Public-key authentication**: the client proves identity using a private key; the server verifies against an authorized public key (more secure, recommended)
 
 ## Common usage
 

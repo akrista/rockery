@@ -8,7 +8,7 @@ tags:
   - monitoring
 ---
 
-`netstat` displays network statistics — active connections, listening ports, routing tables, and interface statistics.
+`netstat` displays network statistics; active connections, listening ports, routing tables, and interface statistics.
 
 ## Common flags
 
@@ -16,11 +16,11 @@ tags:
 netstat -natup
 ```
 
-- `-n` — Show numerical addresses instead of resolving hostnames
-- `-a` — Show all sockets (listening and established)
-- `-t` — TCP connections only
-- `-u` — UDP connections only
-- `-p` — Show the process/PID associated with each socket
+- `-n`: Show numerical addresses instead of resolving hostnames
+- `-a`: Show all sockets (listening and established)
+- `-t`: TCP connections only
+- `-u`: UDP connections only
+- `-p`: Show the process/PID associated with each socket
 
 ```bash
 netstat -i
@@ -30,5 +30,5 @@ Shows a table of per-interface network statistics (packets sent/received, errors
 
 ## Related
 
-- [[tcpdump]] — capture and analyze live network traffic
-- [[ss]] — modern replacement for `netstat` (part of iproute2)
+- [[tcpdump]]: capture and analyze live network traffic
+- [[ss]]: modern replacement for `netstat` (part of iproute2)

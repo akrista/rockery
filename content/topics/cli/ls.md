@@ -11,14 +11,14 @@ tags:
 
 ## Common flags
 
-| Flag | Description                                                                               |
-| ---- | ----------------------------------------------------------------------------------------- |
-| `-a` | Show hidden files (those starting with `.`)                                               |
-| `-l` | Display files in long list format (permissions, owner, size, modification time)           |
-| `-h` | Print file sizes in human-readable format (e.g., 1K, 234M, 2G) — typically used with `-l` |
-| `-R` | Recursively list subdirectories                                                           |
-| `-t` | Sort by modification time (newest first)                                                  |
-| `-S` | Sort by file size (largest first)                                                         |
+| Flag | Description                                                                              |
+| ---- | ---------------------------------------------------------------------------------------- |
+| `-a` | Show hidden files (those starting with `.`)                                              |
+| `-l` | Display files in long list format (permissions, owner, size, modification time)          |
+| `-h` | Print file sizes in human-readable format (e.g., 1K, 234M, 2G); typically used with `-l` |
+| `-R` | Recursively list subdirectories                                                          |
+| `-t` | Sort by modification time (newest first)                                                 |
+| `-S` | Sort by file size (largest first)                                                        |
 
 ## Examples
 

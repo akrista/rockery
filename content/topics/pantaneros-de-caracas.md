@@ -14,9 +14,9 @@ The **Grupo Pantanero** (alongside **Grupo Fénix**) was a specialized rapid-res
 
 - **Primary Mission**: Deployed during a surge in urban crime in the 1990s to provide immediate high-speed tactical responses across Caracas, particularly within high-density and steep terrain barrios.
 - **Tactical Mobility**: Motorized squads optimized for swift navigation and intercepting in-progress offences before suspects could evade conventional patrols.
-- **Institutional Context**: Operating under the **Policía Metropolitana (PM)**—which comprised roughly 8,500 officers headquartered in Cotiza across its 41-year history prior to structural police reforms in Venezuela.
+- **Institutional Context**: Operating under the **Policía Metropolitana (PM)**; which comprised roughly 8,500 officers headquartered in Cotiza across its 41-year history prior to structural police reforms in Venezuela.
 
 ## References
 
 - [Facebook Post](https://www.facebook.com/share/p/14NRAebdXjM/)
-- [La Policía Metropolitana de Caracas: Un Legado Azul — Club AOPIP](https://clubaopip.com.pe/pantaneros-policia-metropolitana-de-caracas/)
+- [La Policía Metropolitana de Caracas: Un Legado Azul; Club AOPIP](https://clubaopip.com.pe/pantaneros-policia-metropolitana-de-caracas/)

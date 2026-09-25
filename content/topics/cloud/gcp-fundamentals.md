@@ -47,7 +47,7 @@ echo $ZONE
 gcloud compute instances create gcelab2 --machine-type n1-standard-2 --zone $ZONE
 ```
 
-Key subcommand: `gcloud compute instances create <NAME>` — creates a new Compute Engine VM.
+Key subcommand: `gcloud compute instances create <NAME>`; creates a new Compute Engine VM.
 
 ### SSH into the VM
 

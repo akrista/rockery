@@ -86,7 +86,7 @@ Many packaged Electron applications inherit Chromium command-line flags. Launchi
 ./TargetApp.exe --remote-debugging-port=9222
 ```
 
-Navigate to `http://localhost:9222` or `chrome://inspect` in a standard browser to:
+Open `http://localhost:9222` or `chrome://inspect` in a standard browser to:
 
 - Inspect DOM elements such as `<video>` tags and Video.js player instances.
 - Inspect blob URLs (`blob:file://...`) bound to `HTMLVideoElement.src`.

@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>Jorge Thomas — Curriculum Vitae</title>
+    <link rel="stylesheet" href="resume-harvard.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        --text-main: #000000;
+        --text-body: #111111;
+        --text-secondary: #222222;
+        --border-rule: #000000;
+        --link-color: #111111;
+        --link-hover: #cc241d;
+        --ui-bg: #fbf1c7;
+        --ui-border: #d5c4a1;
+        --ui-text: #282828;
+        --btn-primary-bg: #cc241d;
+        --btn-primary-hover: #9d0006;
+        --btn-secondary-bg: #ebdbb2;
+        --btn-secondary-border: #bdae93;
+        --btn-secondary-hover: #d5c4a1;
+        --font-serif: "Georgia", "Cambria", "Times New Roman", Times, serif;
+        --font-sans:
+          "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+      @page {
+        size: letter;
+        margin: 0.5in;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: var(--font-serif);
+        color: var(--text-body);
+        line-height: 1.38;
+        font-size: 10pt;
+        background-color: #f7f7f8;
+        padding: 2rem 1rem;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .container {
+        max-width: 8.5in;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 0.5in;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      }
+      .no-print {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1.75rem;
+        padding: 0.85rem 1.15rem;
+        background-color: var(--ui-bg);
+        border: 1px solid var(--ui-border);
+        border-radius: 6px;
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        color: var(--ui-text);
+      }
+      .no-print .bar-title {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-weight: 600;
+        color: var(--ui-text);
+      }
+      .no-print .bar-subtitle {
+        font-weight: 400;
+        color: #504945;
+      }
+      .no-print .bar-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background-color: var(--btn-primary-bg);
+        color: #ffffff !important;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+        font-size: 0.85rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: var(--font-sans);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: background-color 0.15s ease;
+      }
+      .btn-primary:hover {
+        background-color: var(--btn-primary-hover);
+        color: #ffffff !important;
+      }
+      .btn-secondary {
+        background-color: var(--btn-secondary-bg);
+        color: var(--ui-text) !important;
+        border: 1px solid var(--btn-secondary-border);
+        padding: 0.45rem 0.85rem;
+        font-weight: 600;
+        font-size: 0.85rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: var(--font-sans);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition:
+          background-color 0.15s ease,
+          border-color 0.15s ease;
+      }
+      .btn-secondary:hover {
+        background-color: var(--btn-secondary-hover);
+        color: #1d2021 !important;
+      }
+      .btn-link {
+        color: #665c54 !important;
+        font-weight: 600;
+        font-size: 0.85rem;
+        font-family: var(--font-sans);
+        text-decoration: none;
+        padding: 0.45rem 0.5rem;
+        transition: color 0.15s ease;
+      }
+      .btn-link:hover {
+        color: var(--btn-primary-bg) !important;
+        text-decoration: underline;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--border-rule);
+        padding-bottom: 0.75rem;
+      }
+      h1 {
+        font-size: 19pt;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: var(--text-main);
+        margin-bottom: 0.2rem;
+        line-height: 1.1;
+      }
+      .subtitle {
+        font-size: 10.5pt;
+        font-weight: 700;
+        color: var(--text-main);
+        margin-bottom: 0.35rem;
+        letter-spacing: 0.2px;
+      }
+      .contact-links {
+        font-size: 9pt;
+        color: var(--text-body);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.65rem;
+        line-height: 1.35;
+      }
+      .contact-links span.sep {
+        color: #7c6f64;
+        user-select: none;
+      }
+      .contact-links a {
+        color: var(--link-color);
+        text-decoration: underline;
+        text-decoration-color: #999999;
+        text-underline-offset: 2px;
+        transition: color 0.15s ease;
+      }
+      .contact-links a:hover {
+        color: var(--link-hover);
+        text-decoration-color: var(--link-hover);
+      }
+      section {
+        margin-bottom: 0.95rem;
+        break-inside: avoid;
+      }
+      h2 {
+        font-size: 11pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--text-main);
+        border-bottom: 1.5px solid var(--border-rule);
+        padding-bottom: 0.15rem;
+        margin-top: 0.85rem;
+        margin-bottom: 0.45rem;
+        letter-spacing: 0.75px;
+      }
+      .summary-text {
+        font-size: 9.5pt;
+        line-height: 1.4;
+        color: var(--text-body);
+        text-align: left;
+      }
+      .summary-text strong {
+        font-weight: 700;
+        color: var(--text-main);
+      }
+      .skills-category {
+        margin-bottom: 0.3rem;
+        font-size: 9.5pt;
+        line-height: 1.38;
+        color: var(--text-body);
+      }
+      .skills-category strong {
+        font-weight: 700;
+        color: var(--text-main);
+      }
+      .entry {
+        margin-bottom: 0.65rem;
+        break-inside: avoid;
+      }
+      .entry-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-weight: 700;
+        font-size: 10pt;
+        color: var(--text-main);
+      }
+      .entry-header a {
+        color: var(--link-color);
+        text-decoration: underline;
+        text-decoration-color: #999999;
+        font-weight: 600;
+      }
+      .entry-header a:hover {
+        color: var(--link-hover);
+        text-decoration-color: var(--link-hover);
+      }
+      .entry-subheader {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-size: 9.5pt;
+        color: var(--text-secondary);
+        margin-bottom: 0.2rem;
+      }
+      .entry-subheader .role {
+        font-weight: 600;
+        font-style: italic;
+        color: var(--text-main);
+      }
+      .entry-subheader .date {
+        font-style: italic;
+        color: var(--text-secondary);
+        white-space: nowrap;
+      }
+      ul {
+        list-style-type: square;
+        margin-left: 1.25rem;
+      }
+      li {
+        margin-bottom: 0.18rem;
+        font-size: 9.5pt;
+        line-height: 1.38;
+        color: var(--text-body);
+        text-align: left;
+      }
+      .compact-entry {
+        margin-bottom: 0.35rem;
+        font-size: 9.5pt;
+        line-height: 1.38;
+        color: var(--text-body);
+      }
+      .compact-entry strong {
+        font-weight: 700;
+        color: var(--text-main);
+      }
+      .certifications-list,
+      .languages-list,
+      .endorsements-list {
+        font-size: 9.5pt;
+        line-height: 1.38;
+        color: var(--text-body);
+        margin-top: 0.3rem;
+      }
+      .certifications-list strong,
+      .languages-list strong,
+      .endorsements-list strong {
+        font-weight: 700;
+        color: var(--text-main);
+      }
+      @media print {
+        @page {
+          size: letter;
+          margin: 0.5in;
+        }
+        body {
+          padding: 0 !important;
+          margin: 0 !important;
+          background: #ffffff !important;
+          color: #000000 !important;
+          font-size: 9.5pt !important;
+        }
+        .container {
+          padding: 0 !important;
+          margin: 0 !important;
+          box-shadow: none !important;
+          border: none !important;
+          max-width: 100% !important;
+        }
+        .no-print {
+          display: none !important;
+        }
+        a {
+          color: #000000 !important;
+          text-decoration: none !important;
+        }
+        h1,
+        h2,
+        h3,
+        p,
+        span,
+        li,
+        strong,
+        em,
+        div {
+          color: #000000 !important;
+        }
+        header {
+          border-bottom: 2px solid #000000 !important;
+        }
+        h2 {
+          border-bottom: 1.5px solid #000000 !important;
+        }
+        section,
+        .entry {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="no-print">
+        <div class="bar-title">
+          <span>📄</span>
+          <strong>Harvard Standard ATS Resume</strong>
+          <span class="bar-subtitle">• Click print and select "Save as PDF"</span>
+        </div>
+        <div class="bar-actions">
+          <a href="/resume" class="btn-link">← Rockery Garden</a>
+          <a href="resume-harvard-es.html" class="btn-secondary">🌐 Versión en Español</a>
+          <button class="btn-primary" onclick="window.print()">🖨️ Print / Save as PDF</button>
+        </div>
+      </div>
+
+      <header>
+        <h1>Jorge Thomas</h1>
+        <div class="subtitle">
+          Lead Data & Systems Engineer • DevOps & RPA • Senior Full-Stack Architect
+        </div>
+        <div class="contact-links">
+          <span>Caracas, Venezuela (Open to Remote / Relocation)</span>
+          <span class="sep">•</span>
+          <a href="mailto:info@notakrista.com">info@notakrista.com</a>
+          <span class="sep">•</span>
+          <a href="https://notakrista.com" target="_blank" rel="noopener">notakrista.com</a>
+          <span class="sep">•</span>
+          <a href="https://github.com/akrista" target="_blank" rel="noopener">github.com/akrista</a>
+          <span class="sep">•</span>
+          <a href="https://linkedin.com/in/akrista" target="_blank" rel="noopener"
+            >linkedin.com/in/akrista</a
+          >
+          <span class="sep">•</span>
+          <a href="https://cal.com/akrista/30min" target="_blank" rel="noopener"
+            >cal.com/akrista/30min</a
+          >
+        </div>
+      </header>
+
+      <main>
+        <section aria-labelledby="sec-summary">
+          <h2 id="sec-summary">Professional Summary</h2>
+          <p class="summary-text">
+            Lead Data & Systems Engineer and Senior Full-Stack Architect with over a decade of
+            technical operations experience and 6+ years of engineering leadership. Specialized in
+            enterprise data architecture, Business Intelligence pipelines, modern
+            <strong>PHP 8.x / Laravel</strong> (Octane, Livewire, Filament), containerized
+            cloud/edge infrastructure (Docker, Podman, Linux), and Robotic Process Automation (RPA).
+            Grounded in financial operations, payment reconciliation, and banking compliance,
+            consistently bridging rigorous business data integrity with resilient, high-throughput
+            software architecture. Polyglot practitioner across Python, Node.js, Kotlin, Spring
+            Boot, NativePHP, and low-level Linux systems.
+          </p>
+        </section>
+
+        <section aria-labelledby="sec-skills">
+          <h2 id="sec-skills">Technical Competencies</h2>
+          <div class="skills-category">
+            <strong>Data Engineering & BI:</strong> Relational Schema Architecture, ETL/ELT
+            Pipelines, Query Execution Plan Tuning, Index Optimization, Transact-SQL (T-SQL),
+            ClicData BI Dashboards.
+          </div>
+          <div class="skills-category">
+            <strong>Backend & Polyglot Runtimes:</strong> PHP 8.x, Laravel (Octane, Horizon, Reverb,
+            Pulse, Fortify), Python, Node.js, with practical exposure to Kotlin, Java (Spring Boot),
+            NativePHP, Rust, and C#. RESTful APIs, Microservices, Multi-Tenancy.
+          </div>
+          <div class="skills-category">
+            <strong>Databases & Storage:</strong> PostgreSQL, MySQL, SQLite, MongoDB, Redis, Storage
+            Systems (Btrfs with Zstd, Ext4), Query Execution Plans, Partitioning & Caching.
+          </div>
+          <div class="skills-category">
+            <strong>DevOps, Cloud & Edge:</strong> Docker, Podman (Quadlets), Microsoft Azure,
+            Google Cloud, Linux (Fedora, Debian, Ubuntu, Arch, Alpine), Kernel Optimization (TCP
+            BBR, swappiness), Edge Routing (OpenWrt), DNS Security Filtering, Nginx, FrankenPHP,
+            Windows Server, GitHub Actions CI/CD.
+          </div>
+          <div class="skills-category">
+            <strong>Testing & Tooling:</strong> Pest, PHPUnit, Larastan (Static Analysis), Pint,
+            Rector, Scramble (OpenAPI), Model Context Protocol (MCP), LLM Agent Tooling, VBA,
+            SharePoint.
+          </div>
+        </section>
+
+        <section aria-labelledby="sec-experience">
+          <h2 id="sec-experience">Professional Experience</h2>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span>TBTB GLOBAL (Tudo Bem Tudo Bom USA, LLC)</span>
+              <span>Caracas, Venezuela</span>
+            </div>
+            <div class="entry-subheader">
+              <span class="role">Lead of Business Intelligence & Data Engineering</span>
+              <span class="date">Jan 2026 – Present</span>
+            </div>
+            <ul>
+              <li>
+                Direct multi-client Business Intelligence and data engineering platforms, building
+                and maintaining automated ETL/ELT pipelines and data quality validation monitors.
+              </li>
+              <li>
+                Design, optimize, and maintain stored procedures, views, and indexes across SQL
+                Server production databases.
+              </li>
+              <li>
+                Build interactive BI dashboards in ClicData and custom programmatic reporting views
+                deployed on DxStatus.
+              </li>
+              <li>
+                Interface directly with client stakeholders to validate requirements, adjust
+                metrics/KPIs, and negotiate project scope and delivery timelines.
+              </li>
+              <li>Manage data workflows and repository versioning using Bitbucket/Git and Jira.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span>TBTB GLOBAL (Tudo Bem Tudo Bom USA, LLC)</span>
+              <span>Caracas, Venezuela</span>
+            </div>
+            <div class="entry-subheader">
+              <span class="role">Leader in DevOps and RPA</span>
+              <span class="date">Apr 2023 – Dec 2025</span>
+            </div>
+            <ul>
+              <li>
+                Led enterprise automation and RPA initiatives using UiPath, Automation Anywhere, and
+                Python to streamline repetitive operational workflows.
+              </li>
+              <li>
+                Built and managed containerized infrastructure on Linux, Docker, and Kubernetes
+                across AWS and Azure environments.
+              </li>
+              <li>
+                Implemented CI/CD automation pipelines with Jenkins and GitLab, enforcing
+                security-as-code standards.
+              </li>
+              <li>
+                Evaluated and deployed AI, machine learning, and computer vision models (image
+                processing and object detection) for intelligent process automation.
+              </li>
+              <li>
+                Developed and executed stakeholder communication plans to track project adoption and
+                align automation initiatives with operational goals.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span>TBTB GLOBAL (Tudo Bem Tudo Bom USA, LLC)</span>
+              <span>Caracas, Venezuela</span>
+            </div>
+            <div class="entry-subheader">
+              <span class="role">Database Analyst</span>
+              <span class="date">May 2022 – Apr 2023</span>
+            </div>
+            <ul>
+              <li>
+                Modeled and normalized relational database schemas to power enterprise analytics and
+                operational reporting.
+              </li>
+              <li>
+                Built and maintained automated data synchronization feeds and executive dashboards
+                in ClicData.
+              </li>
+              <li>
+                Authored PowerShell and Python automation scripts for scheduled data extraction,
+                transformation, and sanitization.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span>INDEPENDENT SOFTWARE CONSULTING (notakrista)</span>
+              <span>Remote</span>
+            </div>
+            <div class="entry-subheader">
+              <span class="role">Principal Software Architect & Consultant</span>
+              <span class="date">Jan 2021 – Present</span>
+            </div>
+            <ul>
+              <li>
+                Provide senior software engineering, database optimization, and systems architecture
+                consulting for select international clients.
+              </li>
+              <li>
+                Architect high-throughput Laravel/Livewire web applications, transactional database
+                schemas, and RESTful API microservices.
+              </li>
+              <li>
+                Deploy containerized environments and POS network integrations for commercial
+                fintech clients.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span>CONSULTORA ALCA, C.A. (VEPAGOS)</span>
+              <span>Caracas, Venezuela</span>
+            </div>
+            <div class="entry-subheader">
+              <span class="role">IT Specialist</span>
+              <span class="date">Feb 2021 – May 2022</span>
+            </div>
+            <ul>
+              <li>
+                Administered Linux production server fleet and MySQL database environments
+                supporting commercial point-of-sale (POS) electronic payment processing.
+              </li>
+              <li>
+                Containerized legacy applications with Docker, establishing consistent development,
+                staging, and production environments.
+              </li>
+              <li>
+                Programmed and maintained internal web applications, merchant account tools, and
+                real-time transaction reconciliation monitors.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section aria-labelledby="sec-earlier-experience">
+          <h2 id="sec-earlier-experience">Earlier Operations & Client Experience</h2>
+          <div class="compact-entry">
+            <strong>DISGLOBAL</strong> — <em>Accounts Receivable Specialist</em> (Jul 2019 – Jan
+            2021): Automated payment reconciliations, managed POS terminal inventory, and generated
+            operational statistical reports.
+          </div>
+          <div class="compact-entry">
+            <strong>Corporación Total Pago Plus</strong> — <em>POS Account Specialist</em> (Apr 2019
+            – Jul 2019): Managed daily interbank reconciliations, merchant fund liquidations, and
+            financial audits.
+          </div>
+          <div class="compact-entry">
+            <strong>Organización Italcambio</strong> —
+            <em>Customer Service Manager & Coordinator</em> (Mar 2015 – Apr 2019): Directed customer
+            support operations, regulatory compliance audits, and ISO 9001:2015 quality management
+            systems across 4 years of progression.
+          </div>
+          <div class="compact-entry">
+            <strong>Person to Person Análisis, C.A.</strong> —
+            <em>Customer Service Executive</em> (Apr 2014 – Jan 2015): Managed customer
+            communications, complaint resolution, and operational call center metrics.
+          </div>
+          <div class="compact-entry">
+            <strong>Digital Extremes</strong> — <em>Collaborator / Localization Specialist</em> (Oct
+            2012 – Aug 2013): Localized 15,000+ strings and gaming assets for the Spanish release of
+            Warframe.
+          </div>
+        </section>
+
+        <section aria-labelledby="sec-projects">
+          <h2 id="sec-projects">Flagship Engineering Projects</h2>
+          <div class="entry">
+            <div class="entry-header">
+              <span>Bizkit — Enterprise Laravel Starter Kit</span>
+              <span
+                ><a href="https://github.com/akrista/bizkit" target="_blank" rel="noopener"
+                  >github.com/akrista/bizkit</a
+                ></span
+              >
+            </div>
+            <ul>
+              <li>
+                Engineered a production-ready application foundation combining Octane + FrankenPHP,
+                Reverb WebSockets, Pulse, and Fortify authentication (2FA, WebAuthn).
+              </li>
+              <li>
+                Implemented a hybrid team-scoped authorization layer over Spatie Permission with
+                dynamic policy generation and 100% Pest test coverage.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span>notakrista.com — Personal Workbench & Application Hub</span>
+              <span
+                ><a href="https://notakrista.com" target="_blank" rel="noopener"
+                  >notakrista.com</a
+                ></span
+              >
+            </div>
+            <ul>
+              <li>
+                Architected personal application hub, server inventory, and interactive character
+                sheet built on Laravel, Livewire, Filament, and Tailwind CSS.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span>Rockery — Digital Garden & PKB</span>
+              <span
+                ><a href="https://rockery.notakrista.com" target="_blank" rel="noopener"
+                  >rockery.notakrista.com</a
+                ></span
+              >
+            </div>
+            <ul>
+              <li>
+                Built a static knowledge publishing platform utilizing Quartz 5, transforming
+                interconnected Obsidian notes into a public PKB with automated CI/CD deployment.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section aria-labelledby="sec-education">
+          <h2 id="sec-education">Education & Certifications</h2>
+          <div class="entry">
+            <div class="entry-header">
+              <span>Universidad Central de Venezuela (UCV)</span>
+              <span>Caracas, Venezuela</span>
+            </div>
+            <div class="entry-subheader">
+              <span class="role">Philosophy Studies</span>
+              <span class="date">2017</span>
+            </div>
+          </div>
+          <div class="entry">
+            <div class="entry-header">
+              <span>Universidad Santa María (USM)</span>
+              <span>Caracas, Venezuela</span>
+            </div>
+            <div class="entry-subheader">
+              <span class="role">Law Studies</span>
+              <span class="date">2011 – 2014</span>
+            </div>
+          </div>
+          <div class="certifications-list">
+            <strong>Verified Certifications:</strong> EFSET English Certificate (71/100,
+            <strong>C2 Proficient</strong>, Nov 2024, ID: gvRLno) • AI for Programmers (EducacionIT,
+            Nov 2025, ID: 109456081345) • Foundational C# with Microsoft (freeCodeCamp, Feb 2024) •
+            Data Analysis with Python (freeCodeCamp, Feb 2024) • Liquibase Fundamentals (Feb 2023) •
+            Linux Server Administration, High Concurrency Architecture, & Azure Cloud (Platzi) •
+            Responsive Web Design (freeCodeCamp, Jan 2021).
+          </div>
+          <div class="languages-list">
+            <strong>Languages:</strong> Spanish (Native) • English (Full Professional Proficiency /
+            EFSET C2).
+          </div>
+          <div class="endorsements-list">
+            <strong>Executive Recommendations:</strong> Endorsed on LinkedIn by IT & Collections
+            Executive Management (Vepagos) and Governance & ESG Management (Italcambio / TBTB).
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

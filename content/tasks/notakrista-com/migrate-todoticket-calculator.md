@@ -17,4 +17,4 @@ Migrate the calculator logic and UI of the existing Todoticket calculator from A
 
 ## Related
 
-- [[notakrista-com]] — main project index
+- [[notakrista-com]]: main project index

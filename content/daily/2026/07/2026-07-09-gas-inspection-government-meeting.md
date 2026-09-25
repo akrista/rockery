@@ -32,7 +32,7 @@ Today, we had a gas pipeline safety inspection and a meeting with the parroquia'
 
 ## 🔗 Related Notes
 
-- [[projects/earthquake-recovery/|Earthquake Recovery]] — main recovery project index
+- [[projects/earthquake-recovery/|Earthquake Recovery]]: main recovery project index
 
 </details>
 
@@ -59,6 +59,6 @@ Hoy tuvimos una inspección de seguridad en las tuberías de gas y asistimos a u
 
 ## 🔗 Notas Relacionadas
 
-- [[projects/earthquake-recovery/|Recuperación del Terremoto]] — índice del proyecto principal de recuperación
+- [[projects/earthquake-recovery/|Recuperación del Terremoto]]: índice del proyecto principal de recuperación
 
 </details>

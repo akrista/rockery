@@ -14,8 +14,8 @@ tags:
 
 Two logging options cap total log size per container:
 
-- `max-size` — rotate the log once it reaches this size (e.g. `10m` for 10MB)
-- `max-file` — number of rotated files to keep before deleting the oldest
+- `max-size`: rotate the log once it reaches this size (e.g. `10m` for 10MB)
+- `max-file`: number of rotated files to keep before deleting the oldest
 
 Together, `max-size: 10m` + `max-file: 3` caps a container's logs at roughly 30MB total instead of unbounded growth. An additional `compress: true` option gzips the rotated (non-active) log files for further space savings.
 
@@ -40,7 +40,7 @@ services:
     logging: *default-logging
 ```
 
-The `x-logging` key is a Compose extension field (ignored by Compose itself, purely a YAML anchor target) — `logging: *default-logging` expands to the same block in every service that references it, so the policy is defined and updated in exactly one place.
+The `x-logging` key is a Compose extension field (ignored by Compose itself, purely a YAML anchor target); `logging: *default-logging` expands to the same block in every service that references it, so the policy is defined and updated in exactly one place.
 
 ## Applying globally via daemon.json
 
@@ -56,8 +56,8 @@ For a setting that applies to every container regardless of compose file, config
 }
 ```
 
-This only affects containers **created after** the daemon restarts with the new config — existing containers must be recreated (not just restarted) to pick up the new logging config, since logging driver options are set at container-creation time.
+This only affects containers **created after** the daemon restarts with the new config; existing containers must be recreated (not just restarted) to pick up the new logging config, since logging driver options are set at container-creation time.
 
 ## Related
 
-- [[btrfs]] — another angle on keeping disk usage under control on the same host
+- [[btrfs]]: another angle on keeping disk usage under control on the same host

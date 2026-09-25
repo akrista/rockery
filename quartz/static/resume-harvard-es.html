@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>Jorge Thomas — Currículum Vitae</title>
+    <link rel="stylesheet" href="resume-harvard.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        --text-main: #000000;
+        --text-body: #111111;
+        --text-secondary: #222222;
+        --border-rule: #000000;
+        --link-color: #111111;
+        --link-hover: #cc241d;
+        --ui-bg: #fbf1c7;
+        --ui-border: #d5c4a1;
+        --ui-text: #282828;
+        --btn-primary-bg: #cc241d;
+        --btn-primary-hover: #9d0006;
+        --btn-secondary-bg: #ebdbb2;
+        --btn-secondary-border: #bdae93;
+        --btn-secondary-hover: #d5c4a1;
+        --font-serif: "Georgia", "Cambria", "Times New Roman", Times, serif;
+        --font-sans:
+          "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      }
+      @page {
+        size: letter;
+        margin: 0.5in;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: var(--font-serif);
+        color: var(--text-body);
+        line-height: 1.38;
+        font-size: 10pt;
+        background-color: #f7f7f8;
+        padding: 2rem 1rem;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .container {
+        max-width: 8.5in;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 0.5in;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      }
+      .no-print {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1.75rem;
+        padding: 0.85rem 1.15rem;
+        background-color: var(--ui-bg);
+        border: 1px solid var(--ui-border);
+        border-radius: 6px;
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        color: var(--ui-text);
+      }
+      .no-print .bar-title {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-weight: 600;
+        color: var(--ui-text);
+      }
+      .no-print .bar-subtitle {
+        font-weight: 400;
+        color: #504945;
+      }
+      .no-print .bar-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        background-color: var(--btn-primary-bg);
+        color: #ffffff !important;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-weight: 600;
+        font-size: 0.85rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: var(--font-sans);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition: background-color 0.15s ease;
+      }
+      .btn-primary:hover {
+        background-color: var(--btn-primary-hover);
+        color: #ffffff !important;
+      }
+      .btn-secondary {
+        background-color: var(--btn-secondary-bg);
+        color: var(--ui-text) !important;
+        border: 1px solid var(--btn-secondary-border);
+        padding: 0.45rem 0.85rem;
+        font-weight: 600;
+        font-size: 0.85rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: var(--font-sans);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        transition:
+          background-color 0.15s ease,
+          border-color 0.15s ease;
+      }
+      .btn-secondary:hover {
+        background-color: var(--btn-secondary-hover);
+        color: #1d2021 !important;
+      }
+      .btn-link {
+        color: #665c54 !important;
+        font-weight: 600;
+        font-size: 0.85rem;
+        font-family: var(--font-sans);
+        text-decoration: none;
+        padding: 0.45rem 0.5rem;
+        transition: color 0.15s ease;
+      }
+      .btn-link:hover {
+        color: var(--btn-primary-bg) !important;
+        text-decoration: underline;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--border-rule);
+        padding-bottom: 0.75rem;
+      }
+      h1 {
+        font-size: 19pt;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: var(--text-main);
+        margin-bottom: 0.2rem;
+        line-height: 1.1;
+      }
+      .subtitle {
+        font-size: 10.5pt;
+        font-weight: 700;
+        color: var(--text-main);
+        margin-bottom: 0.35rem;
+        letter-spacing: 0.2px;
+      }
+      .contact-links {
+        font-size: 9pt;
+        color: var(--text-body);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.4rem 0.65rem;
+        line-height: 1.35;
+      }
+      .contact-links span.sep {
+        color: #7c6f64;
+        user-select: none;
+      }
+      .contact-links a {
+        color: var(--link-color);
+        text-decoration: underline;
+        text-decoration-color: #999999;
+        text-underline-offset: 2px;
+        transition: color 0.15s ease;
+      }
+      .contact-links a:hover {
+        color: var(--link-hover);
+        text-decoration-color: var(--link-hover);
+      }
+      section {
+        margin-bottom: 0.95rem;
+        break-inside: avoid;
+      }
+      h2 {
+        font-size: 11pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--text-main);
+        border-bottom: 1.5px solid var(--border-rule);
+        padding-bottom: 0.15rem;
+        margin-top: 0.85rem;
+        margin-bottom: 0.45rem;
+        letter-spacing: 0.75px;
+      }
+      .summary-text {
+        font-size: 9.5pt;
+        line-height: 1.4;
+        color: var(--text-body);
+        text-align: left;
+      }
+      .summary-text strong {
+        font-weight: 700;
+        color: var(--text-main);
+      }
+      .skills-category {
+        margin-bottom: 0.3rem;
+        font-size: 9.5pt;
+        line-height: 1.38;
+        color: var(--text-body);
+      }
+      .skills-category strong {
+        font-weight: 700;
+        color: var(--text-main);
+      }
+      .entry {
+        margin-bottom: 0.65rem;
+        break-inside: avoid;
+      }
+      .entry-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-weight: 700;
+        font-size: 10pt;
+        color: var(--text-main);
+      }
+      .entry-header a {
+        color: var(--link-color);
+        text-decoration: underline;
+        text-decoration-color: #999999;
+        font-weight: 600;
+      }
+      .entry-header a:hover {
+        color: var(--link-hover);
+        text-decoration-color: var(--link-hover);
+      }
+      .entry-subheader {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-size: 9.5pt;
+        color: var(--text-secondary);
+        margin-bottom: 0.2rem;
+      }
+      .entry-subheader .role {
+        font-weight: 600;
+        font-style: italic;
+        color: var(--text-main);
+      }
+      .entry-subheader .date {
+        font-style: italic;
+        color: var(--text-secondary);
+        white-space: nowrap;
+      }
+      ul {
+        list-style-type: square;
+        margin-left: 1.25rem;
+      }
+      li {
+        margin-bottom: 0.18rem;
+        font-size: 9.5pt;
+        line-height: 1.38;
+        color: var(--text-body);
+        text-align: left;
+      }
+      .compact-entry {
+        margin-bottom: 0.35rem;
+        font-size: 9.5pt;
+        line-height: 1.38;
+        color: var(--text-body);
+      }
+      .compact-entry strong {
+        font-weight: 700;
+        color: var(--text-main);
+      }
+      .certifications-list,
+      .languages-list,
+      .endorsements-list {
+        font-size: 9.5pt;
+        line-height: 1.38;
+        color: var(--text-body);
+        margin-top: 0.3rem;
+      }
+      .certifications-list strong,
+      .languages-list strong,
+      .endorsements-list strong {
+        font-weight: 700;
+        color: var(--text-main);
+      }
+      @media print {
+        @page {
+          size: letter;
+          margin: 0.5in;
+        }
+        body {
+          padding: 0 !important;
+          margin: 0 !important;
+          background: #ffffff !important;
+          color: #000000 !important;
+          font-size: 9.5pt !important;
+        }
+        .container {
+          padding: 0 !important;
+          margin: 0 !important;
+          box-shadow: none !important;
+          border: none !important;
+          max-width: 100% !important;
+        }
+        .no-print {
+          display: none !important;
+        }
+        a {
+          color: #000000 !important;
+          text-decoration: none !important;
+        }
+        h1,
+        h2,
+        h3,
+        p,
+        span,
+        li,
+        strong,
+        em,
+        div {
+          color: #000000 !important;
+        }
+        header {
+          border-bottom: 2px solid #000000 !important;
+        }
+        h2 {
+          border-bottom: 1.5px solid #000000 !important;
+        }
+        section,
+        .entry {
+          break-inside: avoid;
+          page-break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="no-print">
+        <div class="bar-title">
+          <span>📄</span>
+          <strong>Currículum Estándar Harvard ATS</strong>
+          <span class="bar-subtitle">• Haz clic en imprimir y selecciona "Guardar como PDF"</span>
+        </div>
+        <div class="bar-actions">
+          <a href="/resume/es" class="btn-link">← Jardín Rockery</a>
+          <a href="resume-harvard-en.html" class="btn-secondary">🌐 English Version</a>
+          <button class="btn-primary" onclick="window.print()">
+            🖨️ Imprimir / Guardar como PDF
+          </button>
+        </div>
+      </div>
+
+      <header>
+        <h1>Jorge Thomas</h1>
+        <div class="subtitle">
+          Líder de BI & Data Engineering • DevOps & RPA • Arquitecto Full-Stack Senior
+        </div>
+        <div class="contact-links">
+          <span>Caracas, Venezuela (Disponible para Remoto / Reubicación)</span>
+          <span class="sep">•</span>
+          <a href="mailto:info@notakrista.com">info@notakrista.com</a>
+          <span class="sep">•</span>
+          <a href="https://notakrista.com" target="_blank" rel="noopener">notakrista.com</a>
+          <span class="sep">•</span>
+          <a href="https://github.com/akrista" target="_blank" rel="noopener">github.com/akrista</a>
+          <span class="sep">•</span>
+          <a href="https://linkedin.com/in/akrista" target="_blank" rel="noopener"
+            >linkedin.com/in/akrista</a
+          >
+          <span class="sep">•</span>
+          <a href="https://cal.com/akrista/30min" target="_blank" rel="noopener"
+            >cal.com/akrista/30min</a
+          >
+        </div>
+      </header>
+
+      <main>
+        <section aria-labelledby="sec-summary">
+          <h2 id="sec-summary">Resumen Ejecutivo</h2>
+          <p class="summary-text">
+            Líder de Ingeniería de Datos y Sistemas y Arquitecto Full-Stack Senior con más de una
+            década de experiencia técnica y operativa en sistemas y más de 6 años de liderazgo
+            técnico en ingeniería. Especializado en arquitectura de datos corporativa, Business
+            Intelligence, ecosistemas modernos de <strong>PHP 8.x / Laravel</strong> (Octane,
+            Livewire, Filament), infraestructura cloud y edge en contenedores (Docker, Podman,
+            Linux) y Automatización Robótica de Procesos (RPA). Con sólidas raíces en operaciones
+            financieras, conciliación bancaria y cumplimiento normativo, uniendo la integridad del
+            dato de negocio con arquitecturas de software de alto rendimiento. Experiencia políglota
+            en Python, Node.js, Kotlin, Spring Boot, NativePHP y sistemas Linux de bajo nivel.
+          </p>
+        </section>
+
+        <section aria-labelledby="sec-skills">
+          <h2 id="sec-skills">Competencias Técnicas</h2>
+          <div class="skills-category">
+            <strong>Ingeniería de Datos y BI:</strong> Arquitectura de Esquemas Relacionales,
+            Pipelines ETL/ELT, Optimización de Planes de Ejecución, Indexación Avanzada,
+            Transact-SQL (T-SQL), Dashboards ClicData.
+          </div>
+          <div class="skills-category">
+            <strong>Backend y Entornos Políglotas:</strong> PHP 8.x, Laravel (Octane, Horizon,
+            Reverb, Pulse, Fortify), Python, Node.js, con experiencia práctica en Kotlin, Java
+            (Spring Boot), NativePHP, Rust y C#. APIs RESTful, Microservicios, Multi-Tenancy.
+          </div>
+          <div class="skills-category">
+            <strong>Bases de Datos y Almacenamiento:</strong> PostgreSQL, MySQL, SQLite, MongoDB,
+            Redis, Sistemas de Archivos (Btrfs con Zstd, Ext4), Planes de Ejecución de Queries,
+            Particionamiento y Caché.
+          </div>
+          <div class="skills-category">
+            <strong>DevOps, Cloud y Sistemas Edge:</strong> Docker, Podman (Quadlets), Microsoft
+            Azure, Google Cloud, Linux (Fedora, Debian, Ubuntu, Arch, Alpine), Optimización de
+            Kernel (TCP BBR, swappiness), Enrutamiento Edge (OpenWrt), Filtrado DNS, Nginx,
+            FrankenPHP, Windows Server, CI/CD en GitHub Actions.
+          </div>
+          <div class="skills-category">
+            <strong>Pruebas y Herramientas:</strong> Pest, PHPUnit, Larastan (Análisis Estático),
+            Pint, Rector, Scramble (OpenAPI), Model Context Protocol (MCP), Flujos con Agentes LLM,
+            VBA, SharePoint.
+          </div>
+        </section>
+
+        <section aria-labelledby="sec-experience">
+          <h2 id="sec-experience">Experiencia Laboral</h2>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span>TBTB GLOBAL (Tudo Bem Tudo Bom USA, LLC)</span>
+              <span>Caracas, Venezuela</span>
+            </div>
+            <div class="entry-subheader">
+              <span class="role">Líder de Business Intelligence & Data Engineering</span>
+              <span class="date">Ene 2026 – Presente</span>
+            </div>
+            <ul>
+              <li>
+                Lidero plataformas de Business Intelligence e ingeniería de datos multi-cliente,
+                construyendo pipelines ETL/ELT y paneles de control para validación de calidad de
+                datos.
+              </li>
+              <li>
+                Diseño, optimizo y mantengo stored procedures, vistas e índices en bases de datos
+                SQL Server.
+              </li>
+              <li>
+                Desarrollo paneles de control en ClicData y vistas de visualización programadas
+                desplegadas en DxStatus.
+              </li>
+              <li>
+                Coordino directamente con stakeholders de clientes la validación de requerimientos,
+                ajuste de KPIs y negociación de alcance y cronogramas.
+              </li>
+              <li>Gestiono flujos de trabajo y control de versiones con Bitbucket/Git y Jira.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span>TBTB GLOBAL (Tudo Bem Tudo Bom USA, LLC)</span>
+              <span>Caracas, Venezuela</span>
+            </div>
+            <div class="entry-subheader">
+              <span class="role">Líder en DevOps y RPA</span>
+              <span class="date">Abr 2023 – Dic 2025</span>
+            </div>
+            <ul>
+              <li>
+                Lideré iniciativas de automatización y RPA utilizando UiPath, Automation Anywhere y
+                Python para optimizar flujos operativos repetitivos.
+              </li>
+              <li>
+                Construí y administré infraestructura contenerizada sobre Linux, Docker y Kubernetes
+                en entornos AWS y Azure.
+              </li>
+              <li>
+                Implementé pipelines de CI/CD con Jenkins y GitLab, aplicando políticas de seguridad
+                como código.
+              </li>
+              <li>
+                Evalué e integré modelos de IA, machine learning y visión por computadora
+                (procesamiento de imágenes y detección de objetos) para automatización inteligente.
+              </li>
+              <li>
+                Diseñé planes de comunicación con stakeholders para monitorear adopción y alinear
+                proyectos de automatización con objetivos del negocio.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span>TBTB GLOBAL (Tudo Bem Tudo Bom USA, LLC)</span>
+              <span>Caracas, Venezuela</span>
+            </div>
+            <div class="entry-subheader">
+              <span class="role">Analista de Bases de Datos</span>
+              <span class="date">May 2022 – Abr 2023</span>
+            </div>
+            <ul>
+              <li>
+                Modelé y normalicé esquemas relacionales para soportar analítica avanzada y
+                reportería operativa corporativa.
+              </li>
+              <li>
+                Desarrollé y mantuve sincronizaciones automatizadas de datos y dashboards ejecutivos
+                en ClicData.
+              </li>
+              <li>
+                Desarrollé scripts de automatización en PowerShell y Python para extracción,
+                transformación y saneamiento de datos.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span>CONSULTORÍA INDEPENDIENTE (notakrista)</span>
+              <span>Remoto</span>
+            </div>
+            <div class="entry-subheader">
+              <span class="role">Arquitecto de Software Principal y Consultor</span>
+              <span class="date">Ene 2021 – Presente</span>
+            </div>
+            <ul>
+              <li>
+                Asesoría técnica senior en desarrollo de software, optimización de bases de datos y
+                arquitectura de sistemas para clientes internacionales.
+              </li>
+              <li>
+                Arquitectura de aplicaciones web de alto rendimiento en Laravel/Livewire, esquemas
+                transaccionales y microservicios API REST.
+              </li>
+              <li>
+                Despliegue de infraestructura en contenedores e integraciones para clientes del
+                sector fintech y redes de pago comercial (POS).
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span>CONSULTORA ALCA, C.A. (VEPAGOS)</span>
+              <span>Caracas, Venezuela</span>
+            </div>
+            <div class="entry-subheader">
+              <span class="role">Especialista de TI</span>
+              <span class="date">Feb 2021 – May 2022</span>
+            </div>
+            <ul>
+              <li>
+                Administré servidores Linux y bases de datos MySQL que soportaban redes comerciales
+                de puntos de venta (POS) y transacciones electrónicas.
+              </li>
+              <li>
+                Contenericé aplicaciones heredadas con Docker, estandarizando los entornos de
+                desarrollo, pruebas y producción.
+              </li>
+              <li>
+                Programé y mantuve herramientas web internas, utilidades de comercios y monitores de
+                conciliación transaccional en tiempo real.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section aria-labelledby="sec-earlier-experience">
+          <h2 id="sec-earlier-experience">Trayectoria Operativa y de Atención Previa</h2>
+          <div class="compact-entry">
+            <strong>DISGLOBAL</strong> — <em>Especialista de Cuentas por Cobrar</em> (Jul 2019 – Ene
+            2021): Conciliaciones automatizadas de pagos, gestión de inventario POS e informes
+            estadísticos operativos.
+          </div>
+          <div class="compact-entry">
+            <strong>Corporación Total Pago Plus</strong> — <em>Especialista de Cuentas POS</em> (Abr
+            2019 – Jul 2019): Conciliaciones interbancarias diarias, liquidación de fondos a
+            comercios y auditorías de transacciones.
+          </div>
+          <div class="compact-entry">
+            <strong>Organización Italcambio</strong> —
+            <em>Gerente y Coordinador de Atención al Cliente</em> (Mar 2015 – Abr 2019): Liderazgo
+            operativo de soporte, cumplimiento regulatorio y gestión de calidad bajo norma ISO
+            9001:2015 a lo largo de 4 años de progresión.
+          </div>
+          <div class="compact-entry">
+            <strong>Person to Person Análisis, C.A.</strong> —
+            <em>Ejecutivo de Atención al Cliente</em> (Abr 2014 – Ene 2015): Gestión de atención
+            telefónica, resolución de reclamos y métricas de calidad en call center.
+          </div>
+          <div class="compact-entry">
+            <strong>Digital Extremes</strong> —
+            <em>Colaborador / Especialista en Localización</em> (Oct 2012 – Ago 2013): Localización
+            de más de 15,000 cadenas de texto y recursos para el lanzamiento en español de Warframe.
+          </div>
+        </section>
+
+        <section aria-labelledby="sec-projects">
+          <h2 id="sec-projects">Proyectos Destacados de Código Abierto</h2>
+          <div class="entry">
+            <div class="entry-header">
+              <span>Bizkit — Starter Kit Empresarial de Laravel</span>
+              <span
+                ><a href="https://github.com/akrista/bizkit" target="_blank" rel="noopener"
+                  >github.com/akrista/bizkit</a
+                ></span
+              >
+            </div>
+            <ul>
+              <li>
+                Base de aplicación para producción que combina Octane + FrankenPHP, WebSockets con
+                Reverb, Pulse y autenticación Fortify (2FA, WebAuthn).
+              </li>
+              <li>
+                Capa híbrida de autorización por equipo sobre Spatie Permission con generación
+                dinámica de políticas y 100% de cobertura con Pest.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span>notakrista.com — Hub de Aplicaciones y Workbench</span>
+              <span
+                ><a href="https://notakrista.com" target="_blank" rel="noopener"
+                  >notakrista.com</a
+                ></span
+              >
+            </div>
+            <ul>
+              <li>
+                Hub personal de aplicaciones, inventario de servidores y hoja interactiva de
+                personaje construida en Laravel, Livewire, Filament y Tailwind CSS.
+              </li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-header">
+              <span>Rockery — Jardín Digital y PKB</span>
+              <span
+                ><a href="https://rockery.notakrista.com" target="_blank" rel="noopener"
+                  >rockery.notakrista.com</a
+                ></span
+              >
+            </div>
+            <ul>
+              <li>
+                Plataforma de publicación estática construida sobre Quartz 5, transformando notas de
+                Obsidian interconectadas con despliegue automatizado en GitHub Pages.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section aria-labelledby="sec-education">
+          <h2 id="sec-education">Educación y Certificaciones</h2>
+          <div class="entry">
+            <div class="entry-header">
+              <span>Universidad Central de Venezuela (UCV)</span>
+              <span>Caracas, Venezuela</span>
+            </div>
+            <div class="entry-subheader">
+              <span class="role">Estudios en Filosofía</span>
+              <span class="date">2017</span>
+            </div>
+          </div>
+          <div class="entry">
+            <div class="entry-header">
+              <span>Universidad Santa María (USM)</span>
+              <span>Caracas, Venezuela</span>
+            </div>
+            <div class="entry-subheader">
+              <span class="role">Estudios en Derecho</span>
+              <span class="date">2011 – 2014</span>
+            </div>
+          </div>
+          <div class="certifications-list">
+            <strong>Certificaciones Verificadas:</strong> Certificado de Inglés EFSET (71/100,
+            <strong>C2 Proficiente</strong>, Nov 2024, ID: gvRLno) • IA para Programadores
+            (EducacionIT, Nov 2025, ID: 109456081345) • C# Fundamental con Microsoft (freeCodeCamp,
+            Feb 2024) • Análisis de Datos con Python (freeCodeCamp, Feb 2024) • Fundamentos de
+            Liquibase (Feb 2023) • Administración de Servidores Linux, Arquitectura de Alta
+            Concurrencia y Nube con Azure (Platzi) • Responsive Web Design (freeCodeCamp, Ene 2021).
+          </div>
+          <div class="languages-list">
+            <strong>Idiomas:</strong> Español (Nativo) • Inglés (Competencia Profesional Completa /
+            EFSET C2).
+          </div>
+          <div class="endorsements-list">
+            <strong>Recomendaciones Ejecutivas:</strong> Recomendado en LinkedIn por la Gerencia
+            Ejecutiva de TI & Cobranza (Vepagos) y Gerencia de Operaciones y Gobernanza/ESG
+            (Italcambio / TBTB).
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

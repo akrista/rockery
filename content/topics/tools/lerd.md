@@ -10,7 +10,7 @@ tags:
   - dev-environments
 ---
 
-**Lerd** is an open-source local PHP development environment designed primarily for Linux and macOS. It mirrors the zero-config, `.test`-domain developer experience of [[laravel-herd]], but leverages **rootless Podman containers** instead of host binaries.
+**Lerd** is an open-source local PHP development environment designed primarily for Linux and macOS. It mirrors the zero-config, `.test`-domain developer experience of [[laravel-herd]], but uses **rootless Podman containers** instead of host binaries.
 
 ## Key Features
 

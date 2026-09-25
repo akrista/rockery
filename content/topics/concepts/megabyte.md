@@ -23,4 +23,4 @@ In computing, the megabyte is often confused with 2^20 B (1,048,576 bytes). Per 
 
 The prefix _mega_ comes from the Greek μέγας (_mégas_), meaning "large".
 
-> Source: [[Wikipedia]] — [Megabyte](https://es.wikipedia.org/wiki/Megabyte)
+> Source: [[Wikipedia]]; [Megabyte](https://es.wikipedia.org/wiki/Megabyte)

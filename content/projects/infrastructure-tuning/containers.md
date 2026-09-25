@@ -10,17 +10,17 @@ tags:
 
 # Container Layout & Migration Plan
 
-This document maps current container distributions across `monolith` (home server) and `notakrista` (VPS) and proposes migrations to optimize resource usage, storage efficiency, and security.
+This document maps current container distributions across `monolith` (home server) and `notakrista` (VPS) and proposes migrations to reduce resource usage, storage efficiency, and security.
 
 ## Current Distribution
 
-| Category           | Home Server (`monolith`)                                             | Cloud VPS (`notakrista`)                                                                |
-| ------------------ | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| **Databases**      | MariaDB, MSSQL, PostGIS, Valkey, RustFS, MongoDB                     | MariaDB, PostGIS, Valkey (Immich Postgres)                                              |
-| **Apps & Sites**   | ASF, Excalidraw, Glance, Syncthing                                   | `www.notakrista.com`, Metabase, Docuseal, Immich (server + postgres), NocoDB, OpenWebUI |
-| **Servarr Stack**  | Bazarr, Flaresolverr, Jackett, Prowlarr, qBittorrent, Radarr, Sonarr | None                                                                                    |
-| **Reverse Proxy**  | NPM                                                                  | Traefik + Pangolin (Pangolin, Pangolin CLI, Gerbil, Error Pages, Damascus Proxy)        |
-| **Infra/Services** | Endlessh, Newt, Pi-hole, Hawser Agent                                | Endlessh, Newt, Dockhand, Bytebase, N8N, Glance, Syncthing                              |
+| Category           | Home Server (`monolith`)                                           | Cloud VPS (`notakrista`)                                                 |
+| ------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| **Databases**      | Local / Dev DBs (MariaDB, MSSQL, PostGIS, Valkey, RustFS, MongoDB) | Production App DBs (MariaDB, PostGIS, Valkey)                            |
+| **Apps & Sites**   | Local dashboards, media/sync services, internal dev utilities      | `www.notakrista.com`, Media archive, Internal workflow & admin utilities |
+| **Media Stacks**   | Torrent & indexer stack                                            | None                                                                     |
+| **Reverse Proxy**  | Local reverse proxy (transitioning to tunnel ingress)              | Traefik + Pangolin zero-trust overlay                                    |
+| **Infra/Services** | DNS sinkhole, container agent, security monitor, tunnel client     | Container management, workflow engines, tunnel gateway, security monitor |
 
 ## Node Profiles
 
@@ -72,6 +72,6 @@ This document maps current container distributions across `monolith` (home serve
 ## Migration Action Checklist
 
 - [ ] Export all OpenWebUI chats and decommission the container on VPS.
-- [ ] Connect `monolith` to the existing Pangolin tunnel (`100.90.128.0/24`).
+- [ ] Connect `monolith` to the existing Pangolin overlay tunnel.
 - [ ] Remove NPM from `monolith` and deploy a lightweight **Traefik** helper container.
-- [ ] Document the subnet and IP address allocation map across Contabo, Monolith, and Docker networks.
+- [ ] Document the subnet and IP address allocation map across Cloud VPS, Monolith, and Docker networks.

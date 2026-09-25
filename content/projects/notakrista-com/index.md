@@ -18,21 +18,21 @@ The primary goal of `notakrista.com` is to serve as the canonical entry point fo
 
 Due to structural damages sustained during the 2026-06-24 earthquake in Venezuela, the site includes historical documentation of the recovery work.
 
-Additionally, the project involves migrating and consolidating existing standalone tools—such as the Todoticket calculator currently built in Astro—into a single Laravel backend to simplify deployment and maintenance.
+Additionally, the project involves migrating and consolidating existing standalone tools; such as the Todoticket calculator currently built in Astro; into a single Laravel backend to simplify deployment and maintenance.
 
 ## Goals
 
-### P0 — Critical & Immediate
+### P0: Critical & Immediate
 
 - [ ] **Laravel Foundation Setup**: Initialize the new Laravel project codebase and configure deployment to the Contabo VPS (`notakrista`).
 
-### P1 — Core Features
+### P1: Core Features
 
 - [ ] **Personal Brand Landing Page**: Design and implement a modern, responsive landing page detailing professional experience and skills.
 - [x] **Migrate Todoticket Calculator**: Port the Todoticket calculator logic from Astro into a Laravel controller/view.
 - [ ] **Project Showcase Directory**: Create a page/section dynamically highlighting public and private personal projects.
 
-### P2 — Enhancements
+### P2: Enhancements
 
 - [ ] **Private Projects Gateway**: Set up secure access rules or portals for managing personal/private utility apps.
 - [ ] **Analytics & Tracking**: Implement lightweight privacy-focused analytics to monitor page traffic.
@@ -58,5 +58,8 @@ Additionally, the project involves migrating and consolidating existing standalo
 
 ## Related
 
-- [[infrastructure-tuning]] — Contabo VPS deployment host environment
-- [[laravel]] — Laravel development guide
+- [[resume]]: Live Curriculum Vitae (English)
+- [[resume/es]]: Live Curriculum Vitae (Español)
+- [[projects/notakrista-com/linkedin|LinkedIn Profile Blueprint & Staging]]
+- [[infrastructure-tuning]]: Contabo VPS deployment host environment
+- [[laravel]]: Laravel development guide

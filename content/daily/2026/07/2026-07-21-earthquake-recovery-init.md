@@ -26,8 +26,8 @@ Today, I structured the documentation for the earthquake recovery project in the
 
 ## 🔗 Related Notes
 
-- [[projects/earthquake-recovery/|Earthquake Recovery]] — main recovery project index
-- [[add-donations-section]] — donation integration task
+- [[projects/earthquake-recovery/|Earthquake Recovery]]: main recovery project index
+- [[add-donations-section]]: donation integration task
 
 </details>
 
@@ -48,7 +48,7 @@ Hoy estructuré la documentación para el proyecto de recuperación del terremot
 
 ## 🔗 Notas Relacionadas
 
-- [[projects/earthquake-recovery/|Recuperación del Terremoto]] — índice del proyecto principal de recuperación
-- [[add-donations-section]] — tarea de integración de donaciones
+- [[projects/earthquake-recovery/|Recuperación del Terremoto]]: índice del proyecto principal de recuperación
+- [[add-donations-section]]: tarea de integración de donaciones
 
 </details>

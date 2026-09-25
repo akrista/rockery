@@ -36,7 +36,7 @@ gcloud compute instances create <NAME> --machine-type n1-standard-2 --zone <ZONE
 
 ## Useful flags
 
-- `--help` or `-h` — show help for any command
-- `--format` — control output format (e.g., `json`, `yaml`, `table`)
-- `--project` — specify a project ID explicitly
-- `--zone` / `--region` — override default location
+- `--help` or `-h`; show help for any command
+- `--format`: control output format (e.g., `json`, `yaml`, `table`)
+- `--project`: specify a project ID explicitly
+- `--zone` / `--region`; override default location

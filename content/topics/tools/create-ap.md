@@ -9,7 +9,7 @@ tags:
   - dnsmasq
 ---
 
-**create_ap** is a [[bash]] script that turns a [[Linux]] machine into a WiFi access point. It wraps `hostapd`, `dnsmasq`, and `iptables` to handle AP creation, DHCP, DNS, and NAT. The project is **no longer maintained** — active forks include [[linux-router]] and [linux-wifi-hotspot](https://github.com/lakinduakash/linux-wifi-hotspot).
+**create_ap** is a [[bash]] script that turns a [[Linux]] machine into a WiFi access point. It wraps `hostapd`, `dnsmasq`, and `iptables` to handle AP creation, DHCP, DNS, and NAT. The project is **no longer maintained**; active forks include [[linux-router]] and [linux-wifi-hotspot](https://github.com/lakinduakash/linux-wifi-hotspot).
 
 ## Features
 

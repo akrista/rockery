@@ -81,6 +81,6 @@ sudo systemctl restart zramswap.service
 
 ## Related
 
-- [[linux-router]] — Linux routing and network utilities
-- [[notakrista-com]] — Contabo VPS infrastructure and deployment
-- [[ssh-config]] — OpenSSH client and daemon tuning
+- [[linux-router]]: Linux routing and network utilities
+- [[notakrista-com]]: Contabo VPS infrastructure and deployment
+- [[ssh-config]]: OpenSSH client and daemon tuning

@@ -54,7 +54,7 @@ On July 17, 2026, work officially began on fixing the damaged plumbing system in
 
 ## 🔗 Related Notes
 
-- [[projects/earthquake-recovery/|Earthquake Recovery]] — main recovery project index
+- [[projects/earthquake-recovery/|Earthquake Recovery]]: main recovery project index
 
 </details>
 
@@ -103,6 +103,6 @@ El 17 de julio de 2026 iniciaron oficialmente los trabajos en el sistema de plom
 
 ## 🔗 Notas Relacionadas
 
-- [[projects/earthquake-recovery/|Recuperación del Terremoto]] — índice del proyecto principal de recuperación
+- [[projects/earthquake-recovery/|Recuperación del Terremoto]]: índice del proyecto principal de recuperación
 
 </details>

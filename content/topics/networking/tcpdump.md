@@ -17,9 +17,9 @@ tags:
 tcpdump -i any -p tcp port 80
 ```
 
-- `-i any` — Capture on all available interfaces
-- `-p` — Disable promiscuous mode (only see traffic destined for the host)
-- `tcp port 80` — Filter expression: only TCP packets on port 80 (HTTP)
+- `-i any`: Capture on all available interfaces
+- `-p`: Disable promiscuous mode (only see traffic destined for the host)
+- `tcp port 80`: Filter expression: only TCP packets on port 80 (HTTP)
 
 ## Common filter expressions
 
@@ -44,4 +44,4 @@ tcpdump -i any -p tcp port 80
 
 ## Related
 
-- [[netstat]] — show active connections and port statistics
+- [[netstat]]: show active connections and port statistics

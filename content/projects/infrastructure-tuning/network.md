@@ -20,10 +20,10 @@ This document tracks how local and remote services interconnect using the **Pang
 
 ```
 +--------------------------+                 +----------------------------+
-|        Cloud VPS         |                 |  Home Monolith (192.168.1.4)|
+|        Cloud VPS         |                 |  Home Monolith (LAN Subnet)|
 |                          |  VPN Tunnel     |                            |
 | Traefik (Public Ingress) | <=============> |  Newt/Hawser client        |
-|            |             | (100.90.128.0)  |             |              |
+|            |             | (Overlay Subnet)|             |              |
 +------------v-------------+                 +-------------v--------------+
              |                                             |
      Routes to Docker                               Routes to localhost
@@ -31,8 +31,8 @@ This document tracks how local and remote services interconnect using the **Pang
 ```
 
 1. **VPS Ingress:** Traefik on the VPS receives public HTTPS requests.
-2. **Tunnel Routing:** Traefik routes matching traffic through the local Pangolin interface (`100.90.128.6`) over the tunnel.
-3. **Local Forwarding:** The tunnel client (**Newt**) on `monolith` receives the traffic and forwards it to the home server's IP (`192.168.1.4`) or `localhost` on the configured target port.
+2. **Tunnel Routing:** Traefik routes matching traffic through the local Pangolin overlay interface over the tunnel.
+3. **Local Forwarding:** The tunnel client (**Newt**) on `monolith` receives the traffic and forwards it to the home server's internal LAN IP or `localhost` on the configured target port.
 4. **Docker Ingress:** Docker on `monolith` forwards the port mapping (e.g., `-p 8080:80`) into the destination container.
 
 > [!NOTE]
@@ -47,7 +47,7 @@ To scale cleanly to **5+ nodes** (e.g., VPS, Monolith, local dev boxes, offsite 
 `10.<node-id>.<network-type>.0/24`
 
 > [!note] Superseded scheme
-> An earlier version of this scheme stepped node-ids by tens (`10`, `20`, `30`...) with proxy/database/service on `10`/`20`/`30`. That was never actually deployed — the live allocation below (as of 2026-08-13) is what's really running.
+> An earlier version of this scheme stepped node-ids by tens (`10`, `20`, `30`...) with proxy/database/service on `10`/`20`/`30`. That was never deployed; the live allocation below (as of 2026-08-13) is what runs in production.
 
 ### Node IDs grouped by geography
 
@@ -56,7 +56,7 @@ Instead of a flat stepped sequence, node-ids are split into two geographic bands
 - **`0`–`100`** (second octet): servers based in **Venezuela**
 - **`100`–`200`** (second octet): servers **outside Venezuela**
 
-### Network type (`third octet`) — fixed digits
+### Network type (`third octet`): fixed digits
 
 - `1` = `service` network (general application containers)
 - `2` = `database` network (relational, cache, document DBs)
@@ -64,11 +64,11 @@ Instead of a flat stepped sequence, node-ids are split into two geographic bands
 
 ### Known Node ID Allocations
 
-| Node ID | Host                        | Region            | Status                                          |
-| :------ | :-------------------------- | :---------------- | :---------------------------------------------- |
-| `10`    | Monolith (`monolith`)       | Venezuela         | Confirmed via `docker network inspect`          |
-| `11`    | (unnamed)                   | Venezuela         | Reserved/in use — not yet documented in Rockery |
-| `100`   | VPS (`notakrista`, Contabo) | Outside Venezuela | Confirmed live                                  |
+| Node ID | Host                  | Region            | Status                                         |
+| :------ | :-------------------- | :---------------- | :--------------------------------------------- |
+| `10`    | Monolith (`monolith`) | Venezuela         | Confirmed via `docker network inspect`         |
+| `11`    | (unnamed)             | Venezuela         | Reserved/in use; not yet documented in Rockery |
+| `100`   | VPS (`notakrista`)    | Outside Venezuela | Confirmed live                                 |
 
 ---
 

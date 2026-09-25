@@ -24,7 +24,7 @@ The **ThinkPad T480** (model 20L50067US) is a 2018 business laptop with an 8th G
 | **WiFi**            | Intel Wireless-AC 8265 (802.11ac, BT 4.2, M.2 2230)                                                                                                                                                |
 | **Batteries**       | **BAT0 (Internal)**: `01AV489` (24 Wh design, 16.6 Wh capacity, **69.4% health**, 51 cycles)<br>**BAT1 (External)**: `01AV452` (24 Wh slim design, 21.1 Wh capacity, **88.0% health**, 127 cycles) |
 | **Thunderbolt**     | Controller NVM **v20.00** (Verified safe from critical EEPROM corruption wear bug)                                                                                                                 |
-| **BIOS**            | N24ET81W (v1.56, September 2025 — updated, latest microcode & thermal tables)                                                                                                                      |
+| **BIOS**            | N24ET81W (v1.56, September 2025; updated, latest microcode & thermal tables)                                                                                                                       |
 | **Cooling**         | Stock single-pipe heatsink. `throttled` active (-80mV core/cache undervolt, PL1: 29W, PL2: 44W). Hardware repaste (PTM7950) still needed                                                           |
 | **Power / Charger** | Currently using a barrel/slim-tip charger with a loose Type-C adapter dongle (temporary/cumbersome)                                                                                                |
 | **OS**              | Debian GNU/Linux 13 (Trixie), Kernel 6.12                                                                                                                                                          |
@@ -44,7 +44,7 @@ The **ThinkPad T480** (model 20L50067US) is a 2018 business laptop with an 8th G
 
 ## Upgrade Roadmap (Performance First)
 
-### Priority 1 — Sustained Performance & Thermal Overhaul
+### Priority 1: Sustained Performance & Thermal Overhaul
 
 | Upgrade                                      | Status        | Detail                                                                                                                                                               | Forward Compatible?                  |
 | -------------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
@@ -53,14 +53,14 @@ The **ThinkPad T480** (model 20L50067US) is a 2018 business laptop with an 8th G
 | **Linux Software Tuning (`throttled`)**      | **Completed** | `throttled` service enabled on boot. Core/Cache: -80mV, GPU: -40mV, PL1: 29W, PL2: 44W, Trip Temp: 95°C (AC) / 90°C (Battery).                                       | Yes                                  |
 | **BIOS & Microcode Update**                  | **Completed** | Flashed to UEFI BIOS **v1.56** (`N24ET81W`, 2025-09-06) with updated Intel microcode and EC thermal trip tables.                                                     | Board-specific                       |
 
-### Priority 2 — Power Supply & Battery Autonomy
+### Priority 2: Power Supply & Battery Autonomy
 
 | Upgrade                                     | Status        | Detail                                                                                                                                                                                                                          | Forward Compatible?           |
 | ------------------------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
 | **All-in-One USB-C GaN Charger (65W–100W)** | High Priority | Replace the loose adapter dongle with a multi-port **USB-C GaN PD 3.0 charger** (e.g. Ugreen Nexode 65W/100W or Lenovo 65W USB-C `ADLX65YLC2D`). Guarantees clean 20V/3.25A+ power for both current UMA and future MX150 board. | Yes (100% universal USB-C PD) |
 | **72 Wh External Battery (`61++`)**         | Planned       | Replace slim 24 Wh external battery (`01AV452`) with genuine/OEM 72 Wh pack (FRU `01AV427` / `01AV428` / `SB10K97585`). Increases total capacity to **96 Wh** (~10–14 hours runtime).                                           | Yes                           |
 
-### Priority 3 — Expansion & Memory
+### Priority 3: Expansion & Memory
 
 | Upgrade                    | Status  | Detail                                                                                                                                                         | Forward Compatible? |
 | -------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
@@ -68,7 +68,7 @@ The **ThinkPad T480** (model 20L50067US) is a 2018 business laptop with an 8th G
 | **Second SSD (WWAN slot)** | Planned | M.2 2242 NVMe PCIe SSD (B+M key, e.g. WD SN520) or M.2 2230 NVMe (Kioxia BG4/BG5) with 2230-to-2242 extension bracket. Fast dedicated scratch/dual-boot drive. | Yes                 |
 | **WiFi → Intel AX210**     | Planned | Intel AX210NGW (Wi-Fi 6E 160MHz + BT 5.3). Upgrades stock AC 8265. Direct swap in M.2 2230 Key-E slot.                                                         | Yes                 |
 
-### Priority 4 — Visuals & Ergonomics
+### Priority 4: Visuals & Ergonomics
 
 | Component           | Status   | Detail                                                                                                                                              |
 | ------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -101,17 +101,17 @@ The **ThinkPad T480** (model 20L50067US) is a 2018 business laptop with an 8th G
 
 ## Upgrade Guides & Resources
 
-| Task                               | Resource                                                                                                                                                                             |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Disassembly, RAM, SSD & Battery    | [Video walkthrough](https://www.youtube.com/watch?v=8HEAU71Jp1g)                                                                                                                     |
-| Dual-pipe heatsink installation    | [Video walkthrough](https://www.youtube.com/watch?v=GUECUZi1NMk)                                                                                                                     |
-| Motherboard swap & cephacore build | [cephacore T480 upgrade video](https://www.youtube.com/watch?v=uvBacehUmYM)                                                                                                          |
-| Adding second SSD in WWAN slot     | [Video walkthrough](https://www.youtube.com/watch?v=Vkk9GoAFAmM)                                                                                                                     |
-| Glass trackpad swap (X1E)          | [Video walkthrough](https://www.youtube.com/watch?v=E51a_fRZG7Y) — [Driver notes](https://www.reddit.com/r/thinkpad/comments/jlbj1e/t480_trackpad_replacement_guide_windows_driver/) |
-| Linux undervolting & tuning        | [lenovo-throttling-fix / throttled](https://github.com/erpalma/throttled)                                                                                                            |
-| Buying & parts guide               | [The Ultimate ThinkPad T480 Buying Guide](https://www.reddit.com/r/thinkpad/comments/1cq3u2u/the_ultimate_thinkpad_t480_buying_guide/)                                               |
+| Task                               | Resource                                                                                                                                                                            |
+| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Disassembly, RAM, SSD & Battery    | [Video walkthrough](https://www.youtube.com/watch?v=8HEAU71Jp1g)                                                                                                                    |
+| Dual-pipe heatsink installation    | [Video walkthrough](https://www.youtube.com/watch?v=GUECUZi1NMk)                                                                                                                    |
+| Motherboard swap & cephacore build | [cephacore T480 upgrade video](https://www.youtube.com/watch?v=uvBacehUmYM)                                                                                                         |
+| Adding second SSD in WWAN slot     | [Video walkthrough](https://www.youtube.com/watch?v=Vkk9GoAFAmM)                                                                                                                    |
+| Glass trackpad swap (X1E)          | [Video walkthrough](https://www.youtube.com/watch?v=E51a_fRZG7Y); [Driver notes](https://www.reddit.com/r/thinkpad/comments/jlbj1e/t480_trackpad_replacement_guide_windows_driver/) |
+| Linux undervolting & tuning        | [lenovo-throttling-fix / throttled](https://github.com/erpalma/throttled)                                                                                                           |
+| Buying & parts guide               | [The Ultimate ThinkPad T480 Buying Guide](https://www.reddit.com/r/thinkpad/comments/1cq3u2u/the_ultimate_thinkpad_t480_buying_guide/)                                              |
 
 ## Related
 
-- [[Linux]] — primary OS running on this hardware
-- [[hardware-projects]] — tracking hardware tinkering
+- [[Linux]]: primary OS running on this hardware
+- [[hardware-projects]]: tracking hardware tinkering

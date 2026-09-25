@@ -8,7 +8,7 @@ tags:
   - tools
 ---
 
-A set of AI agent skills that automate content creation for the Rockery digital garden. Each skill handles a specific content type — from daily notes to project docs — enforcing the project's conventions for file paths, frontmatter, formatting, and privacy routing.
+A set of AI agent skills that automate content creation for the Rockery digital garden. Each skill handles a specific content type; from daily notes to project docs; enforcing the project's conventions for file paths, frontmatter, formatting, and privacy routing.
 
 There are five skills, each designed for a distinct content type. They are available in all agent directories (`.opencode/skills/`, `.claude/skills/`, `.agents/skills/`).
 
@@ -28,15 +28,15 @@ Creates deep-dive reference notes organized by category subdirectory. Follows th
 
 **When to use**: writing a tutorial, a reference note, documentation for a tool or concept, or a deep dive on a specific technology.
 
-**Categories**: [[Networking]], [[Cloud]], [[CLI]], [[Concepts]], [[Tools]], or a new category when the topic is clearly distinct.
+**Categories**: [[Networking]], [[Cloud]], [[CLI]], [[Concepts]], [[Tools]], or a new category when the topic is distinct.
 
 ### rockery-idea
 
-Captures half-baked concepts, brainstorms, and rough thoughts that haven't yet matured into a full topic or project. Uses a flexible structure — concrete ideas get sections (Concept, Why it's interesting, Open questions), while raw thoughts can be free-form.
+Captures half-baked concepts, brainstorms, and rough thoughts that haven't yet matured into a full topic or project. Uses a flexible structure; concrete ideas get sections (Concept, Why it's interesting, Open questions), while raw thoughts can be free-form.
 
 **When to use**: brainstorming, capturing a rough concept, thinking out loud about something, recording a creative spark or hypothesis.
 
-**Privacy**: defaults to private (`content/private/ideas/`). Make public only when the idea is clearly shareable.
+**Privacy**: defaults to private (`content/private/ideas/`). Make public only when the idea is ready to share.
 
 ### rockery-project
 
@@ -68,5 +68,5 @@ The default-to-private rule applies when in doubt: if content could involve sens
 
 ## Related
 
-- [[create-ap]] — the GitHub Pages workflow that deploys the site
-- [[content/index|Homepage]] — the digital garden itself
+- [[create-ap]]: the GitHub Pages workflow that deploys the site
+- [[content/index|Homepage]]: the digital garden itself

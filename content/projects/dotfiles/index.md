@@ -76,4 +76,4 @@ Skills are synchronized globally across all AI tools:
 
 ## 🔗 Related Daily Notes
 
-- [[daily/2026/08/2026-08-19-dotfiles-modernization-and-slop|2026-08-19 — Overhaul of Dotfiles & Slop AI Toolbelt]]
+- [[daily/2026/08/2026-08-19-dotfiles-modernization-and-slop|2026-08-19; Overhaul of Dotfiles & Slop AI Toolbelt]]

@@ -12,7 +12,7 @@ tags:
 
 ## Overview
 
-The **Masonite Starter Kit** is our Python counterpart to [[bizkit]], bringing the same high-ergonomics, batteries-included philosophy to the Python web ecosystem. Built on [Masonite Framework](https://docs.masoniteproject.com/), it leverages Masonite's expressive MVC structure, IoC service container, `craft` CLI, and active record ORM to create an opinionated baseline for full-stack and API development in Python.
+The **Masonite Starter Kit** is our Python counterpart to [[bizkit]], bringing the same high-ergonomics, batteries-included philosophy to the Python web ecosystem. Built on [Masonite Framework](https://docs.masoniteproject.com/), it uses Masonite's expressive MVC structure, IoC service container, `craft` CLI, and active record ORM to create an opinionated baseline for full-stack and API development in Python.
 
 ## Architecture & Tech Stack
 
@@ -43,8 +43,8 @@ The **Masonite Starter Kit** is our Python counterpart to [[bizkit]], bringing t
 ## Goals
 
 - [ ] **Repository Scaffolding**: Bootstrap the foundational Masonite project structure with modular configurations.
-- [ ] **Auth & Permission Guards**: Build robust authentication scaffolding with role/permission middleware.
-- [ ] **Asset Pipeline**: Configure Vite for seamless asset compilation with Tailwind CSS and Alpine.js.
+- [ ] **Auth & Permission Guards**: Build authentication scaffolding with role/permission middleware.
+- [ ] **Asset Pipeline**: Configure Vite for asset compilation with Tailwind CSS and Alpine.js.
 - [ ] **Queue & Worker Orchestration**: Provide pre-configured Redis queue worker and scheduler containers.
 - [ ] **Developer Quality Baseline**: Enforce Ruff formatting, Pyright type checking, and Pytest coverage in CI.
 - [ ] **Docker Production Blueprint**: Deliver optimized multi-stage Docker build for self-hosted deployment.
@@ -58,6 +58,6 @@ The **Masonite Starter Kit** is our Python counterpart to [[bizkit]], bringing t
 
 ## Related
 
-- [[bizkit]] — Laravel starter kit counterpart
-- [[dotfiles]] — Unified development toolbelt and workstation setup
-- [[workspace-standardization]] — Standardizing developer workstations and AI-agent workflows
+- [[bizkit]]: Laravel starter kit counterpart
+- [[dotfiles]]: Unified development toolbelt and workstation setup
+- [[workspace-standardization]]: Standardizing developer workstations and AI-agent workflows

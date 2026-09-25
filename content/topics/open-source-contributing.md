@@ -22,7 +22,7 @@ A curated collection of resources, platforms, and methodologies for discovering 
 
 ### 2. Up For Grabs (PHP & Tag Filters)
 
-- **URL:** [Up For Grabs — PHP Projects](https://up-for-grabs.net/#/filters?tags=php)
+- **URL:** [Up For Grabs; PHP Projects](https://up-for-grabs.net/#/filters?tags=php)
 - **Overview:** A curated platform listing open-source projects with tasks specifically set aside and labeled for new contributors.
 - **Key Takeaways:**
   - Aggregates issues labeled `up-for-grabs`, `jump-in`, and `help wanted`.
@@ -30,7 +30,7 @@ A curated collection of resources, platforms, and methodologies for discovering 
 
 ### 3. Awesome for Beginners (Python List)
 
-- **URL:** [Awesome for Beginners — Python](https://github.com/MunGell/awesome-for-beginners#python)
+- **URL:** [Awesome for Beginners; Python](https://github.com/MunGell/awesome-for-beginners#python)
 - **Overview:** A community-maintained list of beginner-friendly open-source repositories categorized by language.
 - **Key Takeaways:**
   - Lists active repositories across various languages that actively welcome first-time contributors.

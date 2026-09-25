@@ -31,7 +31,7 @@ LocalForward 8080 localhost:80
 RemoteForward 2222 localhost:22
 ```
 
-> [!warning] Port forwarding can bypass corporate firewalls — security teams should audit these settings.
+> [!warning] Port forwarding can bypass corporate firewalls; security teams should audit these settings.
 
 ### Public key authentication
 
@@ -106,5 +106,5 @@ Host target
 
 ## See also
 
-- [[ssh]] — protocol and client overview
-- `/etc/ssh/sshd_config` — server-side configuration
+- [[ssh]]: protocol and client overview
+- `/etc/ssh/sshd_config`: server-side configuration

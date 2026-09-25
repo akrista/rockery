@@ -17,8 +17,8 @@ Install Magisk root and configure Play Integrity bypass modules on the **Redmi N
 - **Target OS**: LineageOS 23.2 Nightly (`23.2-20260916-NIGHTLY-garnet`), Android 16.
 - **Problem**: Unlocked bootloader fails Google Play Integrity checks, causing banking, telecom, and payment apps to refuse execution or restrict core features.
 - **Affected Apps**:
-  - **Mercado Pago** (`com.mercadopago.wallet`) — QR payments and transfers.
-  - **Mi Personal** (`ar.com.personal`) — mobile line management and payments.
+  - **Mercado Pago** (`com.mercadopago.wallet`); QR payments and transfers.
+  - **Mi Personal** (`ar.com.personal`); mobile line management and payments.
   - Local banking apps (Galicia, Santander, Brubank).
 
 ## Action Plan
@@ -45,7 +45,7 @@ Install Magisk root and configure Play Integrity bypass modules on the **Redmi N
 - [x] Flash **Shamiko v1.2.5** module in Magisk.
 - [x] Keep native "Enforce DenyList" toggled **OFF** so Shamiko runs in stealth blacklist mode.
 - [x] Configure DenyList with target applications:
-  - Google Play Services (`com.google.android.gms` — all processes)
+  - Google Play Services (`com.google.android.gms` , all processes)
   - Google Play Store (`com.android.vending`)
   - Mercado Pago (`com.mercadopago.wallet`)
   - Mi Personal (`ar.com.personal`)
@@ -69,5 +69,5 @@ Install Magisk root and configure Play Integrity bypass modules on the **Redmi N
 
 ## Related
 
-- [[redmi-note-13-pro-5g]] — comprehensive hardware specs and build audit
-- [[workspace-standardization]] — workspace environment inventory
+- [[redmi-note-13-pro-5g]]: hardware specs and build audit
+- [[workspace-standardization]]: workspace environment inventory

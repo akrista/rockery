@@ -82,8 +82,8 @@ Photos capturing the aftermath and structural damage inside and around the home:
 
 ## 🔗 Related Notes
 
-- [[projects/earthquake-recovery/|Earthquake Recovery]] — main recovery project index
-- [[add-donations-section]] — donation integration task
+- [[projects/earthquake-recovery/|Earthquake Recovery]]: main recovery project index
+- [[add-donations-section]]: donation integration task
 
 </details>
 
@@ -160,7 +160,7 @@ Fotos que capturan las consecuencias y los daños estructurales dentro y alreded
 
 ## 🔗 Notas Relacionadas
 
-- [[projects/earthquake-recovery/|Recuperación del Terremoto]] — índice del proyecto principal de recuperación
-- [[add-donations-section]] — tarea de integración de donaciones
+- [[projects/earthquake-recovery/|Recuperación del Terremoto]]: índice del proyecto principal de recuperación
+- [[add-donations-section]]: tarea de integración de donaciones
 
 </details>

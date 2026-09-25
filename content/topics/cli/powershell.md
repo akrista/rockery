@@ -25,7 +25,7 @@ Downloads and installs the latest help files for all installed modules.
 Update-Help -UICulture en-US
 ```
 
-> [!warning] `Update-Help` may fail on some systems even when connectivity is available — this is a known issue with the help update infrastructure.
+> [!warning] `Update-Help` may fail on some systems even when connectivity is available; this is a known issue with the help update infrastructure.
 
 ## Update PowerShell itself
 

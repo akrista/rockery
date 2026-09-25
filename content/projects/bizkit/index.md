@@ -12,7 +12,7 @@ tags:
 
 ## Overview
 
-**Bizkit** is our batteries-included [Laravel](https://laravel.com) starter kit, designed to serve as a complete, robust baseline for rapidly bootstrapping production-ready web applications. It pairs modern reactivity and developer ergonomics with high-performance real-time infrastructure and team-scoped authorization.
+**Bizkit** is our batteries-included [Laravel](https://laravel.com) starter kit, designed to serve as a complete, reliable baseline for rapidly bootstrapping production-ready web applications. It pairs modern reactivity and developer ergonomics with high-performance real-time infrastructure and team-scoped authorization.
 
 The repository lives at [`github.com/akrista/bizkit`](https://github.com/akrista/bizkit).
 
@@ -36,8 +36,8 @@ The repository lives at [`github.com/akrista/bizkit`](https://github.com/akrista
 
 Bizkit implements a hybrid, team-scoped authorization layer built on Spatie Laravel Permission:
 
-- **Gate-Level Scoping**: Intercepts authorization via `Gate::before` to scope all `$user->can()` checks to the active team (`current_team_id`).
-- **Super Admin Bypass**: Seamlessly grants full access to configured admin emails or users possessing the Spatie `admin` role.
+- **Gate-Level Scoping**: Intercepts authorization via `Gate: before` to scope all `$user->can()` checks to the active team (`current_team_id`).
+- **Super Admin Bypass**: Grants full access to configured admin emails or users possessing the Spatie `admin` role.
 - **Dynamic Policy & Permission Sync**: Built-in Artisan commands (`bizkit:sync-permissions`, `bizkit:generate-policies`) to keep database permissions and policies in sync.
 
 ### Upstream Upgrade System
@@ -60,7 +60,7 @@ Maintains clean separation between starter kit core updates and downstream appli
 
 ## Related
 
-- [[dotfiles]] — Tooling and environment replication across operating systems
-- [[workspace-standardization]] — Standardizing developer workstations and AI-agent workflows
-- [[masonite-starter-kit]] — Python counterpart starter kit built on Masonite
-- [[infrastructure-tuning]] — Server infrastructure and tuning
+- [[dotfiles]]: Tooling and environment replication across operating systems
+- [[workspace-standardization]]: Standardizing developer workstations and AI-agent workflows
+- [[masonite-starter-kit]]: Python counterpart starter kit built on Masonite
+- [[infrastructure-tuning]]: Server infrastructure and tuning

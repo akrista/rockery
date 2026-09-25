@@ -7,15 +7,15 @@ tags:
   - laravel
 ---
 
-Initialize a new Laravel application for [[notakrista-com]] and configure automatic/scripted deployment to the Contabo VPS host.
+Initialize a new Laravel application for [[notakrista-com]] and configure automatic/scripted deployment to the Cloud VPS host.
 
 ## Tasks
 
 - [x] Initialize Laravel app base.
 - [x] Configure environment variables and server connections.
-- [ ] Set up deployment pipeline.
+- [x] Set up deployment pipeline.
 
 ## Related
 
-- [[notakrista-com]] — main project index
-- [[infrastructure-tuning]] — Contabo VPS infrastructure details
+- [[notakrista-com]]: main project index
+- [[infrastructure-tuning]]: Cloud VPS infrastructure details

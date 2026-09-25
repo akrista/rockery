@@ -26,7 +26,7 @@ The **Redmi Note 13 Pro 5G** (model `2312DRA50G`, board/codename `garnet`, platf
 | **Android Version**    | Android 16 (Build `BP2A.250605.031.A3`, Security Patch `2026-09-01`)                              |
 | **Kernel**             | Linux `5.10.269-gki-g57dcedf2303c` (AArch64, GKI)                                                 |
 | **Bootloader / State** | Unlocked (`ro.boot.flash.locked=0`, `ro.boot.verifiedbootstate=orange`)                           |
-| **Partition Scheme**   | A/B seamless slots (`boot_a` / `boot_b`, no `init_boot` partition; active slot: `_b`)             |
+| **Partition Scheme**   | A/B system slots (`boot_a` / `boot_b`, no `init_boot` partition; active slot: `_b`)               |
 | **GApps**              | MindTheGapps (`com.google.android.gms`, `com.android.vending`)                                    |
 | **Connectivity**       | 5G Sub6, Wi-Fi 6 (802.11ax), Bluetooth 5.2, Dual SIM (Personal AR), NFC, IR Blaster, 3.5mm jack   |
 | **Workstation Link**   | Network ADB (`192.168.0.16:5555`) + `scrcpy` over LAN                                             |
@@ -74,7 +74,7 @@ Operating a custom ROM device with an unlocked bootloader in Argentina introduce
 
 ## Magisk & Integrity Bypass Architecture
 
-To restore full compatibility without returning to stock Xiaomi HyperOS, root access via **Magisk** is leveraged not for arbitrary system modifications, but as a stealth substrate to inject integrity fixes and hide bootloader state from target applications.
+To restore full compatibility without returning to stock Xiaomi HyperOS, root access via **Magisk** is used not for arbitrary system modifications, but as a stealth substrate to inject integrity fixes and hide bootloader state from target applications.
 
 ### Architecture Components
 
@@ -126,11 +126,11 @@ Completed implementation tracked in [[setup-magisk-play-integrity-garnet]]:
 - [x] Flashed patched boot to active slot `_b` via Fastboot.
 - [x] Configured Zygisk, Shamiko (blacklist mode), and PlayIntegrityFork.
 - [x] Added Mercado Pago, Mi Personal, and GMS to DenyList.
-- [x] Verified seamless execution of Mercado Pago and Mi Personal without root detection.
+- [x] Verified execution of Mercado Pago and Mi Personal without root detection.
 
 ## Related
 
-- [[setup-magisk-play-integrity-garnet]] — task tracking Magisk deployment and integrity configuration
-- [[workspace-standardization]] — multi-environment workspace documentation
-- [[dotfiles]] — Android Termux configuration
-- [[t480-ultimate-build]] — companion laptop hardware build
+- [[setup-magisk-play-integrity-garnet]]: task tracking Magisk deployment and integrity configuration
+- [[workspace-standardization]]: multi-environment workspace documentation
+- [[dotfiles]]: Android Termux configuration
+- [[t480-ultimate-build]]: companion laptop hardware build

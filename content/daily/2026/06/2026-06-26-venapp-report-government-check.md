@@ -29,7 +29,7 @@ Screenshots of the submitted VenApp report:
 
 ## 🔗 Related Notes
 
-- [[projects/earthquake-recovery/|Earthquake Recovery]] — main recovery project index
+- [[projects/earthquake-recovery/|Earthquake Recovery]]: main recovery project index
 
 </details>
 
@@ -53,6 +53,6 @@ Capturas de pantalla del reporte enviado en VenApp:
 
 ## 🔗 Notas Relacionadas
 
-- [[projects/earthquake-recovery/|Recuperación del Terremoto]] — índice del proyecto principal de recuperación
+- [[projects/earthquake-recovery/|Recuperación del Terremoto]]: índice del proyecto principal de recuperación
 
 </details>

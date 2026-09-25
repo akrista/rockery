@@ -19,4 +19,4 @@ The relief campaign is now closed. We are no longer requesting or accepting supp
 
 ## Related
 
-- [[notakrista-com]] — main project index
+- [[notakrista-com]]: main project index

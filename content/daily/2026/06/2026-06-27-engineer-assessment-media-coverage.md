@@ -27,7 +27,7 @@ Today, independent civil engineers inspected our building, and media coverage wa
 
 ## 🔗 Related Notes
 
-- [[projects/earthquake-recovery/|Earthquake Recovery]] — main recovery project index
+- [[projects/earthquake-recovery/|Earthquake Recovery]]: main recovery project index
 
 </details>
 
@@ -49,6 +49,6 @@ Hoy, ingenieros civiles independientes realizaron una evaluación exhaustiva de 
 
 ## 🔗 Notas Relacionadas
 
-- [[projects/earthquake-recovery/|Recuperación del Terremoto]] — índice del proyecto principal de recuperación
+- [[projects/earthquake-recovery/|Recuperación del Terremoto]]: índice del proyecto principal de recuperación
 
 </details>

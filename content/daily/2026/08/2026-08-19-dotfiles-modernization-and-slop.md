@@ -18,12 +18,12 @@ Today, I executed a complete overhaul and standardization of the [[projects/dotf
 
 ## 📝 Key Progress Updates
 
-- **Full Bash & Zsh 1:1 Parity**: Rebuilt `.bashrc` from scratch to share identical features with `.zshrc` — including Oh My Posh (`lambdageneration.omp.json`), Zoxide smart `cd` navigation, modern CLI aliases (`eza`, `bat`, `nvim`, `g`), automated 24-hour update checks, and the `uak` updater function.
+- **Full Bash & Zsh 1:1 Parity**: Rebuilt `.bashrc` from scratch to share identical features with `.zshrc`; including Oh My Posh (`lambdageneration.omp.json`), Zoxide smart `cd` navigation, modern CLI aliases (`eza`, `bat`, `nvim`, `g`), automated 24-hour update checks, and the `uak` updater function.
 - **Runtimes & Package Managers**: Purged legacy NVM in favor of `fnm` (Fast Node Manager) configured for Node.js LTS (v24.19.0), installed Deno (v2.9.5) with dynamic shell completion generation, and integrated **Astral `uv`** (v0.12.5) for hermetic, ultra-fast Python tool and package management without system collisions.
 - **Typography & UI**: Downloaded and deployed all 4 variants of **MesloLGS NF fonts** to `~/.local/share/fonts/` with rebuilt font cache (`fc-cache`).
 - **Security & Centralized Symlink Pattern**: Implemented an untracked local override architecture for sensitive configurations. Private files (`settings.json`, `.env.local`, `.ssh/config.local`, `.gitconfig.local`, `opencode.json`) now reside locally in `.akrista/config/` and `.akrista/slop/` (gitignored) and are symlinked to their system locations, while Git only tracks sanitized `.example` templates.
 - **SSH & Daemon Hardening**: Structured a modular OpenSSH client config with the `Include` directive, decoupled private server hosts, and created `99-hardening.conf` for `/etc/ssh/sshd_config.d/`.
-- **Tooling Consolidation**: Migrated `zellij/config.kdl` into `config/zellij/`, streamlined Alacritty into base `alacritty.toml` + `alacritty.windows.toml`, added YouTube Enhancer settings, and added automated Docker `daemon.json` setup.
+- **Tooling Consolidation**: Migrated `zellij/config.kdl` into `config/zellij/`, consolidated Alacritty into base `alacritty.toml` + `alacritty.windows.toml`, added YouTube Enhancer settings, and added automated Docker `daemon.json` setup.
 - **Dedicated AI Toolbelt (`slop/`)**: Created the dedicated top-level `slop/` directory in `.akrista` for declarative configuration of AI coding agents:
   - **Claude Code (`slop/claude/`)**: Configured with custom marketplaces (`wakatime`, `claudeline`, `ponytail`, `last30days-skill`), enabled plugins, custom base URL (`https://claude.notakrista.com/`), and dark fullscreen TUI (gitignored active file + tracked `.example`).
   - **OpenCode (`slop/opencode/`)**: Configured with active plugins (`opencode-wakatime`, `@tarquinen/opencode-dcp`, `@dietrichgebert/ponytail`) and local/remote MCP definitions.
@@ -38,8 +38,8 @@ Today, I executed a complete overhaul and standardization of the [[projects/dotf
 
 ## 🔗 Related Notes
 
-- [[projects/dotfiles/|Akrista Dotfiles Project Hub]] — full architecture overview
-- [[topics/tools/|Developer Tools]] — developer tooling notes
+- [[projects/dotfiles/|Akrista Dotfiles Project Hub]]: full architecture overview
+- [[topics/tools/|Developer Tools]]: developer tooling notes
 
 </details>
 
@@ -70,7 +70,7 @@ Hoy realicé una reestructuración y estandarización completa del repositorio d
 
 ## 🔗 Notas Relacionadas
 
-- [[projects/dotfiles/|Centro de Proyecto Akrista Dotfiles]] — vista general de la arquitectura
-- [[topics/tools/|Herramientas de Desarrollo]] — notas de herramientas de desarrollo
+- [[projects/dotfiles/|Centro de Proyecto Akrista Dotfiles]]: vista general de la arquitectura
+- [[topics/tools/|Herramientas de Desarrollo]]: notas de herramientas de desarrollo
 
 </details>

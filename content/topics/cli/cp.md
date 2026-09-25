@@ -11,14 +11,14 @@ tags:
 
 ## Common flags
 
-| Flag | Description                                                                                                                          |
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `-a` | Archive mode — preserves permissions, timestamps, ownership, and copies directories recursively (equivalent to `-dR --preserve=all`) |
-| `-r` | Recursively copy directories                                                                                                         |
-| `-v` | Verbose — print what is being copied                                                                                                 |
-| `-i` | Interactive — prompt before overwriting                                                                                              |
-| `-u` | Copy only when the source is newer than the destination                                                                              |
-| `-p` | Preserve file attributes (mode, ownership, timestamps)                                                                               |
+| Flag | Description                                                                                                                         |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `-a` | Archive mode; preserves permissions, timestamps, ownership, and copies directories recursively (equivalent to `-dR --preserve=all`) |
+| `-r` | Recursively copy directories                                                                                                        |
+| `-v` | Verbose; print what is being copied                                                                                                 |
+| `-i` | Interactive; prompt before overwriting                                                                                              |
+| `-u` | Copy only when the source is newer than the destination                                                                             |
+| `-p` | Preserve file attributes (mode, ownership, timestamps)                                                                              |
 
 ## Examples
 
