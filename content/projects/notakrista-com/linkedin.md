@@ -104,15 +104,15 @@ _Jan 2026 – Present_
 
 _Apr 2023 – Dec 2025 · 2 yrs 9 mos_
 
-- **EN**: Led enterprise automation and RPA initiatives using UiPath, Automation Anywhere, and Python to streamline repetitive operational workflows.
+- **EN**: Led enterprise automation and RPA initiatives using UiPath, Automation Anywhere, and Python to replace repetitive operational workflows.
 - **EN**: Built and managed containerized infrastructure on Linux, Docker, and Kubernetes across AWS and Azure environments.
 - **EN**: Implemented CI/CD automation pipelines with Jenkins and GitLab, enforcing security-as-code standards.
-- **EN**: Evaluated and deployed AI, machine learning, and computer vision models (image processing and object detection) for intelligent process automation.
+- **EN**: Evaluated and deployed AI, machine learning, and computer vision models (image processing and object detection) for process automation.
 - **EN**: Developed and executed stakeholder communication plans to track project adoption and align automation initiatives with operational goals.
-- **ES**: Lideré iniciativas de automatización y RPA utilizando UiPath, Automation Anywhere y Python para optimizar flujos operativos repetitivos.
+- **ES**: Lideré iniciativas de automatización y RPA utilizando UiPath, Automation Anywhere y Python para reemplazar flujos operativos repetitivos.
 - **ES**: Construí y administré infraestructura contenerizada sobre Linux, Docker y Kubernetes en entornos AWS y Azure.
 - **ES**: Implementé pipelines de CI/CD con Jenkins y GitLab, aplicando políticas de seguridad como código.
-- **ES**: Evalué e integré modelos de IA, machine learning y visión por computadora (procesamiento de imágenes y detección de objetos) para automatización inteligente.
+- **ES**: Evalué e integré modelos de IA, machine learning y visión por computadora (procesamiento de imágenes y detección de objetos) para automatización de procesos.
 - **ES**: Diseñé planes de comunicación con stakeholders para monitorear adopción y alinear proyectos de automatización con objetivos del negocio.
 
 #### **Database Analyst / Analista de Bases de Datos**

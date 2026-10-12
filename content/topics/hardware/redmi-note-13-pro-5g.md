@@ -128,6 +128,8 @@ Completed implementation tracked in [[setup-magisk-play-integrity-garnet]]:
 - [x] Added Mercado Pago, Mi Personal, and GMS to DenyList.
 - [x] Verified execution of Mercado Pago and Mi Personal without root detection.
 
+Witnessed live via `adb` (2026-10): LineageOS 23.2 / Android 16, security patch `2026-09-01`, Magisk **v31.0** (upgraded from v30.7 post-flash), fingerprint `BP2A.250605.031.A3 / OS3.0.5.0.WNRMIXM`. Later that month: **Tricky Store + public hardware keybox** → `MEETS_DEVICE_INTEGRITY`; Binance/Card Suite/Prex hidden via DenyList; PayPal app still refuses (`s=root`) → browser use. Camera swapped to **Shamim's SGCam 8.5.300** (Aperture as fallback). Details in [[setup-magisk-play-integrity-garnet]].
+
 ## Related
 
 - [[setup-magisk-play-integrity-garnet]]: task tracking Magisk deployment and integrity configuration

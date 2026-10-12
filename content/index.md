@@ -21,11 +21,11 @@ Hello! I'm Jorge Thomas (akrista), and this is my digital **[rockery](https://en
 
 ## 🔮 Why "Rockery"?
 
-A **rockery** is a garden built on stones that thrives in challenging conditions. Like a traditional rock garden, my digital space is built on solid foundations using:
+A **rockery** is a garden built on stones that thrives in challenging conditions. My digital space is built the same way, on stable tools:
 
 - **🔹 Obsidian** - For creating interconnected notes
 - **💎 Quartz** - For publishing notes to the web
-- **🏗️ Solid principles** - Durable, interconnected, and resilient ideas
+- **🏗️ Git history** - every note versioned, nothing silently lost
 
 ## 🌱 What You'll Find Here
 

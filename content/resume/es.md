@@ -62,10 +62,10 @@ _Ene 2026 – Presente_
 
 _Abr 2023 – Dic 2025_
 
-- Lideré iniciativas de automatización y RPA utilizando UiPath, Automation Anywhere y Python para optimizar flujos operativos repetitivos.
+- Lideré iniciativas de automatización y RPA utilizando UiPath, Automation Anywhere y Python para reemplazar flujos operativos repetitivos.
 - Construí y administré infraestructura contenerizada sobre Linux, Docker y Kubernetes en entornos AWS y Azure.
 - Implementé pipelines de CI/CD con Jenkins y GitLab, aplicando políticas de seguridad como código.
-- Evalué e integré modelos de IA, machine learning y visión por computadora (procesamiento de imágenes y detección de objetos) para automatización inteligente.
+- Evalué e integré modelos de IA, machine learning y visión por computadora (procesamiento de imágenes y detección de objetos) para automatización de procesos.
 - Diseñé planes de comunicación con stakeholders para monitorear adopción y alinear proyectos de automatización con objetivos del negocio.
 
 #### **Analista de Bases de Datos**

@@ -62,10 +62,10 @@ _Jan 2026 – Present_
 
 _Apr 2023 – Dec 2025_
 
-- Led enterprise automation and RPA initiatives using UiPath, Automation Anywhere, and Python to streamline repetitive operational workflows.
+- Led enterprise automation and RPA initiatives using UiPath, Automation Anywhere, and Python to replace repetitive operational workflows.
 - Built and managed containerized infrastructure on Linux, Docker, and Kubernetes across AWS and Azure environments.
 - Implemented CI/CD automation pipelines with Jenkins and GitLab, enforcing security-as-code standards.
-- Evaluated and deployed AI, machine learning, and computer vision models (image processing and object detection) for intelligent process automation.
+- Evaluated and deployed AI, machine learning, and computer vision models (image processing and object detection) for process automation.
 - Developed and executed stakeholder communication plans to track project adoption and align automation initiatives with operational goals.
 
 #### **Database Analyst**

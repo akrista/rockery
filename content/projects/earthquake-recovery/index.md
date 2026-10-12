@@ -11,7 +11,7 @@ tags:
 <details>
 <summary><b>Read in English</b> (Click to expand)</summary>
 
-On June 24, 2026, a significant earthquake struck Venezuela, causing structural damage to my home. This page serves as a public log to document the recovery, repairs, and rebuilding efforts.
+On June 24, 2026, a magnitude 7.5 earthquake struck Venezuela, causing structural damage to my home. This page serves as a public log to document the recovery, repairs, and rebuilding efforts.
 
 ## 📋 Context & Damage Assessment
 
