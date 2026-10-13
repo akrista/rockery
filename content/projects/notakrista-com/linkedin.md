@@ -77,9 +77,34 @@ Trayectoria en ingeniería de datos, DevOps y desarrollo full-stack, con experie
 Contacto: info@notakrista.com | cal.com/akrista/30min
 ```
 
+## 4. Services Section
+
+### Current LinkedIn Services
+
+The current selected services are:
+
+1. **IT Consulting**
+2. **Business Analytics**
+3. **Web Development**
+4. **Database Development**
+5. **Custom Software Development**
+6. **Cloud Management**
+7. **Software Testing**
+8. **Android Development**
+9. **SaaS Development**
+10. **Application Development**
+
+### Services Description
+
+```markdown
+I help organizations turn complex data, business needs, and legacy systems into reliable digital products. I provide database development, IT consulting, web and custom software, SaaS and application development, business analytics, cloud management, and software testing. I also build Android applications when a mobile channel is the right fit. I focus on maintainability, performance, and reliable integrations. Contact: info@notakrista.com | cal.com/akrista/30min
+```
+
+The ten-service selection is currently complete. The description intentionally uses the selected service names while preserving the broader positioning around reliable systems, integrations, performance, and maintainability.
+
 ---
 
-## 4. Experience Staging
+## 5. Experience Staging
 
 ### **TBTB Global (Tudo Bem Tudo Bom USA, LLC)**
 
@@ -164,7 +189,7 @@ _IT Specialist / Especialista de TI (Feb 2021 – May 2022 · 1 yr 4 mos)_
 
 ---
 
-## 5. Skills & LinkedIn Assessments
+## 6. Skills & LinkedIn Assessments
 
 ### Top 5 Pinned Skills
 
