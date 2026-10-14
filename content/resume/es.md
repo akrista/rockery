@@ -13,7 +13,7 @@ tags:
 # Jorge Thomas (akrista)
 
 **Líder de BI & Data Engineering | DevOps & RPA | Arquitecto Full-Stack Senior**  
-Caracas, Venezuela • Disponible para Trabajo Remoto y Reubicación  
+Buenos Aires, Argentina • Disponible para Trabajo Remoto y Reubicación  
 Email: [info@notakrista.com](mailto:info@notakrista.com)  
 Sitio Web: [notakrista.com](https://notakrista.com) • GitHub: [github.com/akrista](https://github.com/akrista) • LinkedIn: [linkedin.com/in/akrista](https://linkedin.com/in/akrista) • Agenda: [cal.com/akrista/30min](https://cal.com/akrista/30min)
 

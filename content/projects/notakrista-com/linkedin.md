@@ -23,7 +23,7 @@ This note serves as the **single source of truth and living draft** for what is 
 | **Headline (EN)**   | `Lead of BI & Data Engineering \| DevOps & RPA Lead \| Senior Full-Stack Architect (Laravel, Python, Polyglot) \| Cloud & Edge Systems`         | Multi-disciplinary leadership                                        |
 | **Headline (ES)**   | `Líder de BI y Data Engineering \| Líder en DevOps y RPA \| Arquitecto Full-Stack Senior (Laravel, Python, Políglota) \| Sistemas Cloud y Edge` | Versión en español                                                   |
 | **Industry**        | **IT Services and IT Consulting** (_Servicios y consultoría de TI_)                                                                             | Recommended over _Business Consulting_ for tech recruiter visibility |
-| **Location**        | Caracas, Venezuela                                                                                                                              | Open to Remote & International Relocation                            |
+| **Location**        | Buenos Aires, Argentina                                                                                                                         | Open to Remote & International Relocation                            |
 | **Custom CTA Link** | `https://cal.com/akrista/30min`                                                                                                                 | Link text: **"Let's meet!"** / **"¡Hablemos!"**                      |
 | **English Level**   | **Full Professional Proficiency**                                                                                                               | Backed by verified EFSET C2 Certificate (71/100, ID: `gvRLno`)       |
 

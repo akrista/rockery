@@ -13,7 +13,7 @@ tags:
 # Jorge Thomas (akrista)
 
 **Lead Data & Systems Engineer | DevOps & RPA | Senior Full-Stack Architect**  
-Caracas, Venezuela • Open to Remote & Relocation  
+Buenos Aires, Argentina • Open to Remote & Relocation  
 Email: [info@notakrista.com](mailto:info@notakrista.com)  
 Website: [notakrista.com](https://notakrista.com) • GitHub: [github.com/akrista](https://github.com/akrista) • LinkedIn: [linkedin.com/in/akrista](https://linkedin.com/in/akrista) • Schedule: [cal.com/akrista/30min](https://cal.com/akrista/30min)
 
