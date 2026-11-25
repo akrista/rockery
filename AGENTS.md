@@ -1,284 +1,58 @@
 # AGENTS.md
 
-## Project Overview
+Rockery is a Quartz 5 site that publishes an Obsidian vault (`content/`) to GitHub Pages. Setup, structure, and CI are in [README.md](README.md).
 
-**Rockery** is a [Quartz 5](https://quartz.jzhao.xyz/) static site generator that transforms Obsidian-flavored Markdown notes into a published digital garden / personal knowledge base (PKB) at [rockery.notakrista.com](https://rockery.notakrista.com). It is deployed to GitHub Pages on every push to `master`.
+## Commands
 
-### Key Technologies
-
-| Layer       | Technology                                    |
-| ----------- | --------------------------------------------- |
-| Runtime     | Node.js ≥22, npm ≥10.9.2                      |
-| Language    | TypeScript (strict), Preact JSX, SCSS         |
-| Bundler     | esbuild + esbuild-sass-plugin                 |
-| CSS         | LightningCSS                                  |
-| Test runner | Node.js built-in test runner via `tsx --test` |
-| Formatter   | Prettier                                      |
-| Images      | Sharp (OG image generation)                   |
-| Content     | Obsidian Markdown with YAML frontmatter       |
-
-### Project Structure
-
-```
-rockery/
-├── content/                     # Site content (Obsidian vault)
-│   ├── daily/                   #   Public daily notes
-│   ├── topics/                  #   Deep-dive concept notes
-│   ├── projects/                #   Long-form project docs
-│   ├── ideas/                   #   Half-baked concepts, brainstorms
-│   ├── tasks/                   #   Public task tracking
-│   ├── private/                 #   NOT GIT-TRACKED
-│   │   ├── daily/               #     Private daily notes
-│   │   ├── tasks/               #     Task management
-│   │   ├── scratch/             #     Drafts/WIP
-│   │   ├── ideas/               #     Private brainstorms
-│   │   └── projects/            #     Private project docs
-│   └── index.md                 #   Homepage
-├── quartz/                      # Quartz core source
-│   ├── bootstrap-cli.mjs        #   CLI entry point
-│   ├── build.ts                 #   Build orchestrator
-│   ├── cli/                     #   CLI handlers, args, helpers
-│   ├── components/              #   Preact UI components
-│   ├── plugins/                 #   Transformer/filter/emitter plugins
-│   ├── processors/              #   Parse → filter → emit pipeline
-│   ├── styles/                  #   SCSS files
-│   └── util/                    #   Utilities (path, theme, glob, etc.)
-├── .quartz/plugins/             # Installed community plugins (git-ignored locally, installed by CI)
-├── public/                      # Build output → deployed to GitHub Pages
-├── quartz.config.yaml           # Main site configuration (Gruvbox theme)
-├── quartz.lock.json             # Plugin lockfile (47 plugins pinned to commits)
-└── package.json                 # Dependencies and scripts
-```
-
-## Setup Commands
-
-```bash
-# Clone and install
-git clone https://github.com/akrista/rockery.git
-cd rockery
-npm ci
-
-# Install Quartz plugins (required before first build)
-npx quartz plugin install
-```
-
-## Development Workflow
-
-```bash
-# Full dev server with hot reload (builds + serves on port 8080)
-npx quartz build --serve --watch
-
-# Or using the npm script (equivalent)
-npm run quartz -- build --serve --watch
-
-# Build once without serving
-npx quartz build
-
-# Serve built site locally
-npx quartz build --serve
-
-# Clean build cache
-npm run clean
-```
-
-The dev server supports WebSocket-based hot-reload on port 3001. Content changes in `content/` trigger automatic rebuilds.
-
-### Adding content
-
-Create new Markdown files in `content/` with YAML frontmatter:
-
-```yaml
----
-title: "My Note"
-date: 2025-01-01
-tags:
-  - tag1
-  - tag2
----
-```
-
-## Testing Instructions
-
-```bash
-# Run all tests
-npm test
-
-# Run a specific test file
-npx tsx --test quartz/util/path.test.ts
-
-# Run tests matching a pattern
-npx tsx --test --test-name-pattern="slug" quartz/util/slugCollisions.test.ts
-```
-
-### Test locations
-
-| File                                        | Tests                     |
-| ------------------------------------------- | ------------------------- |
-| `quartz/cli/helpers.test.js`                | CLI helper utilities      |
-| `quartz/util/path.test.ts`                  | Path manipulation logic   |
-| `quartz/util/fileTrie.test.ts`              | File trie data structure  |
-| `quartz/util/slugCollisions.test.ts`        | Slug collision resolution |
-| `quartz/components/renderPage.test.ts`      | Page rendering            |
-| `quartz/components/scripts/search.test.ts`  | Full-text search          |
-| `quartz/components/scripts/popover.test.ts` | Popover preview           |
-
-Tests use the **Node.js built-in test runner** (`node:test`). No Jest or Vitest. Test files are co-located with source files and named `*.test.ts` or `*.test.js`.
+- Dev server: `npm run dev` (port 8080)
+- Build: `npm run build`
+- Plugins (required before first build): `npx quartz plugin install`
+- Tests: `npm test`, or one file: `npx tsx --test quartz/util/path.test.ts`
+- Before a PR: `npm run check` (tsc + prettier) and `npm test`
 
 ## Code Style
 
-### TypeScript
+- TypeScript strict, ESM only (`import`/`export`, no `require`), Preact JSX.
+- `noUnusedLocals` and `noUnusedParameters` are errors: delete unused code.
+- Prettier: no semicolons, single quotes, trailing commas, printWidth 100. Run `npm run format`.
+- Tests use `node:test`, co-located as `*.test.ts` / `*.test.js`. No Jest or Vitest.
 
-- **Strict mode** enabled in `tsconfig.json`
-- `noUnusedLocals` and `noUnusedParameters` are errors — remove unused code
-- JSX uses **Preact** (`jsxImportSource: "preact"`)
-- ESNext modules (`"type": "module"` in package.json)
-- Use `import`/`export` syntax, not CommonJS `require()`
+## Never
 
-### Formatting
+- Edit `public/` (generated) or `.quartz/plugins/` (installed from `quartz.lock.json`).
+- Commit anything under `content/private/` (git-ignored).
+- Put sensitive data in any git-tracked file or commit message: company, client, person, or internal project names, credentials. Use placeholders: "Client A", "Program X", "Collaborator A".
 
-- **Prettier** with no semicolons, single quotes, trailing commas, printWidth 100
-- Format: `npm run format` (writes files) or `npm run check` (checks only)
-- Prettier config in `.prettierrc`; ignores: `public`, `node_modules`, `.quartz-cache`
+## Content Conventions
 
-### Linting
+- Default to private if unsure about a note's nature.
+- Folders and filenames: lowercase, hyphens, English. No `.gitkeep` inside `content/private/`.
+- Tags and categories are plural (`topics`, not `topic`).
+- YAML properties: short, reusable, composable (`start`/`end`, not `start_date`/`end_date`). Use a list when multiple values are possible.
+- Ratings use an integer 1-7: 7 perfect, 6 excellent, 5 good, 4 passable, 3 bad, 2 atrocious, 1 evil.
+- `CONFIG.md` at the content root is ignored by Quartz.
 
-- `tsc --noEmit` for type checking — run before committing: `npm run check`
-- The `check` script runs both `tsc --noEmit` and `prettier --check`
+### Where content goes
 
-## Build and Deployment
+| Type     | Public (tracked)              | Private (not tracked)                |
+| -------- | ----------------------------- | ------------------------------------ |
+| Daily    | `content/daily/{yyyy}/{mm}/`  | `content/private/daily/{yyyy}/{mm}/` |
+| Topics   | `content/topics/{category}/`  | n/a                                  |
+| Projects | `content/projects/{project}/` | `content/private/projects/`          |
+| Ideas    | `content/ideas/`              | `content/private/ideas/`             |
+| Tasks    | `content/tasks/{entity}/`     | `content/private/tasks/{entity}/`    |
+| Drafts   | n/a                           | `content/private/scratch/`           |
 
-### Build pipeline
+Also tracked: `content/archive/` (outdated), `content/quartz-docs/`, `content/obsidian-sandbox/`.
 
-1. `npx quartz plugin install` → installs plugins from `quartz.lock.json`
-2. `npx quartz build` → parses content, applies plugins, emits static site to `public/`
-3. Output is in `public/` (HTML, CSS, JS, assets)
+Note types have skills (`rockery-daily-note`, `rockery-topic`, `rockery-idea`, `rockery-project`, `rockery-task-manager`). Use them. They hold the frontmatter and template details.
 
-### CI/CD
+## Tasks
 
-**Deployment** (`.github/workflows/deploy-github-pages.yaml`):
+- Listing tasks ("what's up", "my tasks"): use PowerShell `Get-ChildItem -Recurse -Filter "*.md"` over `content/tasks/` and `content/private/tasks/`. The Glob tool respects `.gitignore` and hides `private/`.
+- Group by `status`: active, pending, blocked. Omit done.
 
-- **Trigger**: Push to `master` branch (or manual `workflow_dispatch`)
-- **Steps**: `npm ci` → `npx quartz plugin install` → `npx quartz build` → upload to GitHub Pages
-- Uses `actions/deploy-pages@v4` and `actions/upload-pages-artifact@v3`
+## Git
 
-### Docker
-
-- `Dockerfile` provides a multi-stage build using `node:22-slim`
-- `compose.yml` runs SilverBullet (alternative editor) on port 3000
-
-### Environment
-
-- `.node-version` = v22.16.0
-- `.npmrc` has `engine-strict=true` — fails if Node/npm version mismatch
-- No `.env` files — configuration is in `quartz.config.yaml`
-
-## PKB Workflow & Content Guidelines
-
-### Structure conventions
-
-- **Folder names**: lowercase (`daily/`, `topics/`, `ideas/`)
-- **index.md**: top-level content directories get a curated `index.md` (homepage cursor). Subdirectories rely on Quartz's auto-generated folder pages. `content/private/index.md` follows the same pattern, with quick links to open work by status tag.
-- **.gitkeep**: No `.gitkeep` files inside `content/private/`
-- **Default**: if unsure about content nature, default to private
-- **Site config notes**: `CONFIG.md` at content root is ignored by Quartz (`ignorePatterns`)
-- **Tag/Category pluralization**: Always pluralize tags and categories (e.g. `tags: [topics]` instead of `[topic]`).
-- **Property Standardization**: Naming of YAML properties should be reusable across categories, composable, and compact (e.g. `start` and `end` instead of `start_date` / `end_date`). Default to list type if there is any chance a property might contain multiple values in the future.
-- **Rating system**: Rate reviews or media using a granular 1-to-7 integer scale:
-  - `7` — Perfect, life-changing, go out of your way to seek this out
-  - `6` — Excellent, worth repeating
-  - `5` — Good, don't go out of your way, but enjoyable
-  - `4` — Passable, works in a pinch
-  - `3` — Bad, don't do this if you can
-  - `2` — Atrocious, actively avoid
-  - `1` — Evil, life-changing in a bad way
-
-### Content Routing Matrix
-
-| Type                | Path                                 | Git-tracked | Purpose                               |
-| ------------------- | ------------------------------------ | ----------- | ------------------------------------- |
-| Public daily notes  | `content/daily/{yyyy}/{mm}/`         | Yes         | Learning-in-public, daily exploration |
-| Public topics       | `content/topics/{category}/`         | Yes         | Deep-dive concept notes, tutorials    |
-| Public projects     | `content/projects/{project}/`        | Yes         | Long-form project docs                |
-| Public ideas        | `content/ideas/`                     | Yes         | Half-baked concepts, brainstorms      |
-| Public tasks        | `content/tasks/{entity}/`†           | Yes         | Open work tracking                    |
-| Private daily notes | `content/private/daily/{yyyy}/{mm}/` | **No**      | Personal daily logs                   |
-| Private tasks       | `content/private/tasks/{entity}/`†   | **No**      | Task management                       |
-| Private scratch     | `content/private/scratch/`           | **No**      | Drafts, WIP content                   |
-| Private ideas       | `content/private/ideas/`             | **No**      | Private brainstorms                   |
-| Private projects    | `content/private/projects/`          | **No**      | Private project docs                  |
-| Archive             | `content/archive/`                   | Yes         | Moved-outdated content                |
-| Quartz docs         | `content/quartz-docs/`               | Yes         | Quartz reference docs                 |
-| Obsidian sandbox    | `content/obsidian-sandbox/`          | Yes         | Obsidian feature exploration          |
-
-† See [Task subcategorization](#task-subcategorization) — entity subfolder only once a project/entity has 3+ tasks; flat otherwise.
-
-### Topics subcategorization
-
-Topics are grouped into subdirectories by domain. Current categories:
-
-| Category   | Path                         | Content                                         |
-| ---------- | ---------------------------- | ----------------------------------------------- |
-| Networking | `content/topics/networking/` | tcpdump, ssh, ssh-config, netstat, linux-router |
-| Cloud      | `content/topics/cloud/`      | gcp-fundamentals, gcloud, erp                   |
-| CLI        | `content/topics/cli/`        | cp, ls, powershell                              |
-| Concepts   | `content/topics/concepts/`   | megabyte                                        |
-| Tools      | `content/topics/tools/`      | create-ap                                       |
-
-Add new subdirectories when a category reaches 3+ notes. Keep orphan topics flat in `topics/` until they have siblings.
-
-### Task subcategorization
-
-Tasks are grouped into subdirectories by project or entity, mirroring the Topics convention above. For example, once "Entity A" has 3+ tasks, they move into `content/tasks/entity-a/` (public) or `content/private/tasks/entity-a/` (private). Keep orphan tasks flat until an entity has enough tasks to warrant its own subfolder.
-
-### Daily Notes Protocol
-
-1. Create a daily note at `content/daily/{yyyy}/{mm}/YYYY-MM-DD-<topic-slug>.md` (public) or `content/private/daily/{yyyy}/{mm}/YYYY-MM-DD-<topic-slug>.md` (private)
-2. Include YAML frontmatter with `title`, `date`, and `tags`
-3. Summarize key learning in 3–5 bullet points
-4. Use **Obsidian wikilinks** (`[[Note Title]]`) to connect related notes
-5. Use **Obsidian callouts** (`> [!info]`, `> [!todo]`, `> [!warning]`, etc.) for emphasis
-
-### Privacy & Data Sanitization
-
-**CRITICAL**: Never place sensitive data (company names, client names, people's names, credentials, internal project names) in any git-tracked location — including config files and commit messages. Use generic placeholders:
-
-- Companies/clients → "Client A", "External Client 1"
-- Programs/projects → "Program X", "Internal Project 2"
-- People → "Collaborator A"
-
-### Task Management
-
-Tasks can be **public** (`content/tasks/`) or **private** (`content/private/tasks/`). Both follow the same format, and both use the entity-based subcategorization described above.
-
-Individual `.md` files with YAML frontmatter:
-
-- `title` — task name (English)
-- `status` — `pending`, `active`, `done`, or `blocked`
-- `tags` — for filtering. Include a hierarchical `status/<value>` tag matching the `status` field (e.g. `status: pending` → tag `status/pending`) so open work is browsable via tag pages (`/tags/status/pending`, `/tags/status`, etc). Keep the tag in sync whenever `status` changes.
-
-**Filenames must be in English** (lowercase, hyphens). Example: `content/private/tasks/entity-a/update-transactions.md`.
-
-When asked "what's up" or "my tasks", find all `.md` files under both `content/tasks/` and `content/private/tasks/`. Use the **bash tool** (`Get-ChildItem -Recurse -Filter "*.md"`) instead of the glob tool, because `private/` is in `.gitignore` and the glob tool respects `.gitignore` rules, which hides private files. Read `status` from frontmatter, and group by status (active → pending → blocked, omit done).
-
-## Pull Request Guidelines
-
-- **Title format**: `[component] Brief description` (e.g., `[explorer] Fix sort order`)
-- **Required before submission**: `npm run check` (type-check + format) and `npm test`
-- This repository's default branch is `master`
-- Upstream Quartz 5 is at `https://github.com/jackyzha0/quartz.git` (branch `v5`)
-
-## Developer Communication Guidelines
-
-- Keep explanations under 200 words — use progressive disclosure for depth
-- Use **bold** for key terminology, file paths, and class names
-- Anchor complex technical concepts in simple analogies
-- State what code does in 1–2 sentences, output the code block, then stop
-
-## Additional Notes
-
-- The `quartz` CLI is the primary entry point: `npx quartz build`, `npx quartz plugin install`, etc.
-- Plugin management: `npx quartz plugin list`, `npx quartz plugin add`, `npx quartz plugin rm`
-- To sync upstream: `npx quartz update`
-- The `public/` dir is git-ignored and auto-generated — never edit it directly
-- `.quartz/plugins/` is git-ignored — plugins are installed from `quartz.lock.json`
-- Git remotes: `origin` = `https://github.com/akrista/rockery`, `upstream` = `https://github.com/jackyzha0/quartz.git`
+- Default branch is `master`. Remotes: `origin` = akrista/rockery, `upstream` = jackyzha0/quartz (branch `v5`). Sync upstream with `npx quartz update`.
+- PR title: `[component] Brief description`.

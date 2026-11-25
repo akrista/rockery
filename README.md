@@ -22,8 +22,11 @@ This project is built with:
 
 - **[Quartz 5](https://quartz.jzhao.xyz/)** - Static site generator for digital gardens
 - **[Obsidian](https://obsidian.md/)** - Knowledge management and writing tool
-- **TypeScript** - Type checking for Quartz plugins and core scripts
-- **SCSS** - For custom styling
+- **TypeScript** (strict) and **Preact JSX** - Quartz core and components
+- **SCSS** + **LightningCSS** - Styling, with the Gruvbox theme
+- **esbuild** - Bundler
+- **Sharp** - OG image generation
+- **Node.js test runner** (`tsx --test`) and **Prettier** - Tests and formatting
 
 ## 🚀 Local Development
 
@@ -42,11 +45,14 @@ cd rockery
 # Install dependencies
 npm ci
 
+# Install Quartz plugins (pinned in quartz.lock.json)
+npx quartz plugin install
+
 # Start development server
 npm run dev
 ```
 
-The site will be available at `http://localhost:8080`
+The site will be available at `http://localhost:8080`, with hot reload on port 3001.
 
 ### Available Commands
 
@@ -58,24 +64,43 @@ npm run dev          # Development server with hot reload
 npm run build        # Build site for production
 npm run serve        # Serve built site locally
 
+# Quality
+npm test             # Run tests
+npm run check        # Type-check and verify formatting
+npm run format       # Format with Prettier
+
 # Utilities
 npm run clean        # Clean build files
 ```
+
+Tooling is pinned by `.node-version` (v22.16.0) and `.npmrc` (`engine-strict=true`).
 
 ## 📁 Project Structure
 
 ```
 rockery/
-├── content/           # Site content (articles, notes)
-│   ├── index.md      # Main page
-│   ├── LICENSE.md    # Content license
-│   └── ...           # Other articles and notes
-├── quartz/             # Quartz source and components
-├── quartz.config.yaml  # Main configuration (YAML)
-├── quartz.ts           # TypeScript config override (analytics)
-├── quartz.lock.json    # Plugin lock file
-└── package.json      # Dependencies and scripts
+├── content/             # Site content (Obsidian vault)
+│   ├── daily/           #   Daily notes
+│   ├── topics/          #   Deep-dive notes, grouped by category
+│   ├── projects/        #   Long-form project docs
+│   ├── ideas/           #   Half-baked concepts
+│   ├── tasks/           #   Open work tracking
+│   ├── private/         #   NOT git-tracked
+│   └── index.md         #   Homepage
+├── quartz/              # Quartz core, components, plugins, styles
+├── .quartz/plugins/     # Installed plugins (git-ignored, installed by CI)
+├── public/              # Build output (git-ignored)
+├── quartz.config.yaml   # Main configuration
+├── quartz.ts            # TypeScript config override (analytics)
+├── quartz.lock.json     # Plugin lock file
+└── skills-lock.json     # Agent skills lock file (restore with `npx skills install`)
 ```
+
+## 🚢 Deployment
+
+Every push to `master` triggers `.github/workflows/deploy-github-pages.yaml`: `npm ci`, `npx quartz plugin install`, `npx quartz build`, then deploy to GitHub Pages.
+
+A `Dockerfile` (multi-stage, `node:22-slim`) is also provided. `compose.yml` runs SilverBullet as an alternative editor on port 3000.
 
 ## 🤝 Contributing
 
