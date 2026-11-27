@@ -32,4 +32,3 @@ Track the overhaul and synchronization of public profiles, resume, GitHub presen
 - [[resume/es]]: Live Curriculum Vitae on Rockery (Español)
 - [[projects/notakrista-com/linkedin|LinkedIn Profile Blueprint & Staging]]
 - [[notakrista-com]]: Main project index
-- [[bizkit]]: Flagship starter kit project

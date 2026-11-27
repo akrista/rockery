@@ -62,7 +62,6 @@ This project focuses on min-maxing and optimizing a home server (`monolith`) and
 
 - [x] **Route VPS→monolith over existing Pangolin overlay**: confirmed done: monolith uses Newt to expose all its services through `notakrista.com` via Pangolin. The failed ping/interface test earlier was a red herring; Newt's tunnel model doesn't work like a raw routable L3 WireGuard mesh, so that wasn't a valid test.
 - [x] **Recreate Docker subnets**: done: see updated geography-based scheme in [[network]] (monolith = node-id `10`, `notakrista` VPS = node-id `100`)
-- [ ] **Export OpenWebUI chats & decommission**: Export history, then remove container from VPS to free up RAM.
 - [x] **Replace NPM on Monolith**: NPM decommissioned 2026-08-13. Traefik is not needed on monolith: Newt handles ingress directly via the Pangolin tunnel, no local reverse proxy required.
 - [ ] **Set Docker resource limits**: MSSQL on monolith has a 3GB limit using 1GB; Metabase on VPS is at 54% of its 2GB limit.
 
@@ -72,6 +71,10 @@ This project focuses on min-maxing and optimizing a home server (`monolith`) and
 - [x] **Tune Docker log rotation**: done: a shared `x-logging: &default-logging` anchor (`json-file`, `max-size: 10m`, `max-file: 3`, `compress: true`) is already applied across compose files.
 
 ## Progress
+
+### 2026-11-26
+
+- OpenWebUI is no longer used; dropped from the plan (no export or decommission step pending).
 
 ### 2026-08-13: Monolith status check
 

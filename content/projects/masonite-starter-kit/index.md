@@ -1,6 +1,8 @@
 ---
 title: Masonite Starter Kit
 date: 2026-08-17
+updated: 2026-11-26
+status: paused
 tags:
   - projects
   - python
@@ -11,6 +13,9 @@ tags:
 ---
 
 ## Overview
+
+> [!info] Paused (2026-11-26)
+> On hold; to be resumed later. The goals below are unchanged.
 
 The **Masonite Starter Kit** is our Python counterpart to [[bizkit]], bringing the same high-ergonomics, batteries-included philosophy to the Python web ecosystem. Built on [Masonite Framework](https://docs.masoniteproject.com/), it uses Masonite's expressive MVC structure, IoC service container, `craft` CLI, and active record ORM to create an opinionated baseline for full-stack and API development in Python.
 
@@ -50,6 +55,10 @@ The **Masonite Starter Kit** is our Python counterpart to [[bizkit]], bringing t
 - [ ] **Docker Production Blueprint**: Deliver optimized multi-stage Docker build for self-hosted deployment.
 
 ## Progress
+
+### 2026-11-26
+
+- Paused; resume later.
 
 ### 2026-08-17
 

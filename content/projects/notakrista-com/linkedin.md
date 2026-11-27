@@ -34,10 +34,7 @@ This note serves as the **single source of truth and living draft** for what is 
 1. **Workbench & Hub**: [notakrista.com](https://notakrista.com)  
    _Title_: `notakrista.com; Personal Workbench & Application Hub`  
    _Description_: Production Laravel/Livewire web hub, systems inventory, and character sheet.
-2. **Flagship Starter Kit**: [github.com/akrista/bizkit](https://github.com/akrista/bizkit)  
-   _Title_: `Bizkit; Production Laravel & FrankenPHP Starter Kit`  
-   _Description_: Batteries-included enterprise application foundation with Octane, Reverb, and team-scoped authorization.
-3. **Public PKB & Garden**: [rockery.notakrista.com](https://rockery.notakrista.com)  
+2. **Public PKB & Garden**: [rockery.notakrista.com](https://rockery.notakrista.com)  
    _Title_: `Rockery; Digital Garden & Public PKB`  
    _Description_: Personal knowledge base and static garden built on Quartz 5.
 
@@ -56,7 +53,7 @@ What I work with:
 • Data & BI: Relational schema design, ETL/ELT pipelines, query optimization, T-SQL, PostgreSQL, MySQL, ClicData.
 • Backend: PHP 8.x, Laravel (Octane, Livewire, Filament), Python, REST APIs.
 • Systems & DevOps: Linux administration, Docker, Podman, CI/CD, edge routing (OpenWrt).
-• Open Source: Author of Bizkit (Laravel/FrankenPHP starter kit) and Rockery (digital garden).
+• Open Source: Author of Rockery (digital garden).
 
 Contact: info@notakrista.com | cal.com/akrista/30min
 ```
@@ -72,7 +69,7 @@ Trayectoria en ingeniería de datos, DevOps y desarrollo full-stack, con experie
 • Datos y BI: Diseño de esquemas relacionales, pipelines ETL/ELT, optimización de queries, T-SQL, PostgreSQL, MySQL, ClicData.
 • Backend: PHP 8.x, Laravel (Octane, Livewire, Filament), Python, APIs REST.
 • Sistemas y DevOps: Administración Linux, Docker, Podman, CI/CD, enrutamiento edge (OpenWrt).
-• Código Abierto: Autor de Bizkit (starter kit de Laravel/FrankenPHP) y Rockery (jardín digital).
+• Código Abierto: Autor de Rockery (jardín digital).
 
 Contacto: info@notakrista.com | cal.com/akrista/30min
 ```

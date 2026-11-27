@@ -50,18 +50,12 @@ This document maps current container distributions across `monolith` (home serve
 - **MSSQL / MongoDB**: Retain on `monolith` since they are for private/local dev tasks and consume substantial memory.
 - **PostGIS / MariaDB**: Keep production/public app databases on the VPS. Keep dev/local databases on `monolith`.
 
-### 3. OpenWebUI
-
-- **Current Location**: VPS (`notakrista`)
-- **Proposed Action**: Remove from VPS.
-- **Action**: Export all chat logs first, then decommission the OpenWebUI stack to free up RAM on the VPS.
-
-### 4. Syncthing
+### 3. Syncthing
 
 - **Current Location**: Both nodes.
 - **Rationale**: Replicates Immich media and databases from the VPS to `monolith` for local backup, compensating for home server offline periods.
 
-### 5. Reverse Proxy & Networking
+### 4. Reverse Proxy & Networking
 
 - **Current Location**: NPM on `monolith`, Traefik on VPS.
 - **Proposed Action**: Remove NPM from `monolith`. Use **Pangolin/Gerbil** + **Traefik** to secure and route traffic.
@@ -71,7 +65,6 @@ This document maps current container distributions across `monolith` (home serve
 
 ## Migration Action Checklist
 
-- [ ] Export all OpenWebUI chats and decommission the container on VPS.
 - [ ] Connect `monolith` to the existing Pangolin overlay tunnel.
 - [ ] Remove NPM from `monolith` and deploy a lightweight **Traefik** helper container.
 - [ ] Document the subnet and IP address allocation map across Cloud VPS, Monolith, and Docker networks.

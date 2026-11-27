@@ -110,7 +110,6 @@ _Especialista de TI (Feb 2021 – May 2022)_
 
 ## Proyectos Destacados de Código Abierto
 
-- **[[bizkit|Bizkit Starter Kit]]**: Starter kit empresarial de Laravel que integra Octane + FrankenPHP, WebSockets con Reverb, Pulse, Fortify y autorización modular multitenant.
 - **[[infrastructure-tuning|Infrastructure Tuning]]**: Optimización bare-metal y cloud VPS de parámetros de kernel (TCP BBR), compresión Zstd/Zram, Btrfs y orquestación de contenedores.
 - **[[notakrista-com|notakrista.com]]**: Hub de aplicaciones en Laravel, inventario de equipamiento y hoja interactiva de personaje.
 - **[[rockery|Rockery PKB]]**: Jardín digital y base de conocimiento pública construida sobre Quartz 5.

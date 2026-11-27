@@ -32,7 +32,7 @@ Success looks like: sitting down at any laptop, reaching any server with the sam
 
 ## Goals
 
-- [ ] Standardize dotfiles/config across every environment via the toolbelt repos below (`.akrista`, `nvim`, `pwsh-pf`, `selfhost`)
+- [ ] Standardize dotfiles/config across every environment via the toolbelt repos below (dotfiles in `.akrista`, with `pwsh-pf` for Windows; also `nvim`, `selfhost`)
 - [ ] Fix the Bitwarden SSH agent gap in non-native shells (see [[bitwarden-ssh-agent]]) so any tool, on any host, can authenticate the same way
 - [ ] Stand up OpenCode as a headless service (systemd) for remote, always-on access: work across multiple projects with different agents concurrently, without a terminal session tied to one laptop
 - [ ] Settle a clear lane per AI tool (see below) instead of switching between them ad hoc
@@ -46,7 +46,8 @@ All under `github.com/akrista`:
 | ------------------- | ------------------------------------------------------------ |
 | `.akrista`          | Dotfiles                                                     |
 | `nvim`              | Editor config                                                |
-| `pwsh-pf`           | PowerShell profile                                           |
+| `pwsh-pf`           | Dotfiles for Windows (PowerShell profile)                    |
+| `maga`              | Manages the AI harnesses (MCP servers and plugins)           |
 | `selfhost`          | Self-hosting configs                                         |
 | `notakrista.com`    | Personal site/blog                                           |
 | `claude-code-proxy` | Claude Code proxy, run on the Contabo VPS / personal servers |
@@ -62,6 +63,8 @@ All servers are already connected via Newt/Pangolin tunnels; see [[network]] for
 ## AI agent roster
 
 Currently in active use: **Claude Code**, **OpenCode**, **Google Antigravity**, and **Pi Agent**.
+
+**Maga** manages these AI harnesses: it keeps their MCP servers and plugins in sync from a single place.
 
 > [!todo] Assign each tool a clear lane by task type, rather than switching between them ad hoc for the same kind of work. Current thinking:
 >
@@ -90,7 +93,6 @@ Not yet decided, revisit later:
 ## Related
 
 - [[dotfiles]]: Unified dotfiles ecosystem and multi-OS installer consolidation
-- [[bizkit]]: Batteries-included Laravel starter kit
 - [[masonite-starter-kit]]: Modern Python MVC starter kit
 - [[infrastructure-tuning]]: tuning for the two personal servers this project sits above
 - [[network]]: Pangolin tunnel and Docker subnet map

@@ -110,7 +110,6 @@ _IT Specialist (Feb 2021 – May 2022)_
 
 ## Flagship Open-Source & Projects
 
-- **[[bizkit|Bizkit Starter Kit]]**: Batteries-included Laravel foundation combining Octane + FrankenPHP, Reverb WebSockets, Pulse, Fortify, and team-scoped authorization.
 - **[[infrastructure-tuning|Infrastructure Tuning]]**: Bare-metal workstation and cloud VPS optimization covering TCP BBR congestion control, Zram/Zstd, Btrfs filesystem parameters, and container fleets.
 - **[[notakrista-com|notakrista.com]]**: Production Laravel application hub, equipment inventory, and interactive character sheet.
 - **[[rockery|Rockery PKB]]**: Public digital garden and personal knowledge base built on Quartz 5.

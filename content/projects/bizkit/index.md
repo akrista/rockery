@@ -1,6 +1,8 @@
 ---
 title: Bizkit Starter Kit
 date: 2026-08-17
+updated: 2026-11-26
+status: abandoned
 tags:
   - projects
   - laravel
@@ -11,6 +13,9 @@ tags:
 ---
 
 ## Overview
+
+> [!warning] Abandoned (2026-11-26)
+> No longer maintained. The goals below are kept for reference only.
 
 **Bizkit** is our batteries-included [Laravel](https://laravel.com) starter kit, designed to serve as a complete, reliable baseline for rapidly bootstrapping production-ready web applications. It pairs modern reactivity and developer ergonomics with high-performance real-time infrastructure and team-scoped authorization.
 
@@ -46,12 +51,16 @@ Maintains clean separation between starter kit core updates and downstream appli
 
 ## Goals
 
-- [ ] **Upstream Upgrade Automation**: Refine synchronization workflow to pull upstream Laravel & starter-kit improvements cleanly.
-- [ ] **Policy & Permission Scaffolding**: Expand custom stubs for granular resource policies and team-permission mappings.
-- [ ] **Pest Test Suite Parity**: Maintain 100% test coverage for Fortify auth flows, passkeys, and team permission isolation.
-- [ ] **Production Docker Recipes**: Provide tested deployment manifests for Laravel Cloud and self-hosted VPS setups.
+- [-] **Upstream Upgrade Automation**: Refine synchronization workflow to pull upstream Laravel & starter-kit improvements cleanly.
+- [-] **Policy & Permission Scaffolding**: Expand custom stubs for granular resource policies and team-permission mappings.
+- [-] **Pest Test Suite Parity**: Maintain 100% test coverage for Fortify auth flows, passkeys, and team permission isolation.
+- [-] **Production Docker Recipes**: Provide tested deployment manifests for Laravel Cloud and self-hosted VPS setups.
 
 ## Progress
+
+### 2026-11-26
+
+- Marked as abandoned.
 
 ### 2026-08-17
 
